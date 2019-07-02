@@ -1,0 +1,112 @@
+/*
+ * gulp-starter
+ * dev-tools
+ * (c) 2018—2019 delphinpro <delphinpro@gmail.com>
+ * licensed under the MIT license
+ */
+
+/*==
+ *== OUTLINES
+ *== ======================================= ==*/
+$dev-outline-width: 1px;
+$dev-outline-style: dotted;
+
+[data-outline="1"] body {
+  article { outline: $dev-outline-width $dev-outline-style #3498db !important; outline-offset: ($dev-outline-width / -1) !important; }
+  nav { outline: $dev-outline-width $dev-outline-style #0088c3 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  aside { outline: $dev-outline-width $dev-outline-style #33a0ce !important; outline-offset: ($dev-outline-width / -1) !important; }
+  section { outline: $dev-outline-width $dev-outline-style #66b8da !important; outline-offset: ($dev-outline-width / -1) !important; }
+  header { outline: $dev-outline-width $dev-outline-style #99cfe7 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  footer { outline: $dev-outline-width $dev-outline-style #cce7f3 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  h1 { outline: $dev-outline-width $dev-outline-style #162544 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  h2 { outline: $dev-outline-width $dev-outline-style #314e6e !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  h3 { outline: $dev-outline-width $dev-outline-style #3e5e85 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  h4 { outline: $dev-outline-width $dev-outline-style #449baf !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  h5 { outline: $dev-outline-width $dev-outline-style #c7d1cb !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  h6 { outline: $dev-outline-width $dev-outline-style #4371d0 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  main { outline: $dev-outline-width $dev-outline-style #2f4f90 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  address { outline: $dev-outline-width $dev-outline-style #1a2c51 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  div { outline: $dev-outline-width $dev-outline-style #036cdb !important; outline-offset: ($dev-outline-width / -1) !important; }
+  p { outline: $dev-outline-width $dev-outline-style #ac050b !important; outline-offset: ($dev-outline-width / -1) !important; }
+  hr { outline: $dev-outline-width $dev-outline-style #ff063f !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  pre { outline: $dev-outline-width $dev-outline-style #850440 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  blockquote { outline: $dev-outline-width $dev-outline-style #f1b8e7 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  ol { outline: $dev-outline-width $dev-outline-style #ff050c !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  ul { outline: $dev-outline-width $dev-outline-style #d90416 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  li { outline: $dev-outline-width $dev-outline-style #d90416 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  dl { outline: $dev-outline-width $dev-outline-style #fd3427 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  dt { outline: $dev-outline-width $dev-outline-style #ff0043 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  dd { outline: $dev-outline-width $dev-outline-style #e80174 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  figure { outline: $dev-outline-width $dev-outline-style #ff00bb !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  figcaption { outline: $dev-outline-width $dev-outline-style #bf0032 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  table { outline: $dev-outline-width $dev-outline-style #00cc99 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  caption { outline: $dev-outline-width $dev-outline-style #37ffc4 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  thead { outline: $dev-outline-width $dev-outline-style #98daca !important; outline-offset: ($dev-outline-width / -1) !important; }
+  tbody { outline: $dev-outline-width $dev-outline-style #64a7a0 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  tfoot { outline: $dev-outline-width $dev-outline-style #22746b !important; outline-offset: ($dev-outline-width / -1) !important; }
+  tr { outline: $dev-outline-width $dev-outline-style #86c0b2 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  th { outline: $dev-outline-width $dev-outline-style #a1e7d6 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  td { outline: $dev-outline-width $dev-outline-style #3f5a54 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  col { outline: $dev-outline-width $dev-outline-style #6c9a8f !important; outline-offset: ($dev-outline-width / -1) !important; }
+  colgroup { outline: $dev-outline-width $dev-outline-style #6c9a9d !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  button { outline: $dev-outline-width $dev-outline-style #da8301 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  datalist { outline: $dev-outline-width $dev-outline-style #c06000 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  fieldset { outline: $dev-outline-width $dev-outline-style #d95100 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  form { outline: $dev-outline-width $dev-outline-style #d23600 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  input { outline: $dev-outline-width $dev-outline-style #fca600 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  keygen { outline: $dev-outline-width $dev-outline-style #b31e00 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  label { outline: $dev-outline-width $dev-outline-style #ee8900 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  legend { outline: $dev-outline-width $dev-outline-style #de6d00 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  meter { outline: $dev-outline-width $dev-outline-style #e8630c !important; outline-offset: ($dev-outline-width / -1) !important; }
+  optgroup { outline: $dev-outline-width $dev-outline-style #b33600 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  option { outline: $dev-outline-width $dev-outline-style #ff8a00 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  output { outline: $dev-outline-width $dev-outline-style #ff9619 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  progress { outline: $dev-outline-width $dev-outline-style #e57c00 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  select { outline: $dev-outline-width $dev-outline-style #e26e0f !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  textarea { outline: $dev-outline-width $dev-outline-style #cc5400 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  details { outline: $dev-outline-width $dev-outline-style #33848f !important; outline-offset: ($dev-outline-width / -1) !important; }
+  summary { outline: $dev-outline-width $dev-outline-style #60a1a6 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  menu { outline: $dev-outline-width $dev-outline-style #449da6 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  del { outline: $dev-outline-width $dev-outline-style #bf0000 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  ins { outline: $dev-outline-width $dev-outline-style #400000 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  img { outline: $dev-outline-width $dev-outline-style #22746b !important; outline-offset: ($dev-outline-width / -1) !important; }
+  iframe { outline: $dev-outline-width $dev-outline-style #64a7a0 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  embed { outline: $dev-outline-width $dev-outline-style #98daca !important; outline-offset: ($dev-outline-width / -1) !important; }
+  object { outline: $dev-outline-width $dev-outline-style #00cc99 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  param { outline: $dev-outline-width $dev-outline-style #37ffc4 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  video { outline: $dev-outline-width $dev-outline-style #6ee866 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  audio { outline: $dev-outline-width $dev-outline-style #027353 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  source { outline: $dev-outline-width $dev-outline-style #012426 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  canvas { outline: $dev-outline-width $dev-outline-style #a2f570 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  track { outline: $dev-outline-width $dev-outline-style #59a600 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  map { outline: $dev-outline-width $dev-outline-style #7be500 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  area { outline: $dev-outline-width $dev-outline-style #305900 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  a { outline: $dev-outline-width $dev-outline-style #ff62ab !important; outline-offset: ($dev-outline-width / -1) !important; }
+  em { outline: $dev-outline-width $dev-outline-style #800b41 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  strong { outline: $dev-outline-width $dev-outline-style #ff1583 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  i { outline: $dev-outline-width $dev-outline-style #803156 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  b { outline: $dev-outline-width $dev-outline-style #cc1169 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  u { outline: $dev-outline-width $dev-outline-style #ff0430 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  s { outline: $dev-outline-width $dev-outline-style #f805e3 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  small { outline: $dev-outline-width $dev-outline-style #d107b2 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  abbr { outline: $dev-outline-width $dev-outline-style #4a0263 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  q { outline: $dev-outline-width $dev-outline-style #240018 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  cite { outline: $dev-outline-width $dev-outline-style #64003c !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  dfn { outline: $dev-outline-width $dev-outline-style #b4005a !important; outline-offset: ($dev-outline-width / -1) !important; }
+  sub { outline: $dev-outline-width $dev-outline-style #dba0c8 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  sup { outline: $dev-outline-width $dev-outline-style #cc0256 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  time { outline: $dev-outline-width $dev-outline-style #d6606d !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  code { outline: $dev-outline-width $dev-outline-style #e04251 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  kbd { outline: $dev-outline-width $dev-outline-style #5e001f !important; outline-offset: ($dev-outline-width / -1) !important; }
+  samp { outline: $dev-outline-width $dev-outline-style #9c0033 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  var { outline: $dev-outline-width $dev-outline-style #d90047 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  mark { outline: $dev-outline-width $dev-outline-style #ff0053 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  bdi { outline: $dev-outline-width $dev-outline-style #bf3668 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  bdo { outline: $dev-outline-width $dev-outline-style #6f1400 !important; outline-offset: ($dev-outline-width / -1) !important; }
+  ruby { outline: $dev-outline-width $dev-outline-style #ff7b93 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  rt { outline: $dev-outline-width $dev-outline-style #ff2f54 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  rp { outline: $dev-outline-width $dev-outline-style #803e49 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  span { outline: $dev-outline-width $dev-outline-style #cc2643 !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  br { outline: $dev-outline-width $dev-outline-style #db687d !important; outline-offset: ($dev-outline-width / -1) !important ; }
+  wbr { outline: $dev-outline-width $dev-outline-style #db175b !important; outline-offset: ($dev-outline-width / -1) !important; }
+}

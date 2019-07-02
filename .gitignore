@@ -5,3 +5,31 @@
 # Vendor
 
 node_modules/
+
+# ModX 2.0 assets directory
+
+*/assets/.thumbs/*
+*/assets/backup/*
+*/assets/cache/*
+*/assets/export/*
+*/assets/files/*
+*/assets/images/*
+*/assets/import/*
+!.htaccess
+!index.html
+
+# ModX 2.0 config
+
+public/core/config/database/connections/
+
+# ModX 2.0 core directory
+
+public/core/storage/*
+public/core/vendor/*
+public/core/.install
+
+# Build files
+
+.tmp/
+public/design/
+source/twig/parts/ui/_sprites.twig
