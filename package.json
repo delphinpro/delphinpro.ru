@@ -68,5 +68,6 @@
     "webpack-cli": "^3.3.5"
   },
   "dependencies": {
+    "vrhythm": "^2.0.3"
   }
 }

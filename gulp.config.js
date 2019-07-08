@@ -212,7 +212,7 @@ config.devTools = {
     overrideScss: [
         'source/sass/config/_grid.cfg.scss',
         'node_modules/bs-grid-system/source/scss/_bs-grid.scss',
-        'source/sass/config/_rhythm.cfg.scss',
+        'source/sass/config/_vrhythm.scss',
         'node_modules/vrhythm/source/mixins/_rhythm.scss',
     ],
 };
