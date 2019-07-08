@@ -210,7 +210,7 @@ config.devTools = {
     scriptName: `dev.js`,
 
     overrideScss: [
-        'source/sass/config/_grid.cfg.scss',
+        'source/sass/config/_grid.scss',
         'node_modules/bs-grid-system/source/scss/_bs-grid.scss',
         'source/sass/config/_vrhythm.scss',
         'node_modules/vrhythm/source/mixins/_rhythm.scss',

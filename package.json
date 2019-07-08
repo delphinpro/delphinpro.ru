@@ -68,6 +68,7 @@
     "webpack-cli": "^3.3.5"
   },
   "dependencies": {
+    "bs-grid-system": "^2.0.3",
     "vrhythm": "^2.0.3"
   }
 }
