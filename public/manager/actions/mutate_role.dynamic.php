@@ -30,7 +30,7 @@ if ($lockedEl = $modx->elementIsLocked(8, $role)) {
 
 // Lock snippet for other users to edit
 $modx->lockElement(8, $role);
-
+global $roledata;
 if ($modx->getManagerApi()->action == '35') {
     $rs = $modx->getDatabase()->select('*', $tbl_user_roles, "id='{$role}'");
     $roledata = $modx->getDatabase()->getRow($rs);
@@ -83,7 +83,7 @@ require_once(MODX_MANAGER_PATH . 'includes/active_user_locks.inc.php');
     <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
 
     <h1>
-        <i class="fa fa-legal"></i><?= ($roledata['name'] ? $roledata['name'] . '<small>(' . $roledata['id'] . ')</small>' : $_lang['role_title']) ?>
+        <i class="<?= $_style['icon_role'] ?>"></i><?= ($roledata['name'] ? $roledata['name'] . '<small>(' . $roledata['id'] . ')</small>' : $_lang['role_title']) ?>
     </h1>
 
     <?= ManagerTheme::getStyle('actionbuttons.dynamic.savedelete') ?>
