@@ -32,4 +32,5 @@ public/core/.install
 
 .tmp/
 public/design/
+public/manager/media/style/default/css/styles.min.css
 source/twig/parts/ui/_sprites.twig
