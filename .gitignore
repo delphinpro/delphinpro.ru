@@ -31,6 +31,9 @@ public/core/.install
 # Build files
 
 .tmp/
+source/twig/parts/ui/_sprites.twig
 public/design/
 public/manager/media/style/default/css/styles.min.css
-source/twig/parts/ui/_sprites.twig
+public/core/.phpstorm.meta.php
+public/core/_ide_helper.php
+public/core/_ide_helper_models.php
