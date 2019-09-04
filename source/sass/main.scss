@@ -16,6 +16,8 @@ $TEST: false;
 //==
 //== Config & Mixins
 //== ======================================= ==//
+@import "config/bs-grid-config";
+@import "../../node_modules/bs-grid-system/bs-grid";
 
 //==
 //== Base
