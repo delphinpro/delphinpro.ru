@@ -1,0 +1,36 @@
+/*==
+ *== Footer widget
+ *== ======================================= ==*/
+
+.footer-widget {
+  &__header {
+    @include margin-trailer(1);
+    @include font(20px, 1);
+  }
+
+  &__title {
+    margin: 0;
+    font-size: inherit;
+  }
+
+  &__content {
+    color: #707070;
+
+    p {
+      @include nn-zero-first-last-margins();
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    a {
+      text-decoration: underline;
+      color: inherit;
+    }
+  }
+
+  &__info {
+    font-size: 0.8em;
+  }
+}

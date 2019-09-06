@@ -49,8 +49,11 @@ $TEST: false;
 //== Blocks
 //== ======================================= ==//
 
+@import "blocks/footer-list";
+@import "blocks/footer-widget";
 @import "blocks/main-navigation";
 @import "blocks/site-branding";
+@import "blocks/site-footer";
 @import "blocks/site-header";
 
 //==
@@ -58,6 +61,7 @@ $TEST: false;
 //== ======================================= ==//
 
 @import "base/accessibility";
+@import "base/helpers";
 
 @if $TEST {
   /*==

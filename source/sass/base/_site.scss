@@ -3,20 +3,21 @@
  *== ======================================= ==*/
 
 .site {
+  $computed-site-header-height: $site-header-padding * 2 + $site-header-height;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 
   &__header {
     width: 100%;
-    height: rhythm($site-header-padding * 2 + $site-header-height);
+    height: rhythm($computed-site-header-height);
   }
 
   &__main {
     position: relative;
     flex-grow: 1;
     width: 100%;
-    padding-top: rhythm(2.5);
+    padding-top: rhythm($computed-site-header-height);
   }
 
   &__footer {
