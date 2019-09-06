@@ -56,6 +56,7 @@ config.watchableTasks = [
 
 config.watchCustom = [
     root.build + '/views/**/*.blade.php',
+    root.build + '/core/custom/**/*.php',
 ];
 
 /*==

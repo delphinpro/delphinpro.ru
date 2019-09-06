@@ -1,0 +1,38 @@
+/*==
+ *== Site branding
+ *== ======================================= ==*/
+
+.site-branding {
+  display: flex;
+  font-weight: 500;
+
+  &__main {
+    display: flex;
+    align-items: center;
+    height: rhythm(1);
+    text-decoration: none;
+    color: currentColor;
+    font-weight: 400;
+
+    &:hover {
+      text-decoration: none;
+      color: currentColor;
+    }
+  }
+
+  &__dot {
+    @include nn-letter-spacing(-300);
+    display: inline-block;
+    height: rhythm(1);
+    color: $color-primary;
+    font-family: Consolas, monospace;
+
+    &:first-child {
+      margin-right: 0.2em;
+    }
+
+    &:last-child {
+      margin-left: -0.1em;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+/*==
+ *== Main navigation
+ *== ======================================= ==*/
+
+.main-navigation {
+  @include font(16px, 1);
+  display: flex;
+  justify-content: flex-end;
+  height: rhythm($site-header-height);
+  text-align: right;
+  font-weight: 400;
+
+  &__menu {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    position: relative;
+    display: inline-block;
+
+  }
+
+  &__link {
+    display: block;
+    padding: 0 25px;
+    text-decoration: none;
+    color: currentColor;
+
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__item:first-child > &__link {
+    padding-left: 0;
+  }
+
+  &__item:last-child > &__link {
+    padding-right: 0;
+  }
+}
