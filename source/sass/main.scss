@@ -16,8 +16,10 @@ $TEST: false;
 //==
 //== Config & Mixins
 //== ======================================= ==//
+@import "config/vrhythm";
 @import "config/noname-scss-framework";
 @import "config/bs-grid-config";
+@import "../../node_modules/vrhythm/source/mixins/rhythm";
 @import "../../node_modules/bs-grid-system/bs-grid";
 @import "../../node_modules/noname-scss-framework/framework";
 
