@@ -1,0 +1,35 @@
+/*==
+ *== Site layout
+ *== ======================================= ==*/
+
+.site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &__header {
+    width: 100%;
+    height: rhythm($site-header-padding * 2 + $site-header-height);
+  }
+
+  &__main {
+    position: relative;
+    flex-grow: 1;
+    width: 100%;
+    padding-top: rhythm(2.5);
+  }
+
+  &__footer {
+    width: 100%;
+  }
+
+  .header-no-compensate-height & {
+    &__header {
+      height: auto;
+    }
+
+    &__main {
+      padding-top: 0;
+    }
+  }
+}
