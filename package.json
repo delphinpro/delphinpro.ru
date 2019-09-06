@@ -69,6 +69,7 @@
   },
   "dependencies": {
     "bs-grid-system": "^4.0.0",
+    "noname-scss-framework": "^0.1.1",
     "vrhythm": "^2.0.3"
   }
 }
