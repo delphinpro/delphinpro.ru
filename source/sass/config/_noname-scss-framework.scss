@@ -1,0 +1,66 @@
+//==
+//== Configure NoName CSS framework
+//== ======================================= ==//
+
+// @formatter:off
+
+$nn-reboot-config: (
+  // Root html
+
+  // Body
+  body-lock-class: false, // Lock a body (e.g. for opened modal). String or false.
+  body-background-color: #fff,
+  body-color: #595959,
+
+  // Fonts
+  font-family-base: ('Fira Sans', Helvetica, Arial, sans-serif),
+  font-family-monospace: (Consolas, monospace),
+  font-family-headings: ('Fira Sans', Helvetica, Arial, sans-serif),
+
+  // Shim for "new" HTML5 structural elements to display correctly (IE10, older browsers)
+  shim-for-html5-elements: false,
+
+  // Other
+  hr-border-style: 1px solid rgba(0, 0, 0, .1),
+
+  enable-pointer-cursor-for-buttons: true,
+
+  link-color: #1284d0,
+  link-decoration: underline,
+  link-hover-color: red,
+  link-hover-decoration: underline,
+
+  transition-default: 250ms ease,
+);
+
+//== 1. font-size
+//== 2. line-height
+//== 3. margin-top
+//== 4. margin-bottom
+//== 5. text-transform
+$nn-headings: (
+  h1: (40px,   2,   0, 0.5, none),
+  h2: (32px, 1.5,   0, 0.5, none),
+  h3: (28px,   1,   0, 0.5, none),
+  h4: (24px,   1,   0, 0.5, none),
+  h5: (20px,   1,   0, 0.5, none),
+  h6: (16px,   1,   0, 0.5, none),
+);
+
+$nn-type: (
+  margin-top: null,
+  margin-bottom: null,
+  zero-last-margin: true,
+  zero-first-margin: true,
+);
+
+$nn-buttons: (
+  flex: true,
+  font-family: inherit,
+  font-weight: 600,
+  border-width: 2px,
+  focus-width: 5px,
+  transition: (color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out),
+  inner-class: 'btn__content',
+  iconbox-class: 'btn__iconbox',
+);
