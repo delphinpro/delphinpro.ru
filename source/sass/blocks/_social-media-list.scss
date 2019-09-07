@@ -1,0 +1,67 @@
+/*==
+ *== Social media list
+ *== ======================================= ==*/
+
+.social-media-list {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 500px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    margin: 0 3px 6px;
+    padding: 0;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      text-decoration: none;
+      color: #fff;
+      border-radius: 50%;
+      background: #ccc;
+      backface-visibility: visible;
+
+      //noinspection CssNoGenericFontName
+      &:before {
+        display: block;
+        flex-shrink: 0;
+        font-family: "Font Awesome 5 Brands";
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  // @formatter:off
+  a[href*="facebook.com"]  { background: #3b5998; &::before { content: "\f39e"; }}
+  a[href*="twitter.com"]   { background: #1da1f2; &::before { content: "\f099"; }}
+  a[href*="instagram.com"] { background: #c32aa3; &::before { content: '\f16d'; }}
+  a[href*="youtube.com"]   { background: #ff0000; &::before { content: '\f167'; }}
+  a[href*="linkedin.com"]  { background: #007bb5; &::before { content: '\f0e1'; }}
+  a[href*="trello.com"]    { background: #0079bf; &::before { content: '\f181'; }}
+  a[href*="vk.com"]        { background: #4a76ab; &::before { content: '\f189'; }}
+  a[href*="ok.ru"]         { background: #ee8208; &::before { content: '\f263'; }}
+  a[href*="t.me"]          { background: #179cde; &::before { content: '\f3fe'; }}
+  a[href*="skype"]         { background: #28a8ea; &::before { content: '\f17e'; }}
+  a[href*="mailto"]        { background: #34d986; &::before { content: '\f0e0'; }}
+
+  //noinspection CssNoGenericFontName
+  a[href*="mailto"]::before {
+    font-family: "Font Awesome 5 Free";
+  }
+
+  //a[href*="dribbble.com"]  { background: #ea4c89; &::before { content: '\f17d'; }}
+  //a[href*="pinterest.com"] { background: #bd081c; &::before { content: '\f231'; }}
+  //a[href*="vimeo.com"]     { background: #1ab7ea; &::before { content: '\f27d'; }}
+  //a[href*="foursquare.com"]{ background: #f94877; &::before { content: '\f180'; }}
+  //a[href*="tumblr.com"]    { background: #2c4762; &::before { content: '\f173'; }}
+  //a[href*="deviantart.com"]{ background: #05cc47; &::before { content: '\f1bd'; }}
+  //a[href*="weibo.com"]     { background: #030104; &::before { content: '\f18a'; }}
+  //a[href*="xing.com"]      { background: #015c5d; &::before { content: '\f168'; }}
+}
