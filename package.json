@@ -11,6 +11,7 @@
     "build:svg-sprite": "cross-env NODE_ENV=production gulp sprite:svg",
     "build:images": "cross-env NODE_ENV=production gulp images",
     "clean": "cross-env NODE_ENV=production gulp clean",
+    "module:evomenu": "cross-env NODE_ENV=production webpack --config ./public/assets/modules/EvoMenu/webpack.config.js",
     "dev-tools": "cross-env NODE_ENV=production gulp dev-tools"
   },
   "repository": {
@@ -69,7 +70,7 @@
   },
   "dependencies": {
     "bs-grid-system": "^4.0.0",
-    "noname-scss-framework": "^0.1.1",
+    "noname-scss-framework": "^0.2.1",
     "vrhythm": "^2.0.3"
   }
 }
