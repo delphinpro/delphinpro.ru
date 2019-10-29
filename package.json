@@ -70,7 +70,7 @@
   },
   "dependencies": {
     "bs-grid-system": "^4.0.0",
-    "noname-scss-framework": "^0.2.1",
+    "noname-scss-framework": "^0.2.2",
     "vrhythm": "^2.0.3"
   }
 }
