@@ -23,7 +23,7 @@
   }
 
   &__subheading {
-    @include font(18px, 28px);
+    @include font(18px, 1);
     @include margin-trailer(2.5);
   }
 
