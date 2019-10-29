@@ -5,6 +5,7 @@
 @section('global')
 
     <main>
+        @include('sections.page-intro')
     </main>
 
 @endsection

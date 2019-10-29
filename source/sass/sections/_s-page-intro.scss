@@ -1,0 +1,68 @@
+/*==
+ *== Page intro
+ *== ======================================= ==*/
+
+.s-page-intro {
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  color: #fff;
+  background: #7d7d88 50% 50% no-repeat;
+  background-size: cover;
+
+  &__overlay {
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+    opacity: 0.5;
+    background-color: #04081d;
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  &__content {
+    width: 100%;
+    padding: rhythm(0.5);
+    text-align: center;
+  }
+
+  &__title {
+    @include font(40px);
+    margin: 0;
+    padding: 0;
+    color: currentColor;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  &__text {
+    @include margin-leader(0.5);
+    @include font(18px);
+  }
+
+  &__action {
+    @include margin-leader(1.5);
+  }
+
+  @include media-breakpoint-between(sm, lg) {
+    &__title {
+      font-size: nnResponsiveFontSize(rem(40px), rem(100px), rem(576px), rem(1200px), rem);
+    }
+    &__text {
+      max-width: 75%;
+      margin-right: auto;
+      margin-left: auto;
+      font-size: nnResponsiveFontSize(rem(18px), rem(24px), rem(576px), rem(1200px), rem);
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    &__title {
+      @include font(100px);
+    }
+    &__text {
+      @include font(24px);
+    }
+  }
+}
