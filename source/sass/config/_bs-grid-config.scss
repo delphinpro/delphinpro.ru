@@ -59,7 +59,7 @@ $grid-classes: map-merge((
 $grid-enable: () !default;
 $grid-enable: map-merge((
   container: true,
-  container-fluid: false,
+  container-fluid: true,
   responsive-containers: false,
   row: true,
   columns: true,
