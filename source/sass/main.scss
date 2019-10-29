@@ -36,6 +36,7 @@ $TEST: false;
 @import "base/site";
 @import "base/type";
 @import "base/buttons";
+@import "base/section";
 
 /*==
  *== 3rd party
@@ -45,6 +46,7 @@ $TEST: false;
 //== Sections
 //== ======================================= ==//
 
+@import "sections/s-about-me";
 @import "sections/s-page-intro";
 
 //==

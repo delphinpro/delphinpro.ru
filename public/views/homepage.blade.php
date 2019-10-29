@@ -6,6 +6,7 @@
 
     <main>
         @include('sections.page-intro')
+        @include('sections.about-me')
     </main>
 
 @endsection

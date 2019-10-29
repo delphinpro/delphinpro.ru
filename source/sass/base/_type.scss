@@ -3,7 +3,8 @@
  *== ======================================= ==*/
 
 %type-margins {
-  margin: rem(20px) 0;
+  margin: rhythm(1) 0;
+  @include nn-zero-first-last-margins();
 }
 
 p {
@@ -30,30 +31,30 @@ ol, ul, dl {
 blockquote {
   @extend %type-margins;
   padding: em(25px);
-  background-color: #f7f7f7;
   border-left: 2px solid #cbd1dc;
+  background-color: #f7f7f7;
 }
 
 pre {
   @extend %type-margins;
   @include font(15px, 1);
-  color: #212529;
-  background: #eee;
   max-width: 100%;
   padding: 1.6em;
+  color: #212529;
+  background: #eee;
 }
 
 code {
-  color: #e83e8c;
   word-break: break-word;
+  color: #e83e8c;
 }
 
 kbd {
   padding: .2rem .4rem;
-  font-size: 87.5%;
   color: #fff;
-  background-color: #212529;
   border-radius: .2rem;
+  background-color: #212529;
+  font-size: 87.5%;
 
   kbd {
     padding: 0;
@@ -71,6 +72,6 @@ img {
  *== ======================================= ==*/
 
 @include nn-headings() {
-  font-weight: 500;
   color: #191919;
+  font-weight: 400;
 }

@@ -5,3 +5,5 @@
 // @formatter:off
 
 .text-muted { color: $color-muted !important; }
+
+@include nn-mark-not-loaded-images();
