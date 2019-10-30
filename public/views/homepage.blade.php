@@ -10,6 +10,7 @@
         @include('sections.services')
         @include('sections.work')
 {{--        @include('sections.skills')--}}
+        @include('sections.articles')
     </main>
 
 @endsection

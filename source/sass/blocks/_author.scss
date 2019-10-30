@@ -1,0 +1,13 @@
+/*==
+ *== Author link
+ *== ======================================= ==*/
+
+.author {
+  @include rhythm-margins(0.25);
+  @include font(14px, 1);
+  color: $color-muted;
+
+  a {
+    color: #191919 !important;
+  }
+}

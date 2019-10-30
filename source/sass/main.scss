@@ -47,6 +47,7 @@ $TEST: false;
 //== ======================================= ==//
 
 @import "sections/s-about-me";
+@import "sections/s-articles";
 @import "sections/s-page-intro";
 @import "sections/s-skills";
 
@@ -54,16 +55,20 @@ $TEST: false;
 //== Blocks
 //== ======================================= ==//
 
+@import "blocks/articles-grid";
+@import "blocks/author";
 @import "blocks/footer-list";
 @import "blocks/footer-widget";
 @import "blocks/gallery";
 @import "blocks/main-navigation";
+@import "blocks/post-card";
 @import "blocks/progress-bar";
 @import "blocks/service-card";
 @import "blocks/site-branding";
 @import "blocks/site-footer";
 @import "blocks/site-header";
 @import "blocks/social-media-list";
+@import "blocks/tags";
 
 //==
 //== Helpers and other
