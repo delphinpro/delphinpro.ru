@@ -11,6 +11,7 @@
         @include('sections.work')
 {{--        @include('sections.skills')--}}
         @include('sections.articles')
+        @include('sections.reviews')
     </main>
 
 @endsection
