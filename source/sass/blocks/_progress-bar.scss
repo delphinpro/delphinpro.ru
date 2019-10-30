@@ -1,0 +1,44 @@
+/*==
+ *== Progress bar
+ *== ======================================= ==*/
+
+.progress-bar {
+  &__title {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #595959;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  &__line {
+    height: 8px;
+    background-color: #e5e5e5;
+    line-height: 8px;
+  }
+
+  &__bar {
+    display: flex;
+    width: 0;
+    height: 100%;
+    transition: width 1s ease-in-out;
+    border-radius: 2px;
+    background-color: $progress-bar-active;
+    font-size: 11px;
+  }
+
+  &__text {
+    overflow: hidden;
+    flex-grow: 1;
+    padding-left: 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__label {
+    position: relative;
+    top: -16px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}

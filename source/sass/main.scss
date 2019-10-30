@@ -48,6 +48,7 @@ $TEST: false;
 
 @import "sections/s-about-me";
 @import "sections/s-page-intro";
+@import "sections/s-skills";
 
 //==
 //== Blocks
@@ -57,6 +58,7 @@ $TEST: false;
 @import "blocks/footer-widget";
 @import "blocks/gallery";
 @import "blocks/main-navigation";
+@import "blocks/progress-bar";
 @import "blocks/service-card";
 @import "blocks/site-branding";
 @import "blocks/site-footer";

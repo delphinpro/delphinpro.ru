@@ -9,6 +9,7 @@
         @include('sections.about-me')
         @include('sections.services')
         @include('sections.work')
+{{--        @include('sections.skills')--}}
     </main>
 
 @endsection
