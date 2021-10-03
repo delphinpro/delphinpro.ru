@@ -1,39 +1,78 @@
-# Editors
+# Editor files
 
-.idea/
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+/.idea
+/.vscode
 
-# Vendor
+# Vendor libs
 
-node_modules/
+/node_modules
+/vendor
 
-# ModX 2.0 assets directory
+# Laravel specific files
 
-*/assets/.thumbs/*
-*/assets/backup/*
-*/assets/cache/*
-*/assets/export/*
-*/assets/files/*
-*/assets/images/*
-*/assets/import/*
-!.htaccess
-!index.html
+/storage/*.key
+/public/hot
+_ide_helper*.php
 
-# ModX 2.0 config
+# Configs
 
-public/core/config/database/connections/
+.env
+.env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
 
-# ModX 2.0 core directory
+# Log files and database
 
-public/core/storage/*
-public/core/vendor/*
-public/core/.install
+*.log
+*.sql
+*.sqlite
+npm-debug.log
+yarn-error.log
 
-# Build files
+# Packaged files
 
-.tmp/
-source/twig/parts/ui/_sprites.twig
-public/design/
-public/manager/media/style/default/css/styles.min.css
-public/core/.phpstorm.meta.php
-public/core/_ide_helper.php
-public/core/_ide_helper_models.php
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# OS generated files
+
+ehthumbs.db
+Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Other files
+
+*.cmd
+
+# Public dir
+
+/public/*
+!/public/index.php
+!/public/.htaccess
+!/public/fonts
+!/public/packages
+
+# App generated files
+
+
+# Other
+bootstrap/cache/
+storage/app/public/upload/0020849a-ef1e-3681-a496-17b4366d06c2.jpg
+storage/app/public/upload/
+storage/app/seeds/
+storage/framework/
