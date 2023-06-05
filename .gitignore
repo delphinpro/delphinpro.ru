@@ -1,78 +1,19 @@
-# Editor files
-
-*.sublime-project
-*.sublime-workspace
-*.komodoproject
-/.idea
-/.vscode
-
-# Vendor libs
-
+/.phpunit.cache
 /node_modules
-/vendor
-
-# Laravel specific files
-
-/storage/*.key
+/public/build
 /public/hot
-_ide_helper*.php
-
-# Configs
-
+/public/storage
+/storage/*.key
+/vendor
 .env
 .env.backup
+.env.production
 .phpunit.result.cache
-docker-compose.override.yml
 Homestead.json
 Homestead.yaml
-
-# Log files and database
-
-*.log
-*.sql
-*.sqlite
+auth.json
 npm-debug.log
 yarn-error.log
-
-# Packaged files
-
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-
-# OS generated files
-
-ehthumbs.db
-Thumbs.db
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-
-# Other files
-
-*.cmd
-
-# Public dir
-
-/public/*
-!/public/index.php
-!/public/.htaccess
-!/public/fonts
-!/public/packages
-
-# App generated files
-
-
-# Other
-bootstrap/cache/
-storage/app/public/upload/0020849a-ef1e-3681-a496-17b4366d06c2.jpg
-storage/app/public/upload/
-storage/app/seeds/
-storage/framework/
+/.fleet
+/.idea
+/.vscode

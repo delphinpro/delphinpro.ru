@@ -1,76 +1,13 @@
 {
-  "name": "gulp-starter",
-  "version": "1.1.1",
-  "description": "Frontend build system configuration",
-  "main": "gulpfile.js",
-  "scripts": {
-    "start": "cross-env NODE_ENV=development gulp default",
-    "build:production": "cross-env NODE_ENV=production  gulp build",
-    "build:development": "cross-env NODE_ENV=development gulp build",
-    "build:dist": "cross-env NODE_ENV=dist gulp build",
-    "build:svg-sprite": "cross-env NODE_ENV=production gulp sprite:svg",
-    "build:images": "cross-env NODE_ENV=production gulp images",
-    "clean": "cross-env NODE_ENV=production gulp clean",
-    "module:evomenu": "cross-env NODE_ENV=production webpack --config ./public/assets/modules/EvoMenu/webpack.config.js",
-    "dev-tools": "cross-env NODE_ENV=production gulp dev-tools"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/delphinpro/gulp-starter.git"
-  },
-  "keywords": [
-    "gulp",
-    "starter",
-    "boilerplate"
-  ],
-  "author": "delphinpro <delphinpro@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/delphinpro/gulp-starter/issues"
-  },
-  "homepage": "https://github.com/delphinpro/gulp-starter#readme",
-  "devDependencies": {
-    "@babel/core": "^7.3.3",
-    "@babel/plugin-transform-runtime": "^7.2.0",
-    "@babel/plugin-transform-spread": "^7.2.2",
-    "@babel/preset-env": "^7.3.1",
-    "babel-loader": "^8.0.5",
-    "browser-sync": "^2.26.3",
-    "chalk": "^2.4.2",
-    "cross-env": "^5.2.0",
-    "css-loader": "^2.1.0",
-    "del": "^3.0.0",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^6.0.0",
-    "gulp-babel": "^8.0.0",
-    "gulp-changed": "^3.2.0",
-    "gulp-changed-in-place": "^2.3.0",
-    "gulp-cheerio": "^0.6.3",
-    "gulp-concat": "^2.6.1",
-    "gulp-data": "^1.3.1",
-    "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^5.0.3",
-    "gulp-notify": "^3.2.0",
-    "gulp-replace": "^1.0.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-svg-sprites": "^4.1.2",
-    "gulp-svgmin": "^2.1.0",
-    "gulp-twig": "^1.2.0",
-    "mini-css-extract-plugin": "^0.5.0",
-    "node-sass": "^4.11.0",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
-    "through2": "^3.0.0",
-    "uglifyjs-webpack-plugin": "^2.1.1",
-    "vue-loader": "^15.6.2",
-    "vue-template-compiler": "^2.6.6",
-    "webpack": "^4.29.4",
-    "webpack-cli": "^3.3.5"
-  },
-  "dependencies": {
-    "bs-grid-system": "^4.0.0",
-    "noname-scss-framework": "^0.2.2",
-    "vrhythm": "^3.0.0"
-  }
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "axios": "^1.1.2",
+        "laravel-vite-plugin": "^0.7.5",
+        "vite": "^4.0.0"
+    }
 }

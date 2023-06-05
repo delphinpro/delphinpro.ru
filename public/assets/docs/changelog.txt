@@ -1,6 +1,0 @@
-This file shows the changes in recent releases of Evolution CMS. The most current release is usually the
-development release, and is only shown to give an idea of what's currently in the pipeline.
-
-
-Evolution CMS 2.0 (Nov 05, 2019)
-I think it’s impossible to make all the changes since version 1.4, so let's start from scratch

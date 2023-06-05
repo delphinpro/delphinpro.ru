@@ -1,9 +1,0 @@
-{
-  "presets": [
-    ["@babel/preset-env", { "modules": false }]
-  ],
-  "plugins": [
-    "@babel/plugin-transform-spread",
-    ["@babel/plugin-transform-runtime", {"helpers":  false}]
-  ]
-}
