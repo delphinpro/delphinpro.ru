@@ -1,6 +1,52 @@
 // Site delphinpro.ru
 // Copyright (c) 2023.
 
-[x-cloak] {
-    display: none;
-}
+//==
+//== Config & Mixins
+//== ======================================= ==//
+
+@import "~bootstrap/scss/functions";
+@import "config/bootstrap";
+@import "config/z-index-list";
+
+@import "mixins/scrollbars";
+@import "mixins/use-webfont";
+@import "mixins/rhythm";
+
+//==
+//== Base
+//== ======================================= ==//
+
+@import "base/webfonts";
+@import "bootstrap";
+@import "base/init";
+@import "base/site";
+@import "base/section";
+
+//==
+//== Blocks
+//== ======================================= ==//
+
+@import "blocks/article-card";
+@import "blocks/articles-grid";
+@import "blocks/branding";
+@import "blocks/footer";
+@import "blocks/footer-list";
+@import "blocks/footer-widget";
+@import "blocks/gallery";
+@import "blocks/header";
+@import "blocks/main-navigation";
+@import "blocks/progress-bar";
+@import "blocks/publish-date";
+@import "blocks/review-card";
+@import "blocks/service-card";
+@import "blocks/tags";
+
+//==
+//== Sections
+//== ======================================= ==//
+
+@import "sections/section-about-me";
+@import "sections/section-articles";
+@import "sections/section-intro";
+@import "sections/section-skills";

@@ -1,0 +1,20 @@
+// Site delphinpro.ru
+// Copyright (c) 2023.
+
+@mixin use-webfont(
+    $font-family,
+    $font-weight,
+    $font-style,
+    $filename,
+    $filename-prefix: '',
+    $path: ''
+) {
+    $file: #{$path}#{$filename-prefix}#{$filename};
+    @font-face {
+        font-family: $font-family;
+        //noinspection CssUnknownTarget
+        src: url('#{$file}.woff2') format('woff2');
+        font-weight: $font-weight;
+        font-style: $font-style;
+    }
+}

@@ -1,0 +1,22 @@
+// Site delphinpro.ru
+// Copyright (c) 2023.
+
+$rhythm: 1.5rem;
+
+:root {
+    --header-y: 1rem;
+    --header-height: #{$rhythm * 2};
+    --header-full-height: #{$rhythm * 2 + 2rem};
+    --header-color: #fff;
+}
+
+body {
+    @include custom-scrollbar(
+            darken($primary, 10%),
+            darken($primary, 100%),
+    );
+}
+
+[x-cloak] {
+    display: none;
+}

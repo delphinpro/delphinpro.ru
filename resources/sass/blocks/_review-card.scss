@@ -1,0 +1,50 @@
+// Site delphinpro.ru
+// Copyright (c) 2023.
+
+.review-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: rhythm(1.25);
+    transition: background .3s, border .3s, border-radius .3s, box-shadow .3s;
+    border: 1px solid #ebebeb;
+
+    &__content {
+        @include font(16px, 1);
+        margin-bottom: rhythm(0.75);
+        color: #595959;
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+    }
+
+    &__photo {
+        width: var(--size);
+        height: var(--size);
+        margin-right: rhythm(0.5);
+        --size: #{rfs-value(60px)};
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        object-fit: cover;
+    }
+
+    &__author {
+    }
+
+    &__name {
+        @include font(22px);
+        font-weight: 500;
+        color: #191919;
+    }
+
+    &__job {
+        @include font(14px, 0.75);
+        color: #bfbfbf;
+    }
+}

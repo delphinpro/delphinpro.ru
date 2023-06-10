@@ -1,0 +1,18 @@
+// Site delphinpro.ru
+// Copyright (c) 2023.
+
+/*==
+ *== Web fonts
+ *== ======================================= ==*/
+
+$uwf-prefix: 'FiraSans-';
+$uwf-path: '/resources/fonts/FiraSans/';
+
+@include use-webfont('Fira Sans', 400, normal, 'Regular', $uwf-prefix, $uwf-path);
+@include use-webfont('Fira Sans', 400, italic, 'Italic', $uwf-prefix, $uwf-path);
+@include use-webfont('Fira Sans', 500, normal, 'Medium', $uwf-prefix, $uwf-path);
+@include use-webfont('Fira Sans', 500, italic, 'MediumItalic', $uwf-prefix, $uwf-path);
+@include use-webfont('Fira Sans', 600, normal, 'SemiBold', $uwf-prefix, $uwf-path);
+@include use-webfont('Fira Sans', 600, italic, 'SemiBoldItalic', $uwf-prefix, $uwf-path);
+@include use-webfont('Fira Sans', 700, normal, 'Bold', $uwf-prefix, $uwf-path);
+@include use-webfont('Fira Sans', 700, italic, 'BoldItalic', $uwf-prefix, $uwf-path);

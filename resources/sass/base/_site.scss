@@ -1,0 +1,25 @@
+// Site delphinpro.ru
+// Copyright (c) 2023.
+
+.site {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 100%;
+    grid-template-rows: var(--header-full-height) 1fr auto;
+
+    &__header {
+        width: 100%;
+    }
+
+    &__main {
+        width: 100%;
+    }
+
+    &__footer {
+        width: 100%;
+    }
+
+    .floating-header & {
+        grid-template-rows: 0 1fr auto;
+    }
+}
