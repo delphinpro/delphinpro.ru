@@ -1,0 +1,27 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use App\Providers\ModulesServiceProvider as ServiceProvider;
+use Illuminate\Database\Eloquent\Factory;
+use Orchid\Support\Facades\Dashboard;
+
+class $CLASS$ extends ServiceProvider
+{
+    protected string $moduleName = '$MODULE$';
+
+    protected string $moduleNameLower = '$LOWER_NAME$';
+
+    public function boot(): void
+    {
+        $this->registerTranslations();
+        $this->registerConfig();
+        $this->registerViews();
+        $this->loadMigrationsFrom(module_path($this->moduleName, '$MIGRATIONS_PATH$'));
+    }
+
+    public function register(): void
+    {
+        $this->app->register(RouteServiceProvider::class);
+    }
+}

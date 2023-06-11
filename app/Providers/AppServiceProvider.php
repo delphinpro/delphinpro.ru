@@ -8,6 +8,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * @property \Illuminate\Contracts\Foundation\Application $app
+ */
 class AppServiceProvider extends ServiceProvider
 {
     /**
