@@ -1,6 +1,10 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
-namespace App\Orchid\Layouts\Examples;
+namespace Modules\OrchidExamples\Screens\Layouts;
 
 use Orchid\Screen\Actions\Menu;
 use Orchid\Screen\Layouts\TabMenu;

@@ -1,0 +1,11 @@
+{
+    "name": "OrchidExamples",
+    "alias": "orchidexamples",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\OrchidExamples\\Providers\\OrchidExamplesServiceProvider"
+    ],
+    "files": []
+}

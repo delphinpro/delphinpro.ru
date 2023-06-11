@@ -1,13 +1,16 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
-namespace App\Orchid\Screens\Examples;
+namespace Modules\OrchidExamples\Screens;
 
-use App\Orchid\Layouts\Examples\ExampleElements;
+use Modules\OrchidExamples\Screens\Layouts\ExampleElements;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Fields\Group;
-use Orchid\Screen\Screen;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;

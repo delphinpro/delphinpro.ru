@@ -1,9 +1,12 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
-namespace App\Orchid\Screens\Examples;
+namespace Modules\OrchidExamples\Screens;
 
 use Orchid\Screen\Action;
-use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 
 class ExampleGridScreen extends TestBaseScreen
@@ -51,9 +54,9 @@ class ExampleGridScreen extends TestBaseScreen
     /**
      * The screen's layout elements.
      *
+     * @return array
      * @throws \Throwable
      *
-     * @return array
      */
     public function layout(): iterable
     {

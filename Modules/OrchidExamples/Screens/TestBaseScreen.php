@@ -1,10 +1,14 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
-namespace App\Orchid\Screens\Examples;
+namespace Modules\OrchidExamples\Screens;
 
 use Orchid\Screen\Screen;
 
-class TestBaseScreen extends Screen
+abstract class TestBaseScreen extends Screen
 {
     /**
      * Fetch data to be displayed on the screen.

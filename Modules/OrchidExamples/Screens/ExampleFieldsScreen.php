@@ -1,8 +1,12 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
-namespace App\Orchid\Screens\Examples;
+namespace Modules\OrchidExamples\Screens;
 
-use App\Orchid\Layouts\Examples\ExampleElements;
+use Modules\OrchidExamples\Screens\Layouts\ExampleElements;
 use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\CheckBox;
@@ -12,7 +16,6 @@ use Orchid\Screen\Fields\Password;
 use Orchid\Screen\Fields\Radio;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\TextArea;
-use Orchid\Screen\Screen;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Facades\Layout;

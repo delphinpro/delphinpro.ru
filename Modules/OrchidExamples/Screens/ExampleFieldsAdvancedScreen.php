@@ -1,8 +1,12 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
-namespace App\Orchid\Screens\Examples;
+namespace Modules\OrchidExamples\Screens;
 
-use App\Orchid\Layouts\Examples\ExampleElements;
+use Modules\OrchidExamples\Screens\Layouts\ExampleElements;
 use Orchid\Platform\Models\User;
 use Orchid\Screen\Action;
 use Orchid\Screen\Fields\CheckBox;
@@ -21,7 +25,6 @@ use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Fields\Upload;
 use Orchid\Screen\Fields\UTM;
-use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 
 class ExampleFieldsAdvancedScreen extends TestBaseScreen
@@ -71,9 +74,9 @@ class ExampleFieldsAdvancedScreen extends TestBaseScreen
     /**
      * The screen's layout elements.
      *
+     * @return \Orchid\Screen\Layout[]
      * @throws \Throwable
      *
-     * @return \Orchid\Screen\Layout[]
      */
     public function layout(): iterable
     {

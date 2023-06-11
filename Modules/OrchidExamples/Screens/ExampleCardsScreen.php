@@ -1,12 +1,15 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
-namespace App\Orchid\Screens\Examples;
+namespace Modules\OrchidExamples\Screens;
 
 use Illuminate\Http\Request;
 use Orchid\Platform\Models\User;
 use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Button;
-use Orchid\Screen\Screen;
 use Orchid\Screen\Sight;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
@@ -55,9 +58,9 @@ class ExampleCardsScreen extends TestBaseScreen
     /**
      * The screen's layout elements.
      *
+     * @return array
      * @throws \Throwable
      *
-     * @return array
      */
     public function layout(): iterable
     {
@@ -66,13 +69,15 @@ class ExampleCardsScreen extends TestBaseScreen
                 Sight::make('id')->popover('Identifier, a symbol which uniquely identifies an object or record'),
                 Sight::make('name'),
                 Sight::make('email'),
-                Sight::make('email_verified_at', 'Email Verified')->render(fn (User $user) => $user->email_verified_at === null
+                Sight::make('email_verified_at', 'Email Verified')->render(fn(User $user
+                ) => $user->email_verified_at === null
                     ? '<i class="text-danger">●</i> False'
                     : '<i class="text-success">●</i> True'),
                 Sight::make('created_at', 'Created'),
                 Sight::make('updated_at', 'Updated'),
-                Sight::make('Simple Text')->render(fn () => 'This is a wider card with supporting text below as a natural lead-in to additional content.'),
-                Sight::make('Action')->render(fn () => Button::make('Show toast')
+                Sight::make('Simple Text')->render(fn(
+                ) => 'This is a wider card with supporting text below as a natural lead-in to additional content.'),
+                Sight::make('Action')->render(fn() => Button::make('Show toast')
                     ->type(Color::BASIC)
                     ->method('showToast')),
             ])->title('User'),
