@@ -1,8 +1,12 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
 declare(strict_types=1);
 
-namespace App\Orchid\Filters;
+namespace App\Orchid\Screens\User\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 use Orchid\Filters\Filter;
@@ -34,7 +38,7 @@ class RoleFilter extends Filter
     /**
      * Apply to a given Eloquent query builder.
      *
-     * @param Builder $builder
+     * @param  Builder  $builder
      *
      * @return Builder
      */

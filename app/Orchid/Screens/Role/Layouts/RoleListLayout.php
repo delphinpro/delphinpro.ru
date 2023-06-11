@@ -1,8 +1,12 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
 declare(strict_types=1);
 
-namespace App\Orchid\Layouts\Role;
+namespace App\Orchid\Screens\Role\Layouts;
 
 use Orchid\Platform\Models\Role;
 use Orchid\Screen\Actions\Link;
@@ -27,7 +31,7 @@ class RoleListLayout extends Table
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
-                ->render(fn (Role $role) => Link::make($role->name)
+                ->render(fn(Role $role) => Link::make($role->name)
                     ->route('platform.systems.roles.edit', $role->id)),
 
             TD::make('slug', __('Slug'))
@@ -37,7 +41,7 @@ class RoleListLayout extends Table
 
             TD::make('created_at', __('Created'))
                 ->sort()
-                ->render(fn (Role $role) => $role->created_at->toDateTimeString()),
+                ->render(fn(Role $role) => $role->created_at->toDateTimeString()),
         ];
     }
 }

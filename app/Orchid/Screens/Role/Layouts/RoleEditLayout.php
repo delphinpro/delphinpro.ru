@@ -1,8 +1,12 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
 declare(strict_types=1);
 
-namespace App\Orchid\Layouts\Role;
+namespace App\Orchid\Screens\Role\Layouts;
 
 use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Input;

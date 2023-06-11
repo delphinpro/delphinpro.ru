@@ -1,13 +1,17 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
 declare(strict_types=1);
 
 namespace App\Orchid\Screens\User;
 
-use App\Orchid\Layouts\Role\RolePermissionLayout;
-use App\Orchid\Layouts\User\UserEditLayout;
-use App\Orchid\Layouts\User\UserPasswordLayout;
-use App\Orchid\Layouts\User\UserRoleLayout;
+use App\Orchid\Screens\Role\Layouts\RolePermissionLayout;
+use App\Orchid\Screens\User\Layouts\UserEditLayout;
+use App\Orchid\Screens\User\Layouts\UserPasswordLayout;
+use App\Orchid\Screens\User\Layouts\UserRoleLayout;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -159,7 +163,7 @@ class UserEditScreen extends Screen
         ]);
 
         $permissions = collect($request->get('permissions'))
-            ->map(fn ($value, $key) => [base64_decode($key) => $value])
+            ->map(fn($value, $key) => [base64_decode($key) => $value])
             ->collapse()
             ->toArray();
 
@@ -180,9 +184,9 @@ class UserEditScreen extends Screen
     }
 
     /**
+     * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      *
-     * @return \Illuminate\Http\RedirectResponse
      */
     public function remove(User $user)
     {
