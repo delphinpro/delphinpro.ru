@@ -51,14 +51,15 @@ class PlatformProvider extends OrchidServiceProvider
             //     ->route(config('platform.index')),
             //
 
+            Menu::make('Главная страница')
+                ->route('platform.homepage'),
+
             Menu::make(__('Пользователи'))
-                ->icon('bs.people')
                 ->route('platform.systems.users')
                 ->permission('platform.systems.users')
                 ->title(__('Контроль доступа')),
 
             Menu::make(__('Роли'))
-                ->icon('bs.lock')
                 ->route('platform.systems.roles')
                 ->permission('platform.systems.roles')
                 ->divider(),
@@ -67,7 +68,6 @@ class PlatformProvider extends OrchidServiceProvider
         if (Module::find('OrchidExamples')?->isEnabled()) {
             $this->addMenu([
                 Menu::make('Примеры экранов админки')
-                    ->icon('code')
                     ->list([
                         Menu::make('Пример экрана')
                             ->icon('bs.collection')

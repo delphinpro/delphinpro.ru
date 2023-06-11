@@ -3,8 +3,8 @@
 @section('body_class', 'floating-header transparent-header')
 
 @section('content')
-    @include('partials.sections.intro')
-    @include('partials.sections.about_me')
+    @includeWhen($intro['enabled']??false, 'partials.sections.intro')
+    @includeWhen($aboutMe['enabled']??false, 'partials.sections.about_me')
     {{--@include('partials.sections.services')--}}
     {{--@include('partials.sections.work')--}}
     {{--@include('partials.sections.skills')--}}

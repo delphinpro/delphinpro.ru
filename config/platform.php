@@ -1,4 +1,11 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
+
+use App\Orchid\PlatformProvider;
+use Orchid\Support\BootstrapIconsPath;
 
 return [
 
@@ -189,7 +196,7 @@ return [
      */
 
     'icons' => [
-        'bs'  => \Orchid\Support\BootstrapIconsPath::getFolder(),
+        'bs' => BootstrapIconsPath::getFolder(),
     ],
 
     /*
@@ -246,7 +253,7 @@ return [
      */
 
     'turbo' => [
-        'cache'   => true,
+        'cache' => true,
     ],
 
     /*
@@ -276,7 +283,7 @@ return [
     |
     */
 
-    'workspace' => 'platform::workspace.compact',
+    'workspace' => 'platform::workspace.full',
 
     /*
     |--------------------------------------------------------------------------
@@ -302,6 +309,6 @@ return [
      |
      */
 
-    'provider' => \App\Orchid\PlatformProvider::class,
+    'provider' => PlatformProvider::class,
 
 ];
