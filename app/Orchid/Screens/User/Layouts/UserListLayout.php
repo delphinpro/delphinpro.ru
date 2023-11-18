@@ -13,6 +13,7 @@ use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Actions\ModalToggle;
+use Orchid\Screen\Components\Cells\DateTimeSplit;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Persona;
 use Orchid\Screen\Layouts\Table;
@@ -49,9 +50,16 @@ class UserListLayout extends Table
                         'user' => $user->id,
                     ])),
 
+            TD::make('created_at', __('Created'))
+                ->usingComponent(DateTimeSplit::class)
+                ->align(TD::ALIGN_RIGHT)
+                ->defaultHidden()
+                ->sort(),
+
             TD::make('updated_at', __('Last edit'))
-                ->sort()
-                ->render(fn(User $user) => $user->updated_at->toDateTimeString()),
+                ->usingComponent(DateTimeSplit::class)
+                ->align(TD::ALIGN_RIGHT)
+                ->sort(),
 
             TD::make(__('Actions'))
                 ->align(TD::ALIGN_CENTER)

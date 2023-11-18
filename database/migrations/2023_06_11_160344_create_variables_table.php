@@ -16,9 +16,4 @@ return new class extends Migration {
             $table->json('value');
         });
     }
-
-    public function down(): void
-    {
-        Schema::dropIfExists('variables');
-    }
 };

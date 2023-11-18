@@ -11,13 +11,11 @@
 
     <link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
     @vite(['resources/sass/app.scss'])
-    @livewireStyles
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body class="@yield('body_class')">
 @yield('body')
 @vite(['resources/js/app.js'])
-@livewireScripts
 </body>
 </html>

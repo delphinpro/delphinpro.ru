@@ -1,4 +1,8 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
 declare(strict_types=1);
 
@@ -10,7 +14,7 @@ use Orchid\Screen\Contracts\Personable;
 use Orchid\Screen\Contracts\Searchable;
 use Orchid\Support\Presenter;
 
-class UserPresenter extends Presenter implements Searchable, Personable
+class UserPresenter extends Presenter implements Personable, Searchable
 {
     /**
      * Returns the label for this presenter, which is used in the UI to identify it.
@@ -35,9 +39,9 @@ class UserPresenter extends Presenter implements Searchable, Personable
     {
         $roles = $this->entity->roles->pluck('name')->implode(' / ');
 
-        return (string) Str::of($roles)
+        return (string)Str::of($roles)
             ->limit(20)
-            ->whenEmpty(fn () => __('Regular User'));
+            ->whenEmpty(fn() => __('Regular User'));
     }
 
     /**

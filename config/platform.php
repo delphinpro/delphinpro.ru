@@ -139,6 +139,20 @@ return [
 
     /*
      |--------------------------------------------------------------------------
+     | Vite Resource
+     |--------------------------------------------------------------------------
+     |
+     | Within the 'vite' associative array, specify input files to be parsed by
+     | Vite by providing specific paths to JS and CSS assets. Here is an example:
+     |
+     | Example: ['resources/css/app.css', 'resources/js/app.js']
+     |
+     */
+
+    'vite' => [],
+
+    /*
+     |--------------------------------------------------------------------------
      | Template View
      |--------------------------------------------------------------------------
      |
@@ -178,7 +192,7 @@ return [
      */
 
     'attachment' => [
-        'disk'      => env('FILESYSTEM_DISK', 'public'),
+        'disk'      => env('DASHBOARD_FILESYSTEM_DISK', 'public'),
         'generator' => \Orchid\Attachment\Engines\Generator::class,
     ],
 
