@@ -1,8 +1,12 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
 namespace App\Orchid\Screens\Examples;
 
-use App\Orchid\Layouts\Examples\ExampleElements;
+use App\Orchid\Screens\Examples\Layouts\ExampleElements;
 use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\CheckBox;

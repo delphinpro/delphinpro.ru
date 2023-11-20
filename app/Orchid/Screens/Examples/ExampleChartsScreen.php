@@ -1,11 +1,15 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
 namespace App\Orchid\Screens\Examples;
 
-use App\Orchid\Layouts\Examples\ChartBarExample;
-use App\Orchid\Layouts\Examples\ChartLineExample;
-use App\Orchid\Layouts\Examples\ChartPercentageExample;
-use App\Orchid\Layouts\Examples\ChartPieExample;
+use App\Orchid\Screens\Examples\Layouts\ChartBarExample;
+use App\Orchid\Screens\Examples\Layouts\ChartLineExample;
+use App\Orchid\Screens\Examples\Layouts\ChartPercentageExample;
+use App\Orchid\Screens\Examples\Layouts\ChartPieExample;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 
@@ -73,9 +77,9 @@ class ExampleChartsScreen extends Screen
     /**
      * The screen's layout elements.
      *
+     * @return string[]|\Orchid\Screen\Layout[]
      * @throws \Throwable
      *
-     * @return string[]|\Orchid\Screen\Layout[]
      */
     public function layout(): iterable
     {

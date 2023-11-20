@@ -1,9 +1,13 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
 namespace App\Orchid\Screens\Examples;
 
-use App\Orchid\Layouts\Examples\ChartBarExample;
-use App\Orchid\Layouts\Examples\ChartLineExample;
+use App\Orchid\Screens\Examples\Layouts\ChartBarExample;
+use App\Orchid\Screens\Examples\Layouts\ChartLineExample;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Orchid\Screen\Actions\Button;
@@ -58,11 +62,36 @@ class ExampleScreen extends Screen
                 ],
             ],
             'table'   => [
-                new Repository(['id' => 100, 'name' => self::TEXT_EXAMPLE, 'price' => 10.24, 'created_at' => '01.01.2020']),
-                new Repository(['id' => 200, 'name' => self::TEXT_EXAMPLE, 'price' => 65.9, 'created_at' => '01.01.2020']),
-                new Repository(['id' => 300, 'name' => self::TEXT_EXAMPLE, 'price' => 754.2, 'created_at' => '01.01.2020']),
-                new Repository(['id' => 400, 'name' => self::TEXT_EXAMPLE, 'price' => 0.1, 'created_at' => '01.01.2020']),
-                new Repository(['id' => 500, 'name' => self::TEXT_EXAMPLE, 'price' => 0.15, 'created_at' => '01.01.2020']),
+                new Repository([
+                    'id'         => 100,
+                    'name'       => self::TEXT_EXAMPLE,
+                    'price'      => 10.24,
+                    'created_at' => '01.01.2020',
+                ]),
+                new Repository([
+                    'id'         => 200,
+                    'name'       => self::TEXT_EXAMPLE,
+                    'price'      => 65.9,
+                    'created_at' => '01.01.2020',
+                ]),
+                new Repository([
+                    'id'         => 300,
+                    'name'       => self::TEXT_EXAMPLE,
+                    'price'      => 754.2,
+                    'created_at' => '01.01.2020',
+                ]),
+                new Repository([
+                    'id'         => 400,
+                    'name'       => self::TEXT_EXAMPLE,
+                    'price'      => 0.1,
+                    'created_at' => '01.01.2020',
+                ]),
+                new Repository([
+                    'id'         => 500,
+                    'name'       => self::TEXT_EXAMPLE,
+                    'price'      => 0.15,
+                    'created_at' => '01.01.2020',
+                ]),
 
             ],
             'metrics' => [
@@ -136,7 +165,7 @@ class ExampleScreen extends Screen
             Layout::table('table', [
                 TD::make('id', 'ID')
                     ->width('100')
-                    ->render(fn (Repository $model) => // Please use view('path')
+                    ->render(fn(Repository $model) => // Please use view('path')
                     "<img src='https://loremflickr.com/500/300?random={$model->get('id')}'
                               alt='sample'
                               class='mw-100 d-block img-fluid rounded-1 w-100'>
@@ -144,7 +173,7 @@ class ExampleScreen extends Screen
 
                 TD::make('name', 'Name')
                     ->width('450')
-                    ->render(fn (Repository $model) => Str::limit($model->get('name'), 200)),
+                    ->render(fn(Repository $model) => Str::limit($model->get('name'), 200)),
 
                 TD::make('price', 'Price')
                     ->width('100')

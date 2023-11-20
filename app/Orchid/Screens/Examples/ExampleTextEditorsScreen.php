@@ -1,8 +1,12 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
 namespace App\Orchid\Screens\Examples;
 
-use App\Orchid\Layouts\Examples\ExampleElements;
+use App\Orchid\Screens\Examples\Layouts\ExampleElements;
 use Illuminate\Support\Str;
 use Orchid\Screen\Action;
 use Orchid\Screen\Fields\Code;
@@ -56,9 +60,9 @@ class ExampleTextEditorsScreen extends Screen
     /**
      * The screen's layout elements.
      *
+     * @return \Orchid\Screen\Layout[]
      * @throws \Throwable
      *
-     * @return \Orchid\Screen\Layout[]
      */
     public function layout(): iterable
     {

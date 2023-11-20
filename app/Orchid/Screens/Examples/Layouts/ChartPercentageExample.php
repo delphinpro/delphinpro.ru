@@ -1,12 +1,16 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
 declare(strict_types=1);
 
-namespace App\Orchid\Layouts\Examples;
+namespace App\Orchid\Screens\Examples\Layouts;
 
 use Orchid\Screen\Layouts\Chart;
 
-class ChartPieExample extends Chart
+class ChartPercentageExample extends Chart
 {
     /**
      * Available options:
@@ -15,10 +19,10 @@ class ChartPieExample extends Chart
      *
      * @var string
      */
-    protected $type = self::TYPE_PIE;
+    protected $type = self::TYPE_PERCENTAGE;
 
     /**
      * @var int
      */
-    protected $height = 350;
+    protected $height = 160;
 }
