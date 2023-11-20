@@ -14,7 +14,7 @@ class HomepageController extends Controller
     public function __invoke()
     {
         $intro = Variable::find('intro')?->value ?? [];
-        if ($media = Attachment::find($intro['background'])) {
+        if ($media = Attachment::find($intro['background'] ?? null)) {
             $intro['background'] = $media->url;
         }
 
