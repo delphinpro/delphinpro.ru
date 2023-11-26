@@ -3,7 +3,13 @@
         <x-app.logo class="header__brand"/>
         <nav class="main-navigation">
             <ul class="main-navigation__menu">
-                <li class="main-navigation__item"><a class="main-navigation__link active" href="/">Главная</a></li>
+                @foreach($mainmenu as $item)
+                    <li class="main-navigation__item">
+                        <a class="main-navigation__link {{ $item['activeClass'] }}"
+                            href="{{ $item['link'] }}"
+                        >{{ $item['title'] }}</a>
+                    </li>
+                @endforeach
             </ul>
         </nav>
     </div>
