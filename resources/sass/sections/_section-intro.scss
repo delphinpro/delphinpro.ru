@@ -2,10 +2,13 @@
 // Copyright (c) 2023.
 
 .section-intro {
+    min-width: 100%;
+    max-height: 100vh;
     transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
     color: #fff;
     background: #7d7d88 50% 50% no-repeat;
     background-size: cover;
+    aspect-ratio: 1920 / 1060;
 
     &__overlay {
         transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
@@ -17,7 +20,11 @@
         position: relative;
         display: flex;
         align-items: center;
-        min-height: 100vh;
+        height: 100%;
+        min-height: 50vh;
+        max-height: 100vh;
+        padding-top: calc(var(--header-full-height) * 2);
+        padding-bottom: var(--header-full-height);
     }
 
     &__content {
@@ -27,7 +34,7 @@
     }
 
     &__title {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 7.14vw, 6.25rem);
         font-weight: 500;
         line-height: 1;
         margin: 0;
@@ -45,9 +52,6 @@
     }
 
     @include media-breakpoint-up(sm) {
-        &__title {
-            @include font-size(100px);
-        }
         &__text {
             @include font-size(24px);
             max-width: 75%;

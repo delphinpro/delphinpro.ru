@@ -26,7 +26,7 @@
         font-size: rfs-value(30px);
         line-height: 1.5;
         margin-bottom: 1.5rem;
-        color: #000;
+        color: var(--bs-heading-color);
     }
 
     &__subheading {
@@ -44,7 +44,7 @@
     }
 
     &_bg_strip {
-        background-color: $gray-100;
+        background-color: #fff;
     }
 
     @include media-breakpoint-up(md) {

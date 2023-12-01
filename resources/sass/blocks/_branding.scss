@@ -33,4 +33,10 @@
             margin-left: -0.1em;
         }
     }
+
+    .header &__part {
+        @include media-breakpoint-down(sm) {
+            display: none;
+        }
+    }
 }

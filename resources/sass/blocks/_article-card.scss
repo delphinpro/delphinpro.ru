@@ -4,11 +4,11 @@
 @use 'sass:math';
 
 .article-card {
+    @extend .shadow-lg;
     display: flex;
     flex-direction: column;
     width: 100%;
     background: #fff;
-    box-shadow: 0 23px 49px 0 rgba(61, 82, 96, 0.15);
 
     &__preview {
         position: relative;
@@ -35,6 +35,7 @@
         position: relative;
         flex-grow: 1;
         padding: rhythm(1.25) rhythm(1.25) 0 rhythm(1.25);
+        :last-child { margin-bottom: 0; }
     }
 
     &__title {

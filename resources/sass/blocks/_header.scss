@@ -21,11 +21,14 @@
     }
 
     &__brand {
-        font-size: 2rem;
+        font-size: 1.5rem;
         line-height: var(--header-height);
         height: var(--header-height);
         margin-right: auto;
         transition: font-size 0.3s ease;
+        @include media-breakpoint-up(md) {
+            font-size: 2rem;
+        }
     }
 
     //==
@@ -47,11 +50,16 @@
         border-bottom-color: transparent;
         background-color: var(--bs-gray-900);
         box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
-        --header-y: 0.25rem;
+        --header-y: 0; //0.25rem;
     }
 
     &.is-sticky &__brand {
         font-size: 1.5rem;
         font-weight: 400;
+    }
+    @include media-breakpoint-between(sm, md) {
+        @media (orientation: landscape) {
+            position: absolute;
+        }
     }
 }
