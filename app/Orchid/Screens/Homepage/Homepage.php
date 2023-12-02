@@ -7,14 +7,14 @@
 namespace App\Orchid\Screens\Homepage;
 
 use App\Models\Variable;
+use App\Orchid\Helpers\ButtonSave;
+use App\Orchid\Helpers\LinkPreview;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Picture;
 use Orchid\Screen\Screen;
-use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
 
@@ -35,9 +35,8 @@ class Homepage extends Screen
     public function commandBar(): iterable
     {
         return [
-            Button::make('Сохранить')
-                ->type(Color::SUCCESS)
-                ->method('save'),
+            LinkPreview::make(route('home')),
+            ButtonSave::make(),
         ];
     }
 
