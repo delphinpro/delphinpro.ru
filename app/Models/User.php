@@ -7,6 +7,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -31,6 +32,7 @@ class User extends Authenticatable
         'email',
         'password',
         'permissions',
+        'settings',
     ];
 
     /**
@@ -53,6 +55,7 @@ class User extends Authenticatable
         'permissions'       => 'array',
         'email_verified_at' => 'datetime',
         'password'          => 'hashed',
+        'settings'          => AsArrayObject::class,
     ];
 
     /**

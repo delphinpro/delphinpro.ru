@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->string('password');
             $table->rememberToken();
             $table->jsonb('permissions')->nullable();
+            $table->json('settings')->nullable();
             $table->timestamps();
         });
     }

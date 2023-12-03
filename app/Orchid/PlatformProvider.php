@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace App\Orchid;
 
-use Nwidart\Modules\Facades\Module;
 use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemPermission;
 use Orchid\Platform\OrchidServiceProvider;
@@ -62,6 +61,10 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make(__('Роли'))
                 ->route('platform.systems.roles')
                 ->permission('platform.systems.roles')
+                ->divider(),
+
+            Menu::make(__('Настройки'))
+                ->route('platform.settings.user')
                 ->divider(),
         ]);
 
