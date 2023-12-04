@@ -6,6 +6,9 @@
 
 declare(strict_types=1);
 
+use App\Orchid\Screens\Article\ArticleEditScreen;
+use App\Orchid\Screens\Article\ArticleListScreen;
+use App\Orchid\Screens\Article\ArticleTrashScreen;
 use App\Orchid\Screens\Examples as Ex;
 use App\Orchid\Screens\Homepage\Homepage;
 use App\Orchid\Screens\PlatformScreen;
@@ -24,6 +27,11 @@ Route::screen('/main', PlatformScreen::class)
 Route::screen('homepage', Homepage::class)->name('platform.homepage');
 
 Route::screen('settings/user', UserSettingsScreen::class)->name('platform.settings.user');
+
+Route::screen('articles/{article}/edit', ArticleEditScreen::class)->name('platform.article.edit');
+Route::screen('articles/create', ArticleEditScreen::class)->name('platform.article.create');
+Route::screen('articles/trash', ArticleTrashScreen::class)->name('platform.article.trash');
+Route::screen('articles', ArticleListScreen::class)->name('platform.article.list');
 
 Route::screen('profile', UserProfileScreen::class)->name('platform.profile');
 Route::screen('users/{user}/edit', UserEditScreen::class)->name('platform.systems.users.edit');

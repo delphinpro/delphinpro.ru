@@ -53,6 +53,9 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Главная страница')
                 ->route('platform.homepage'),
 
+            Menu::make('Публикации')
+                ->route('platform.article.list'),
+
             Menu::make(__('Пользователи'))
                 ->route('platform.systems.users')
                 ->permission('platform.systems.users')

@@ -21,7 +21,7 @@ function getTimeZoneList(): Collection
     });
 }
 
-function getUserTimeZone()
+function getUserTimeZone(): ?string
 {
     return auth()?->user()->settings['timezone'] ?? config('app.timezone');
 }

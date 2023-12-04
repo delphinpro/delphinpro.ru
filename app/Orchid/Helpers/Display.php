@@ -21,7 +21,7 @@ class Display
     {
         return $carbon
             ? '<span class="font-monospace">'.$carbon->format('d.m.Y').'</span>'
-            .' <small class="font-monospace text-muted"><small>'.$carbon->toTimeString().'</small></small>'
+            .' <small class="font-monospace text-muted"><small>'.$carbon->format('H:i').'</small></small>'
             : '';
     }
 }
