@@ -133,7 +133,9 @@ return [
      */
 
     'resource' => [
-        'stylesheets' => [],
+        'stylesheets' => [
+            '/vendor/orchid/css/custom.css',
+        ],
         'scripts'     => [],
     ],
 

@@ -1,3 +1,150 @@
-body {
-    background: red !important;
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
+
+:root {
+    --border-color: rgb(21 20 26 / 25%);
+}
+
+.table tbody tr td {
+    font-size: 1rem;
+}
+
+.table thead tr th,
+.table tbody tr td {
+    padding: 0.5rem 1rem;
+    border-color: var(--border-color) !important;
+}
+
+.btn-light {
+    background-color: #e9ecef !important;
+}
+
+.btn-light:hover {
+    background-color: #cfd5db !important;
+}
+
+.input-group,
+.bootstrap-tagsinput, .chosen-choices, .chosen-single, .form-control, .form-range {
+    max-width: none !important;
+}
+
+.bootstrap-tagsinput, .chosen-choices, .chosen-single, .form-control {
+    border-color: var(--border-color);
+}
+
+.form-group label ~ p {
+    margin-bottom: 0;
+}
+
+.ql-container.ql-snow, .ql-toolbar.ql-snow {
+    border-color: var(--border-color);
+}
+
+.command-bar-wrapper {
+    top: 0;
+    bottom: auto;
+}
+
+.command-bar-wrapper h1 {
+    font-size: 1.2rem !important;
+    font-weight: 500 !important;
+}
+
+.command-bar {
+    align-items: stretch !important;
+    height: 2.5rem;
+}
+
+.command-bar > li,
+.command-bar > li > .form-group {
+    display: flex;
+}
+
+.layout {
+    border-radius: 0 !important;
+    box-shadow: 0 .125rem 3rem rgba(16, 9, 57, 0.15) !important;
+    padding-block: 0.5rem !important;
+}
+
+.picture-preview,
+.cropper-preview {
+    max-width: 400px;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.cropper-actions {
+    border: 1px solid var(--border-color) !important;
+}
+
+.flatpickr-calendar {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #eee;
+    box-shadow: 1px 0 0 #e6e6e6, -1px 0 0 #e6e6e6, 0 1px 0 #e6e6e6, 0 -1px 0 #e6e6e6, 0 3px 13px rgba(0, 0, 0, .08);
+}
+
+.flatpickr-time input,
+.flatpickr-input {
+    font-family: Consolas, monospace;
+}
+
+.toast-wrapper {
+    position: fixed;
+    z-index: 1030;
+    top: .5em;
+    right: auto;
+    left: 50%;
+    width: 30em;
+    transform: translateX(-50%);
+}
+
+.toast {
+    width: 500px;
+    color: #fff;
+    background-color: #394247 !important;
+    background-color: #1c1b22 !important;
+}
+
+.toast-text {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.toast-icon {
+    position: relative;
+    top: 0.25em;
+    display: flex;
+    flex-shrink: 0;
+}
+
+.toast-icon svg {
+    flex-shrink: 0;
+}
+
+.toast .btn-close {
+    background: transparent url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3E%3Cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3E%3C/svg%3E") 50%/1em auto no-repeat;
+}
+
+/*************************************************/
+
+.bulb {
+    font-size: 0.85em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.bulb i {
+    width: var(--size);
+    height: var(--size);
+    border-radius: 100%;
+    --size: 0.5rem;
+}
+
+small small {
+    font-size: 0.875em;
 }
