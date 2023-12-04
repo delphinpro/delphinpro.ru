@@ -75,11 +75,12 @@ class UserSettingsScreen extends Screen
 
     public function save(Request $request): RedirectResponse
     {
-        $timezone = $request->input('user.timezone');
+        $us = ($user = $request->user())->settings;
 
-        $request->user()->settings['timezone'] = $timezone === config('app.timezone') ? null : $timezone;
+        $us['timezone'] = ($timezone = $request->input('user.timezone')) === config('app.timezone') ? null : $timezone;
 
-        $request->user()->save();
+        $user->settings = $us;
+        $user->save();
 
         return back();
     }
