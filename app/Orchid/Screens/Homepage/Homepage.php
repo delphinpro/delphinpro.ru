@@ -23,7 +23,8 @@ class Homepage extends Screen
     public function query(): iterable
     {
         return [
-            'intro' => Variable::find('intro')?->value ?? [],
+            'intro'    => Variable::find('intro')?->value ?? [],
+            'articles' => Variable::find('lastArticles')?->value ?? [],
         ];
     }
 
@@ -65,6 +66,28 @@ class Homepage extends Screen
                     ->storage('public')
                     ->targetId(),
             ]))->title('Вступительная секция'),
+
+            Layout::block(Layout::rows([
+                CheckBox::make('articles.enabled')
+                    ->placeholder('Отображать эту секцию')
+                    ->sendTrueOrFalse(),
+
+                Input::make('articles.title')
+                    ->title('Заголовок')
+                    ->type('text')
+                    ->max(255)
+                    ->required(),
+
+                Input::make('articles.subtitle')
+                    ->title('Строка текста')
+                    ->type('text')
+                    ->max(255),
+
+                Input::make('articles.count')
+                    ->title('Количество статей')
+                    ->type('number')
+                    ->max(9),
+            ]))->title('Последние статьи'),
         ];
     }
 
@@ -75,6 +98,11 @@ class Homepage extends Screen
             'intro.title'      => 'required|string',
             'intro.subtitle'   => 'string|nullable',
             'intro.background' => 'int|nullable',
+
+            'articles.enabled'  => 'required|bool',
+            'articles.title'    => 'required|string',
+            'articles.subtitle' => 'string|nullable',
+            'articles.count'    => 'int|required|min:1',
         ]);
 
 
@@ -88,6 +116,18 @@ class Homepage extends Screen
         Variable::findOrNew('intro')->fill([
             'name'  => 'intro',
             'value' => $intro,
+        ])->save();
+
+        $articles = [
+            'enabled'  => (bool)(int)$validated['articles']['enabled'],
+            'title'    => $validated['articles']['title'],
+            'subtitle' => $validated['articles']['subtitle'],
+            'count'    => (int)$validated['articles']['count'],
+        ];
+
+        Variable::findOrNew('lastArticles')->fill([
+            'name'  => 'lastArticles',
+            'value' => $articles,
         ])->save();
 
         Toast::info('Сохранено');
