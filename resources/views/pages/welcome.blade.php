@@ -8,6 +8,6 @@
     {{--@include('partials.sections.services')--}}
     {{--@include('partials.sections.work')--}}
     {{--@include('partials.sections.skills')--}}
-    {{--@include('partials.sections.articles')--}}
+    @includeWhen($lastArticles['enabled']??false, 'partials.sections.articles')
     {{--@include('partials.sections.reviews')--}}
 @endsection

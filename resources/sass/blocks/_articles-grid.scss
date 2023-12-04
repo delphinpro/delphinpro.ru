@@ -14,6 +14,12 @@
         grid-gap: rhythm(1);
     }
 
+    @include media-breakpoint-between(md, xl) {
+        &_count_3 &__item:nth-child(2) ~ &__item {
+            display: none;
+        }
+    }
+
     @include media-breakpoint-up(xl) {
         grid-template-columns: repeat(3, 1fr);
     }
