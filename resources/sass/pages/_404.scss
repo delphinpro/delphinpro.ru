@@ -1,0 +1,36 @@
+// Site delphinpro.ru
+// Copyright (c) 2023.
+
+.page404 {
+    @extend .page;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+
+    &__dot {
+        font-family: var(--bs-font-monospace);
+        display: inline-block;
+        letter-spacing: -0.3em;
+        color: var(--bs-primary);
+
+        &:first-child {
+            margin-right: 0.2em;
+        }
+
+        &:last-child {
+            margin-left: -0.1em;
+        }
+    }
+
+    &__code {
+        font-size: clamp(4rem, 6vw, 6rem);
+        line-height: 1;
+    }
+
+    &__text {
+        font-size: clamp(1.6rem, 4vw, 3rem);
+    }
+}
