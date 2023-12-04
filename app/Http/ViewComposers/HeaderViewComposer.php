@@ -18,6 +18,11 @@ class HeaderViewComposer
                 'link'        => route('home'),
                 'activeClass' => active('home'),
             ],
+            [
+                'title'       => 'Публикации',
+                'link'        => route('article.index'),
+                'activeClass' => active('article.*'),
+            ],
         ]);
     }
 }
