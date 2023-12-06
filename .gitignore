@@ -3,7 +3,8 @@
 /public/build
 /public/hot
 /public/storage
-/public/*.*
+/public/**/*.*
+!/public/vendor/orchid/**
 /storage/*.key
 /vendor
 .env
