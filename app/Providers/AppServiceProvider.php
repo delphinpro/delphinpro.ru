@@ -8,6 +8,7 @@ namespace App\Providers;
 
 use App\Models\Article;
 use App\Observers\ArticleObserver;
+use App\Services\Settings;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(Settings::class, fn() => new Settings(storage_path('app/settings.php')));
     }
 
     /**
