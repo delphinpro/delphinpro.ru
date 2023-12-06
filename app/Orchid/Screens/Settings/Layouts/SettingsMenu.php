@@ -19,6 +19,7 @@ class SettingsMenu extends TabMenu
     protected function navigations(): iterable
     {
         return [
+            Menu::make('Общие')->route('platform.settings.general'),
             Menu::make('Пользовательские')->route('platform.settings.user'),
         ];
     }

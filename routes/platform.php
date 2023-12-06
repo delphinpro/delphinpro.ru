@@ -14,6 +14,7 @@ use App\Orchid\Screens\Homepage\Homepage;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
+use App\Orchid\Screens\Settings\GeneralSettingsScreen;
 use App\Orchid\Screens\Settings\UserSettingsScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
@@ -26,6 +27,7 @@ Route::screen('/main', PlatformScreen::class)
 
 Route::screen('homepage', Homepage::class)->name('platform.homepage');
 
+Route::screen('settings/general', GeneralSettingsScreen::class)->name('platform.settings.general');
 Route::screen('settings/user', UserSettingsScreen::class)->name('platform.settings.user');
 
 Route::screen('articles/{article}/edit', ArticleEditScreen::class)->name('platform.article.edit');

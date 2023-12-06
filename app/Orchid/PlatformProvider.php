@@ -67,7 +67,8 @@ class PlatformProvider extends OrchidServiceProvider
                 ->divider(),
 
             Menu::make(__('Настройки'))
-                ->route('platform.settings.user')
+                ->route('platform.settings.general')
+                ->active('*/settings/*')
                 ->divider(),
         ]);
 

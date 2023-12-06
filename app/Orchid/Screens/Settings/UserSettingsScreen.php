@@ -17,6 +17,7 @@ use Orchid\Screen\Fields\Label;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
+use Orchid\Support\Facades\Toast;
 
 class UserSettingsScreen extends Screen
 {
@@ -38,6 +39,11 @@ class UserSettingsScreen extends Screen
     public function name(): ?string
     {
         return 'Настройки';
+    }
+
+    public function description(): ?string
+    {
+        return 'Пользовательские';
     }
 
     /**
@@ -81,6 +87,8 @@ class UserSettingsScreen extends Screen
 
         $user->settings = $us;
         $user->save();
+
+        Toast::info('Настройки сохранены');
 
         return back();
     }
