@@ -38,6 +38,10 @@
     margin-bottom: 0;
 }
 
+.form-check-label:not(.form-label ~ .form-check .form-check-label):not(.form-label ~ div  .form-check .form-check-label) {
+    font-weight: 500;
+}
+
 .ql-container.ql-snow, .ql-toolbar.ql-snow {
     border-color: var(--border-color);
 }
@@ -104,6 +108,7 @@
 .toast {
     width: 500px;
     color: #fff;
+    border: 2px solid #fff !important;
     background-color: #394247 !important;
     background-color: #1c1b22 !important;
 }
@@ -127,6 +132,19 @@
 
 .toast .btn-close {
     background: transparent url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3E%3Cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3E%3C/svg%3E") 50%/1em auto no-repeat;
+}
+
+.codeflask__flatten,
+.codeflask__lines,
+.codeflask code[class*=language-],
+.codeflask pre[class*=language-] {
+    font-size: 18px !important;
+    line-height: 24px !important;
+}
+
+.codeflask__lines,
+.codeflask.codeflask--has-line-numbers:before {
+    z-index: 10 !important;
 }
 
 /*************************************************/
