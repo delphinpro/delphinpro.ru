@@ -5,6 +5,7 @@
 /public/storage
 /public/**/*.*
 !/public/vendor/orchid/**
+!/public/static/**
 /storage/*.key
 /vendor
 .env
