@@ -29,9 +29,17 @@ class ArticleFactory extends Factory
             'cover_id'   => Seed::loadRandomFile('images'),
             'title'      => ucfirst($this->faker->words($this->faker->numberBetween(3, 7), true)),
             'summary'    => $this->faker->sentences(6, true),
-            'content'    => implode(' ', array_map(static fn($p) => '<p>'.$p.'</p>', $this->faker->paragraphs(30))),
+            'content'    => $this->makeContent(),
             'created_at' => $date,
             'updated_at' => $date,
         ];
+    }
+
+    private function makeContent(): string
+    {
+        return implode(
+            '',
+            array_map(static fn($p) => '<p>'.trim($p).'</p>', $this->faker->paragraphs(30))
+        );
     }
 }
