@@ -6,6 +6,28 @@
 
 @section('title', $article->title)
 
+@section('meta')
+    @if($article->keywords)
+        <meta property="keywords" content="{{ $article->keywords }}">
+    @endif
+    @if($article->description)
+        <meta property="description" content="{{ $article->description }}">
+    @endif
+@endsection
+
+@section('og')
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{ $article->title }}">
+    <meta property="og:url" content="{{ route('article.show', $article) }}">
+    @if($article->cover->exists)
+        <meta property="og:image" content="{{ $article->cover->url }}">
+    @endif
+    @if($article->description)
+        <meta property="og:description" content="{{ $article->description }}">
+    @endif
+    <meta property="article:published_time" content="{{ $article->created_at->toIso8601String() }}">
+@endsection
+
 @section('content')
 
     <div class="article">
