@@ -11,7 +11,7 @@ use Orchid\Support\Color;
 
 class ButtonDelete
 {
-    public static function make(string $title = 'Удалить'): Button
+    public static function make(string $title = ''): Button
     {
         return Button::make($title)
             ->icon('bs.x-lg')
