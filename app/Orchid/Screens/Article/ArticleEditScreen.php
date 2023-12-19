@@ -7,6 +7,7 @@
 namespace App\Orchid\Screens\Article;
 
 use App\Models\Article;
+use App\Orchid\Fields\TinyMCE;
 use App\Orchid\Helpers\ButtonDelete;
 use App\Orchid\Helpers\ButtonSave;
 use App\Orchid\Helpers\Display;
@@ -19,7 +20,6 @@ use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\Fields\Cropper;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Label;
-use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Screen;
@@ -102,18 +102,23 @@ class ArticleEditScreen extends Screen
             ]));
         }
 
+        $tinymceField = TinyMCE::make('article.content')->title('Содержание');
+        if ($this->article->exists) {
+            $tinymceField = $tinymceField->savingUrl(route('platform.article.saveContent', $this->article));
+        }
+
         return [
             Layout::split([
                 Layout::rows([
                     Input::make('article.title')->title('Заголовок')->required(),
                     TextArea::make('article.summary')->title('Краткое вступление для вывода в списках')->rows(4),
-                    Quill::make('article.content')->title('Содержание')->height('75vh'),
+                    $tinymceField,
                 ]),
                 Layout::rows([
                     Switcher::make('article.published')->placeholder('Опубликовать')->sendTrueOrFalse(),
-                    Cropper::make('article.cover_id')->title('Обложка')->targetId()->width(1200)->height(630),
+                    Cropper::make('article.cover_id')->title('Обложка')->targetId()->width(1200)->height(630)->group('article_cover'),
                     Input::make('article.keywords')->title('Ключевые слова'),
-                    Input::make('article.description')->title('Описание'),
+                    TextArea::make('article.description')->title('Описание')->rows(4),
                     Label::make('')->title('Дата и время создания')->value($createdAt)->canSee($this->article->exists),
                     CheckBox::make('update_time')->placeholder('Обновить время создания')->value(false)->canSee($this->article->exists),
                     Label::make('')->title('Дата и время обновления')->value($updatedAt)->canSee($this->article->exists),

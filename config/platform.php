@@ -136,7 +136,9 @@ return [
         'stylesheets' => [
             '/vendor/orchid/css/custom.css',
         ],
-        'scripts'     => [],
+        'scripts'     => [
+            '/static/tinymce/tinymce.min.js',
+        ],
     ],
 
     /*
@@ -151,7 +153,9 @@ return [
      |
      */
 
-    'vite' => [],
+    'vite' => [
+        'resources/admin/js/dashboard.js',
+    ],
 
     /*
      |--------------------------------------------------------------------------
@@ -269,7 +273,7 @@ return [
      */
 
     'turbo' => [
-        'cache' => true,
+        'cache' => false,
     ],
 
     /*

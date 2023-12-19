@@ -148,6 +148,64 @@
     z-index: 10 !important;
 }
 
+.tox-textarea-wrap textarea {
+    font-family: monospace !important;
+    font-size: 18px !important;
+}
+
+body .tox:not([dir=rtl]) .tox-toolbar__group:not(:last-of-type) {
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body .tox .tox-dialog {
+    max-width: 600px;
+    background: #141b24;
+}
+
+body .tox .tox-dialog--width-lg {
+    max-width: 1200px;
+}
+
+body .tox .tox-dialog__header,
+body .tox .tox-dialog__footer {
+    background: none;
+}
+
+body .tox .tox-dropzone {
+    position: relative;
+    background: #222f3e;
+}
+
+body .tox .tox-dropzone p {
+    position: absolute;
+    top: 50%;
+    margin-top: -45px !important;
+}
+
+body .tox .tox-form__group {
+    margin-bottom: 10px;
+}
+
+body .tox .tox-label,
+body .tox .tox-toolbar-label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, .7);
+}
+
+body .tox .tox-toolbar,
+body .tox .tox-toolbar__overflow,
+body .tox .tox-toolbar__primary {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    background: none !important;
+}
+
+@media (max-width: 1199.98px) {
+    body:not(.menu-open) .aside-collapse {
+        min-height: auto;
+    }
+}
+
 /*************************************************/
 
 .bulb {

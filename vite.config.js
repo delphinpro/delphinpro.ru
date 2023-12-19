@@ -11,13 +11,14 @@ export default defineConfig({
     resolve: {
         alias: {
             '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
-        }
+        },
     },
     plugins: [
         laravel({
             input  : [
                 'resources/sass/app.scss',
                 'resources/js/app.js',
+                'resources/admin/js/dashboard.js',
             ],
             refresh: true,
         }),

@@ -6,6 +6,9 @@
 
 declare(strict_types=1);
 
+use App\Http\Middleware\VerifyCsrfToken;
+use App\Orchid\Controllers\ArticleController;
+use App\Orchid\Controllers\UploadController;
 use App\Orchid\Screens\Article\ArticleEditScreen;
 use App\Orchid\Screens\Article\ArticleListScreen;
 use App\Orchid\Screens\Article\ArticleTrashScreen;
@@ -30,6 +33,7 @@ Route::screen('homepage', Homepage::class)->name('platform.homepage');
 Route::screen('settings/general', GeneralSettingsScreen::class)->name('platform.settings.general');
 Route::screen('settings/user', UserSettingsScreen::class)->name('platform.settings.user');
 
+Route::post('articles/{article}/save', [ArticleController::class, 'saveContent'])->name('platform.article.saveContent');
 Route::screen('articles/{article}/edit', ArticleEditScreen::class)->name('platform.article.edit');
 Route::screen('articles/create', ArticleEditScreen::class)->name('platform.article.create');
 Route::screen('articles/trash', ArticleTrashScreen::class)->name('platform.article.trash');
@@ -42,6 +46,9 @@ Route::screen('users', UserListScreen::class)->name('platform.systems.users');
 Route::screen('roles/{role}/edit', RoleEditScreen::class)->name('platform.systems.roles.edit');
 Route::screen('roles/create', RoleEditScreen::class)->name('platform.systems.roles.create');
 Route::screen('roles', RoleListScreen::class)->name('platform.systems.roles');
+
+Route::post('upload', [UploadController::class, 'upload'])->name('image.upload')
+    ->withoutMiddleware(VerifyCsrfToken::class);
 
 Route::screen('example', Ex\ExampleScreen::class)->name('platform.example');
 

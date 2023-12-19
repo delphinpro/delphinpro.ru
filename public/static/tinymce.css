@@ -1,0 +1,36 @@
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
+
+body {
+    line-height: 1.6;
+    margin: 1rem 1rem 5rem;
+}
+
+@media (min-width: 1000px) {
+    body {
+        font-size: 22px !important;
+    }
+
+    pre {
+        font-size: 18px !important;
+    }
+}
+
+a {
+    color: blue;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+code {
+    /*font-weight: bold;*/
+    color: #df3200;
+    border: 1px solid #ddd;
+    background: #eee;
+    padding-inline: 0.25em;
+}
