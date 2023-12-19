@@ -8,7 +8,7 @@
     gap: rhythm(0.25);
 }
 
-.tag {
+.tag:not(code .tag) { // Для совместимости с плагином подсветки кода.
     @include font(12px);
     font-weight: 500;
     display: inline-block;

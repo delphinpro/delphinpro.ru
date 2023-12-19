@@ -8,6 +8,7 @@ $rhythm: 1.5rem;
     --header-height: #{$rhythm * 2};
     --header-full-height: #{$rhythm * 2 + 2rem};
     --header-color: #fff;
+    --page-py: #{rhythm(2)};
 }
 
 body {
@@ -17,16 +18,31 @@ body {
     );
 }
 
-h3, .h3, h2, .h2, h1, .h1 {
-    font-weight: 400;
+h1, .h1, h2, .h2, h3, .h3 {
+    font-weight: 500;
 }
 
-h6, .h6, h5, .h5, h4, .h4 {
-    font-weight: 500;
+h4, .h4, h5, .h5, h6, .h6 {
+    font-weight: 600;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    &:not(:first-child) {
+        margin-top: 1.5em;
+    }
+    &:not(:last-child) {
+        margin-bottom: 0.5em;
+    }
 }
 
 img {
     max-width: 100%;
+}
+
+pre {
+    @include media-breakpoint-down(sm) {
+        font-size: 0.75rem;
+    }
 }
 
 [x-cloak] {

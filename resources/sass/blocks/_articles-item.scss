@@ -1,0 +1,62 @@
+// Site delphinpro.ru
+// Copyright (c) 2023.
+
+@use 'sass:math';
+
+.article-item {
+    display: grid;
+    padding: var(--padding);
+    border-radius: $border-radius-sm;
+    //flex-direction: column;
+    //width: 100%;
+    background: #fff;
+    box-shadow: 0 23px 49px 0 rgba(61, 82, 96, 0.15);
+    gap: rhythm(1);
+
+    --padding: #{rhythm(1)};
+
+    &__preview {
+        width: 100%;
+        max-width: 37.5rem;
+        margin: 0 auto;
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 25rem;
+        border-radius: $border-radius-sm;
+        box-shadow: $box-shadow;
+        aspect-ratio: 1.9;
+        object-fit: cover;
+    }
+
+    &__content {
+        //position: relative;
+        //flex-grow: 1;
+        //padding: rhythm(1.25) rhythm(1.25) 0 rhythm(1.25);
+        //:last-child { margin-bottom: 0; }
+    }
+
+    &__title {
+        margin: 0 !important;
+        //@include font(24px, 1.25);
+        //font-weight: 300;
+        //margin-bottom: rhythm(0.5);
+    }
+
+    &__datebox {
+        color: $gray-500;
+    }
+
+    &__footer {
+        //display: flex;
+        //align-items: center;
+        //padding: 0 rhythm(1.25) rhythm(1);
+    }
+
+    &__tags {
+        //margin-right: auto;
+    }
+}

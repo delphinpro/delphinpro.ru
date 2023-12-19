@@ -10,15 +10,17 @@
             <div class="articles-grid articles-grid_count_3">
                 @foreach($articles as $article)
                     <div class="articles-grid__item">
-                        <div class="article-card">
-                            <figure class="article-card__preview">
-                                <img class="article-card__image" alt="" src="{{ $article->cover->url }}">
-                            </figure>
+                        <article class="article-card">
+                            <h2 class="article-card__title">
+                                <a href="{{ route('article.show', $article) }}">{{ $article->title }}</a>
+                            </h2>
+                            @if($article->cover->exists)
+                                <a href="{{ route('article.show', $article) }}" class="article-card__preview">
+                                    <img class="article-card__image" alt="" src="{{ $article->cover->url }}">
+                                </a>
+                            @endif
                             <div class="article-card__content">
-                                <h3 class="article-card__title">
-                                    <a href="{{ route('article.show', $article) }}">{{ $article->title }}</a>
-                                </h3>
-                                <p>{{ $article->summary }}</p>
+                                {{ $article->summary }}
                             </div>
                             <div class="article-card__footer">
                                 {{-- <div class="article-card__tags tags">
@@ -30,7 +32,7 @@
                                     </time>
                                 </div>
                             </div>
-                        </div>
+                        </article>
                     </div>
                 @endforeach
             </div>

@@ -28,41 +28,55 @@
     <meta property="article:published_time" content="{{ $article->created_at->toIso8601String() }}">
 @endsection
 
+@section('body_class', 'line-numbers')
+
+@section('vendor_styles')
+    <link rel="stylesheet" href="{{ asset('static/prismjs/prism.css') }}">
+@endsection
+
+@section('vendor_scripts')
+    <script src="{{ asset('static/prismjs/prism.js') }}"></script>
+@endsection
+
 @section('content')
 
     <div class="article">
-        <h1>{{ $article->title }}</h1>
-        <div class="article__meta">
-            <div class="article__date">
-                <time datetime="{{ $article->created_at }}">
-                    {{ $article->created_at->format('d.m.Y H:i') }}
-                </time>
+        <div class="article__header">
+            <h1>{{ $article->title }}</h1>
+            <div class="article__meta">
+                <div class="article__date">
+                    <time datetime="{{ $article->created_at }}">
+                        {{ $article->created_at->format('d.m.Y') }}
+                    </time>
+                </div>
+                {{--
+                <div class="article__author">
+                    {{ $article->user->name }}
+                </div>
+                --}}
             </div>
-            {{--
-            <div class="article__author">
-                {{ $article->user->name }}
-            </div>
-            --}}
         </div>
-        @if($article->cover->exists || $article->summary)
-            <div class="article__intro">
-                @if($article->cover->exists)
-                    <div class="article__cover">
-                        <img class="img-fluid img-thumbnail"
-                            src="{!! $article->cover->url !!}"
-                            alt="{{ $article->cover->name }}"
-                        >
-                    </div>
-                @endif
-                @if($article->summary)
-                    <div class="article__summary">
-                        {!! $article->summary !!}
-                    </div>
-                @endif
+        {{--             <div class="article__intro"> --}}
+        @if($article->cover->exists)
+            <div class="article__cover">
+                <img
+                    src="{!! $article->cover->url !!}"
+                    alt="{{ $article->cover->name }}"
+                >
             </div>
         @endif
+        @if($article->summary)
+            <div class="article__summary">
+                {!! $article->summary !!}
+            </div>
+        @endif
+        {{-- </div> --}}
+        @if($article->cover->exists || $article->summary)
+            <hr class="m-0">
+        @endif
+        <div class="article__content content">
+            {!! $article->content !!}
+        </div>
     </div>
-
-    {!! $article->content !!}
 
 @endsection

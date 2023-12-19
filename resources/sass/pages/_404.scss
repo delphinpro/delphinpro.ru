@@ -2,12 +2,12 @@
 // Copyright (c) 2023.
 
 .page404 {
-    @extend .page;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    padding-block: var(--page-py);
     gap: 1rem;
 
     &__dot {

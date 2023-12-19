@@ -1,0 +1,323 @@
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
+
+/* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+apacheconf+bash+batch+diff+javadoclike+markdown+markup-templating+php+phpdoc+scss+sql+yaml&plugins=line-highlight+line-numbers+toolbar+copy-to-clipboard+diff-highlight */
+
+code[class*=language-],
+pre[class*=language-] {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 1em;
+    line-height: 1.5;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-wrap: normal;
+    word-break: normal;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    -webkit-hyphens: none;
+    hyphens: none;
+    color: #000;
+    background: 0 0;
+    text-shadow: 0 1px #fff;
+}
+
+code[class*=language-] ::-moz-selection,
+code[class*=language-]::-moz-selection,
+pre[class*=language-] ::-moz-selection,
+pre[class*=language-]::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+code[class*=language-] ::selection,
+code[class*=language-]::selection,
+pre[class*=language-] ::selection,
+pre[class*=language-]::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+@media print {
+    code[class*=language-],
+    pre[class*=language-] {
+        text-shadow: none
+    }
+}
+
+pre[class*=language-] {
+    overflow: auto;
+    margin: .5em 0;
+    padding: 1em;
+}
+
+:not(pre) > code[class*=language-],
+pre[class*=language-] {
+    background: #f5f2f0
+}
+
+:not(pre) > code[class*=language-] {
+    padding: .1em;
+    white-space: normal;
+    border-radius: .3em;
+}
+
+.token.cdata,
+.token.comment,
+.token.doctype,
+.token.prolog {
+    color: #708090
+}
+
+.token.punctuation {
+    color: #999
+}
+
+.token.namespace {
+    opacity: .7
+}
+
+.token.boolean,
+.token.constant,
+.token.deleted,
+.token.number,
+.token.property,
+.token.symbol,
+.token.tag {
+    color: #905
+}
+
+.token.attr-name,
+.token.builtin,
+.token.char,
+.token.inserted,
+.token.selector,
+.token.string {
+    color: #690
+}
+
+.language-css .token.string,
+.style .token.string,
+.token.entity,
+.token.operator,
+.token.url {
+    color: #9a6e3a;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a
+}
+
+.token.class-name,
+.token.function {
+    color: #dd4a68
+}
+
+.token.important,
+.token.regex,
+.token.variable {
+    color: #e90
+}
+
+.token.bold,
+.token.important {
+    font-weight: 700
+}
+
+.token.italic {
+    font-style: italic
+}
+
+.token.entity {
+    cursor: help
+}
+
+pre[data-line] {
+    position: relative;
+    padding: 1em 0 1em 3em
+}
+
+.line-highlight {
+    line-height: inherit;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-top: 1em;
+    white-space: pre;
+    pointer-events: none;
+    background: hsla(24, 20%, 50%, .08);
+    background: linear-gradient(to right, hsla(24, 20%, 50%, .1) 70%, hsla(24, 20%, 50%, 0));
+    padding-inline: 0;
+}
+
+@media print {
+    .line-highlight {
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact
+    }
+}
+
+.line-highlight:before,
+.line-highlight[data-end]:after {
+    font: bold 65%/1.5 sans-serif;
+    position: absolute;
+    top: .4em;
+    left: .6em;
+    min-width: 1em;
+    padding: 0 .5em;
+    content: attr(data-start);
+    text-align: center;
+    vertical-align: .3em;
+    color: #f4f1ef;
+    border-radius: 999px;
+    background-color: hsla(24, 20%, 50%, .4);
+    box-shadow: 0 1px #fff;
+    text-shadow: none;
+}
+
+.line-highlight[data-end]:after {
+    top: auto;
+    bottom: .4em;
+    content: attr(data-end);
+}
+
+.line-numbers .line-highlight:after,
+.line-numbers .line-highlight:before {
+    content: none
+}
+
+pre[id].linkable-line-numbers span.line-numbers-rows {
+    pointer-events: all
+}
+
+pre[id].linkable-line-numbers span.line-numbers-rows > span:before {
+    cursor: pointer
+}
+
+pre[id].linkable-line-numbers span.line-numbers-rows > span:hover:before {
+    background-color: rgba(128, 128, 128, .2)
+}
+
+pre[class*=language-].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber
+}
+
+pre[class*=language-].line-numbers > code {
+    position: relative;
+    white-space: inherit
+}
+
+.line-numbers .line-numbers-rows {
+    font-size: 100%;
+    position: absolute;
+    top: 0;
+    left: -3.8em;
+    width: 3em;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    letter-spacing: -1px;
+    pointer-events: none;
+    border-right: 1px solid #999;
+}
+
+.line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber
+}
+
+.line-numbers-rows > span:before {
+    display: block;
+    padding-right: .8em;
+    content: counter(linenumber);
+    text-align: right;
+    color: #999;
+}
+
+div.code-toolbar {
+    position: relative
+}
+
+div.code-toolbar > .toolbar {
+    position: absolute;
+    z-index: 10;
+    top: .3em;
+    right: .2em;
+    transition: opacity .3s ease-in-out;
+    opacity: 0
+}
+
+div.code-toolbar:hover > .toolbar {
+    opacity: 1
+}
+
+div.code-toolbar:focus-within > .toolbar {
+    opacity: 1
+}
+
+div.code-toolbar > .toolbar > .toolbar-item {
+    display: inline-block
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > a {
+    cursor: pointer
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > button {
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    color: inherit;
+    border: 0;
+    background: 0 0;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > a,
+div.code-toolbar > .toolbar > .toolbar-item > button,
+div.code-toolbar > .toolbar > .toolbar-item > span {
+    font-size: .8em;
+    padding: 0 .5em;
+    color: #bbb;
+    border-radius: .5em;
+    background: #f5f2f0;
+    background: rgba(224, 224, 224, .2);
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, .2);
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > a:focus,
+div.code-toolbar > .toolbar > .toolbar-item > a:hover,
+div.code-toolbar > .toolbar > .toolbar-item > button:focus,
+div.code-toolbar > .toolbar > .toolbar-item > button:hover,
+div.code-toolbar > .toolbar > .toolbar-item > span:focus,
+div.code-toolbar > .toolbar > .toolbar-item > span:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+pre.diff-highlight > code .token.deleted:not(.prefix),
+pre > code.diff-highlight .token.deleted:not(.prefix) {
+    display: block;
+    color: inherit;
+    background-color: rgba(255, 0, 0, .1);
+}
+
+pre.diff-highlight > code .token.inserted:not(.prefix),
+pre > code.diff-highlight .token.inserted:not(.prefix) {
+    display: block;
+    color: inherit;
+    background-color: rgba(0, 255, 128, .1);
+}

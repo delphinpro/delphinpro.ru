@@ -11,16 +11,15 @@
 
         <div class="site__main" id="content">
             <div class="container">
-                <div class="page">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            @yield('content')
-                        </div>
-                        {{--
-                        <div class="col-lg-4">
-                        </div>
-                        --}}
-                    </div>
+                <div class="page @hasSection('aside') page_columns @endif">
+                    <main class="page__main" role="main">
+                        @yield('content')
+                    </main>
+                    @hasSection('aside')
+                        <aside class="page__side shadow-sm">
+                            @yield('aside')
+                        </aside>
+                    @endif
                 </div>
             </div>
         </div>

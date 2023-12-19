@@ -1,0 +1,29 @@
+// Site delphinpro.ru
+// Copyright (c) 2023.
+
+.content {
+    img {
+        max-width: 100%;
+        height: auto;
+        box-shadow: $box-shadow;
+        &:not([class]) {
+            display: block;
+            margin: auto;
+        }
+    }
+    code:not(pre code) {
+        color: #000;
+        //border: 1px solid #ddd;
+        //border-radius: 2px;
+        //background: #eee;
+        //padding-inline: 0.125em;
+    }
+    pre {
+        padding: rhythm(0.5) rhythm(1);
+        border: 1px solid #ddd;
+        background: #eee;
+    }
+    pre[class*=language-] {
+        margin: 1rem 0;
+    }
+}

@@ -89,7 +89,7 @@ $position-values: (
 
 $body-text-align:           null;
 $body-color:                $gray-900; //#595959;
-$body-bg:                   $gray-100;//$white;
+$body-bg:                   $gray-200;//$white;
 
 $body-secondary-color:      rgba($body-color, .75);
 $body-secondary-bg:         $gray-200;
@@ -104,9 +104,9 @@ $body-emphasis-color:       $black;
 // Style anchor elements.
 
 $link-color:                              $blue-600; // $primary;
-$link-decoration:                         none;
-$link-shade-percentage:                   20%;
-$link-hover-color:                        $blue;//shift-color($link-color, $link-shade-percentage);
+$link-decoration:                         underline;
+$link-shade-percentage:                   30%;
+$link-hover-color:                        shift-color($link-color, $link-shade-percentage);
 $link-hover-decoration:                   underline;
 
 $stretched-link-pseudo-element:           after;
@@ -249,7 +249,7 @@ $font-family-code:            Consolas, SFMono-Regular, Menlo, Monaco, "Liberati
 // $font-size-root affects the value of `rem`, which is used for as well font sizes, paddings, and margins
 // $font-size-base affects the font size of the body text
 $font-size-root:              null;//62.5%;
-$font-size-base:              1.25rem; // Assumes the browser default, typically `16px`
+$font-size-base:              1.1875rem; // Assumes the browser default, typically `16px`
 $font-size-sm:                $font-size-base * .875;
 $font-size-lg:                $font-size-base * 1.25;
 
@@ -267,9 +267,9 @@ $line-height-base:            1.5;
 $line-height-sm:              1.25;
 $line-height-lg:              2;
 
-$h1-font-size:                $font-size-base * 2;
-$h2-font-size:                $font-size-base * 1.75;
-$h3-font-size:                $font-size-base * 1.5;
+$h1-font-size:                $font-size-base * 1.5;
+$h2-font-size:                $font-size-base * 1.35;
+$h3-font-size:                $font-size-base * 1.15;
 $h4-font-size:                $font-size-base * 1.25;
 $h5-font-size:                $font-size-base * 1.25;
 $h6-font-size:                $font-size-base;
@@ -290,7 +290,7 @@ $headings-font-family:        null;
 $headings-font-style:         null;
 $headings-font-weight:        500;
 $headings-line-height:        1.2;
-$headings-color:              $gray-700;//#364d59
+$headings-color:              $black;//#364d59
 
 // display-headings
 $display-font-sizes: (
@@ -308,7 +308,7 @@ $display-font-weight: 300;
 $display-line-height: $headings-line-height;
 
 // type-variables
-$lead-font-size:              $font-size-base * 1.25;
+$lead-font-size:              $font-size-base * 1.15;
 $lead-font-weight:            300;
 
 $small-font-size:             .875em;
@@ -325,7 +325,7 @@ $blockquote-footer-color:     $gray-600;
 $blockquote-footer-font-size: $small-font-size;
 
 $hr-margin-y:                 $spacer;
-$hr-color:                    inherit;
+$hr-color:                    $gray-500;
 
 $hr-bg-color:                 null; // Deprecated in v5.2.0
 $hr-height:                   null; // Deprecated in v5.2.0
@@ -1299,8 +1299,8 @@ $offcanvas-backdrop-opacity:        $modal-backdrop-opacity;
 
 // Code
 
-$code-font-size:                    $small-font-size;
-$code-color:                        $pink;
+$code-font-size:                    $font-size-base;//$small-font-size;
+$code-color:                        $black;//$pink;
 
 $kbd-padding-y:                     .1875rem;
 $kbd-padding-x:                     .375rem;
