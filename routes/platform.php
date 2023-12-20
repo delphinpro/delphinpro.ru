@@ -33,10 +33,10 @@ Route::screen('homepage', Homepage::class)->name('platform.homepage');
 Route::screen('settings/general', GeneralSettingsScreen::class)->name('platform.settings.general');
 Route::screen('settings/user', UserSettingsScreen::class)->name('platform.settings.user');
 
-Route::post('articles/{article}/save', [ArticleController::class, 'saveContent'])->name('platform.article.saveContent');
-Route::screen('articles/{article}/edit', ArticleEditScreen::class)->name('platform.article.edit');
+Route::post('articles/save/{article}', [ArticleController::class, 'saveContent'])->name('platform.article.saveContent');
 Route::screen('articles/create', ArticleEditScreen::class)->name('platform.article.create');
 Route::screen('articles/trash', ArticleTrashScreen::class)->name('platform.article.trash');
+Route::screen('articles/{article}/edit', ArticleEditScreen::class)->name('platform.article.edit');
 Route::screen('articles', ArticleListScreen::class)->name('platform.article.list');
 
 Route::screen('profile', UserProfileScreen::class)->name('platform.profile');
