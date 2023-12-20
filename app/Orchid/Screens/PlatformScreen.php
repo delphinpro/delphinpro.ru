@@ -1,9 +1,15 @@
 <?php
+/*
+ * Site delphinpro.ru
+ * Copyright (c) 2023.
+ */
 
 declare(strict_types=1);
 
 namespace App\Orchid\Screens;
 
+use App\Models\Article;
+use App\Orchid\Helpers\LinkPreview;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 
@@ -16,24 +22,24 @@ class PlatformScreen extends Screen
      */
     public function query(): iterable
     {
-        return [];
+        $articlesCount = Article::count();
+
+        return [
+            'metrics' => [
+                'articles' => ['value' => number_format($articlesCount)],
+            ],
+        ];
     }
 
     /**
      * The name of the screen displayed in the header.
      */
-    public function name(): ?string
-    {
-        return 'Get Started';
-    }
+    public function name(): ?string { return 'Панель управления'; }
 
     /**
      * Display header description.
      */
-    public function description(): ?string
-    {
-        return 'Welcome to your Orchid application.';
-    }
+    public function description(): ?string { return 'delphinpro.ru'; }
 
     /**
      * The screen's action buttons.
@@ -42,7 +48,9 @@ class PlatformScreen extends Screen
      */
     public function commandBar(): iterable
     {
-        return [];
+        return [
+            LinkPreview::make(route('home')),
+        ];
     }
 
     /**
@@ -54,7 +62,10 @@ class PlatformScreen extends Screen
     {
         return [
             Layout::view('platform::partials.update-assets'),
-            Layout::view('platform::partials.welcome'),
+
+            Layout::metrics([
+                'Кол-во публикаций' => 'metrics.articles',
+            ]),
         ];
     }
 }
