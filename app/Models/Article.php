@@ -95,6 +95,6 @@ class Article extends Model
 
     public function scopeLastPublished(Builder $query): void
     {
-        $query->where('published', true)->orderByDesc('created_at');
+        $query->where('published', true)->orderByDesc('created_at')->orderByDesc('id');
     }
 }
