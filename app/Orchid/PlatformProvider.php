@@ -54,7 +54,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.homepage'),
 
             Menu::make('Публикации')
-                ->route('platform.article.list')
+                ->route('platform.article.list'),
+
+            Menu::make('Теги')
+                ->route('platform.tag.list')
                 ->divider(),
 
             Menu::make(__('Настройки'))

@@ -30,6 +30,10 @@ class ArticleFactory extends Factory
             'title'      => ucfirst($this->faker->words($this->faker->numberBetween(3, 7), true)),
             'summary'    => $this->faker->sentences(6, true),
             'content'    => $this->makeContent(),
+            'meta'       => [
+                'keywords'    => implode(', ', $this->faker->words()),
+                'description' => $this->faker->sentences(3, true),
+            ],
             'created_at' => $date,
             'updated_at' => $date,
         ];

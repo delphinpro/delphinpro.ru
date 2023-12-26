@@ -84,4 +84,15 @@ class Seed
 
         return self::loadFile($dir.'/'.$cover);
     }
+
+    public static function getContent(string $filename, ?array $placeholders = null): string
+    {
+        $content = file_get_contents(base_path(self::$DIR_ASSETS.'/'.trim($filename, '/')));
+
+        if ($placeholders) {
+            $content = __($content, $placeholders);
+        }
+
+        return $content;
+    }
 }

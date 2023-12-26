@@ -2,5 +2,7 @@
 // Copyright (c) 2023.
 
 .page-title {
-    margin-bottom: rhythm(2);
+    &:not(:last-child) {
+        margin-bottom: rhythm(2);
+    }
 }

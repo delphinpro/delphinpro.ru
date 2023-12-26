@@ -19,6 +19,7 @@ use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\Settings\GeneralSettingsScreen;
 use App\Orchid\Screens\Settings\UserSettingsScreen;
+use App\Orchid\Screens\Tags\TagListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
@@ -38,6 +39,8 @@ Route::screen('articles/create', ArticleEditScreen::class)->name('platform.artic
 Route::screen('articles/trash', ArticleTrashScreen::class)->name('platform.article.trash');
 Route::screen('articles/{article}/edit', ArticleEditScreen::class)->name('platform.article.edit');
 Route::screen('articles', ArticleListScreen::class)->name('platform.article.list');
+
+Route::screen('tags', TagListScreen::class)->name('platform.tag.list');
 
 Route::screen('profile', UserProfileScreen::class)->name('platform.profile');
 Route::screen('users/{user}/edit', UserEditScreen::class)->name('platform.systems.users.edit');

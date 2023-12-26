@@ -7,6 +7,7 @@
 namespace App\Orchid\Screens\Article;
 
 use App\Models\Article;
+use App\Models\Tag;
 use App\Orchid\Fields\TinyMCE;
 use App\Orchid\Helpers\ButtonDelete;
 use App\Orchid\Helpers\ButtonSave;
@@ -16,13 +17,17 @@ use App\Orchid\Helpers\LinkPreview;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\HtmlString;
+use Illuminate\Support\Str;
+use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\Fields\Cropper;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Label;
+use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Screen;
+use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
 
@@ -37,6 +42,7 @@ class ArticleEditScreen extends Screen
      */
     public function query(Article $article): iterable
     {
+        $article->load('tags');
         $this->article = $article;
 
         return [
@@ -87,6 +93,7 @@ class ArticleEditScreen extends Screen
      * The screen's layout elements.
      *
      * @return \Orchid\Screen\Layout[]|string[]
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function layout(): iterable
     {
@@ -108,11 +115,31 @@ class ArticleEditScreen extends Screen
         }
 
         return [
+            Layout::modal('TAG_MODAL', [
+                Layout::rows([
+                    Input::make('tag.name')->title('Название тега')->required(),
+                    TextArea::make('tag.description')->title('Описание тега'),
+                ]),
+            ])
+                ->title('Добавить новый тег')
+                ->applyButton('Сохранить')
+                ->closeButton('Отмена'),
+
             Layout::split([
                 Layout::rows([
                     Input::make('article.title')->title('Заголовок')->required(),
                     TextArea::make('article.summary')->title('Краткое вступление для вывода в списках')->rows(4),
                     $tinymceField,
+
+                    Relation::make('article.tags.')->title('Теги для статьи')
+                        ->fromModel(Tag::class, 'name')
+                        ->multiple()
+                        ->chunk(50),
+                    ModalToggle::make('Добавить новый тег')
+                        ->modal('TAG_MODAL')
+                        ->icon('bs.plus-lg')
+                        ->type(Color::PRIMARY)
+                        ->method('saveTag'),
                 ]),
                 Layout::rows([
                     Switcher::make('article.published')->placeholder('Опубликовать')->sendTrueOrFalse(),
@@ -153,6 +180,9 @@ class ArticleEditScreen extends Screen
             $article->save();
         }
 
+        $tags = $request->input('article.tags') ?? [];
+        $article->tags()->sync($tags);
+
         Toast::success('Сохранено')->delay(3000);
 
         return redirect()->route('platform.article.edit', $article);
@@ -172,5 +202,17 @@ class ArticleEditScreen extends Screen
         Toast::error('Не удалось удалить публикацию')->disableAutoHide();
 
         return redirect()->route('platform.article.edit', $article);
+    }
+
+    public function saveTag(Request $request): void
+    {
+        $request->validate([
+            'tag.name'        => 'required|unique:tags,name',
+            'tag.description' => 'nullable',
+        ]);
+        $input = $request->input('tag');
+        $input['name'] = Str::lower($input['name']);
+        $tag = Tag::create($input);
+        Toast::success('Тег добавлен: '.$tag->name);
     }
 }

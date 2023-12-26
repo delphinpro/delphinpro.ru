@@ -6,7 +6,7 @@
     @if($articles->isEmpty())
         <div class="alert alert-success">Нет опубликованных материалов</div>
     @else
-        <h1 class="page-title">Все публикации</h1>
+        <h1 class="page-title">Публикации с тегом «{{ $tag->name }}» ({{ $articles->count() }})</h1>
         @include('pages.list')
     @endif
 @endsection
