@@ -1,5 +1,5 @@
 @if($articles->articles->isNotEmpty())
-    <section class="section sectio-n_bg_strip section-articles">
+    <section @class(['section section-articles', 'section_bg_strip'=>$articles->strip])>
         <div class="section__container container">
             <h2 class="section__heading text-center section-articles__heading">
                 {{ $articles->title }}

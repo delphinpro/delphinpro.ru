@@ -7,7 +7,10 @@
 
 .section {
     position: relative;
+    background-color: var(--section-bg);
+
     --section-padding-y: 3rem;
+    --section-bg: transparent;
 
     &__overlay {
         position: absolute;
@@ -44,7 +47,7 @@
     }
 
     &_bg_strip {
-        background-color: #fff;
+        --section-bg: #fff;
     }
 
     @include media-breakpoint-up(md) {
@@ -56,5 +59,11 @@
 
     @include media-breakpoint-up(xl) {
         --section-padding-y: 6rem;
+    }
+}
+
+.section:not(.section_bg_strip):not(.section-intro) + .section:not(.section_bg_strip) {
+    .section__container {
+        padding-top: 0;
     }
 }

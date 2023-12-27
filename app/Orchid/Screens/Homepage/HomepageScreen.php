@@ -71,6 +71,10 @@ class HomepageScreen extends Screen
                     ->placeholder('Отображать эту секцию')
                     ->sendTrueOrFalse(),
 
+                CheckBox::make('articles.strip')
+                    ->placeholder('Strip color')
+                    ->sendTrueOrFalse(),
+
                 Input::make('articles.title')
                     ->title('Заголовок')
                     ->type('text')
@@ -98,6 +102,7 @@ class HomepageScreen extends Screen
             'intro.background' => 'int|nullable',
 
             'articles.enabled'  => 'required|bool',
+            'articles.strip'    => 'required|bool',
             'articles.title'    => 'string|nullable',
             'articles.subtitle' => 'string|nullable',
             'articles.count'    => 'int|required|min:1',
@@ -116,6 +121,7 @@ class HomepageScreen extends Screen
     {
         $casts = array_merge([
             'enabled'    => 'bool',
+            'strip'      => 'bool',
             'background' => 'int|null',
             'count'      => 'int',
         ], $casts);
