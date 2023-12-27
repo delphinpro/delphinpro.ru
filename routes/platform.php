@@ -13,7 +13,7 @@ use App\Orchid\Screens\Article\ArticleEditScreen;
 use App\Orchid\Screens\Article\ArticleListScreen;
 use App\Orchid\Screens\Article\ArticleTrashScreen;
 use App\Orchid\Screens\Examples as Ex;
-use App\Orchid\Screens\Homepage\Homepage;
+use App\Orchid\Screens\Homepage\HomepageScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 Route::screen('/main', PlatformScreen::class)
     ->name('platform.main');
 
-Route::screen('homepage', Homepage::class)->name('platform.homepage');
+Route::screen('homepage', HomepageScreen::class)->name('platform.homepage');
 
 Route::screen('settings/general', GeneralSettingsScreen::class)->name('platform.settings.general');
 Route::screen('settings/user', UserSettingsScreen::class)->name('platform.settings.user');

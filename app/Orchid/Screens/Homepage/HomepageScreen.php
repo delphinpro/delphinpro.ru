@@ -18,7 +18,7 @@ use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
 
-class Homepage extends Screen
+class HomepageScreen extends Screen
 {
     public function query(): iterable
     {
