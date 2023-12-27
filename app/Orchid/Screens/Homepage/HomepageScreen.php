@@ -52,8 +52,7 @@ class HomepageScreen extends Screen
                 Input::make('intro.title')
                     ->title('Заголовок')
                     ->type('text')
-                    ->max(255)
-                    ->required(),
+                    ->max(255),
 
                 Input::make('intro.subtitle')
                     ->title('Строка текста')
@@ -75,8 +74,7 @@ class HomepageScreen extends Screen
                 Input::make('articles.title')
                     ->title('Заголовок')
                     ->type('text')
-                    ->max(255)
-                    ->required(),
+                    ->max(255),
 
                 Input::make('articles.subtitle')
                     ->title('Строка текста')
@@ -95,12 +93,12 @@ class HomepageScreen extends Screen
     {
         $validated = $request->validate([
             'intro.enabled'    => 'required|bool',
-            'intro.title'      => 'required|string',
+            'intro.title'      => 'string|nullable',
             'intro.subtitle'   => 'string|nullable',
             'intro.background' => 'int|nullable',
 
             'articles.enabled'  => 'required|bool',
-            'articles.title'    => 'required|string',
+            'articles.title'    => 'string|nullable',
             'articles.subtitle' => 'string|nullable',
             'articles.count'    => 'int|required|min:1',
         ]);
