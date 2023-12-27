@@ -6,28 +6,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Article;
-use App\Models\Variable;
-use Orchid\Attachment\Models\Attachment;
+use App\Data\Concrete\AboutMeDTO;
+use App\Data\Concrete\ArticlesDTO;
+use App\Data\Concrete\IntroDTO;
 
 class HomepageController extends Controller
 {
     public function __invoke()
     {
-        $intro = Variable::find('intro')?->value ?? [];
-        if ($media = Attachment::find($intro['background'] ?? null)) {
-            $intro['background'] = $media->url;
-        }
-
-        $aboutMe = Variable::find('about_me')?->value ?? [];
-        $lastArticles = Variable::find('lastArticles')?->value ?? [];
-        $articles = Article::lastPublished()->take($lastArticles['count'] ?? 3)->get();
-
-        return view('pages.welcome', compact(
-            'intro',
-            'aboutMe',
-            'lastArticles',
-            'articles',
-        ));
+        return view('pages.welcome', [
+            'intro'    => IntroDTO::make('intro'),
+            'aboutMe'  => AboutMeDTO::make('aboutMe'),
+            'articles' => ArticlesDTO::make('lastArticles'),
+        ]);
     }
 }

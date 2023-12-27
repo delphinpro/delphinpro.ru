@@ -1,14 +1,14 @@
-@if($articles->isNotEmpty())
+@if($articles->articles->isNotEmpty())
     <section class="section sectio-n_bg_strip section-articles">
         <div class="section__container container">
             <h2 class="section__heading text-center section-articles__heading">
-                {{ $lastArticles['title'] ?? '' }}
+                {{ $articles->title }}
             </h2>
             <div class="section__subheading text-center">
-                <p>{{ $lastArticles['subtitle'] ?? '' }}</p>
+                <p>{{ $articles->subtitle }}</p>
             </div>
             <div class="articles-grid articles-grid_count_3">
-                @foreach($articles as $article)
+                @foreach($articles->articles as $article)
                     <div class="articles-grid__item">
                         <article class="article-card">
                             <h2 class="article-card__title">

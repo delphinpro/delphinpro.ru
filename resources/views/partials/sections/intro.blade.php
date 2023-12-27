@@ -1,12 +1,12 @@
 <section class="section section-intro"
-    style="background-image:url({{ $intro['background'] ?? '' }})"
+    style="background-image:url({{ $intro->backgroundUrl }})"
 >
     <div class="section__overlay section-intro__overlay"></div>
     <div class="section-intro__container container-fluid">
         <div class="section-intro__content">
-            <div class="section-intro__title">{{ $intro['title'] ?? '' }}</div>
+            <div class="section-intro__title">{{ $intro->title }}</div>
             <div class="section-intro__text">
-                {{ $intro['subtitle'] ?? '' }}
+                {{ $intro->subtitle }}
             </div>
         </div>
     </div>
