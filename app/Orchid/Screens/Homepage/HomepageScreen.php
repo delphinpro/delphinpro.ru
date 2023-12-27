@@ -103,33 +103,35 @@ class HomepageScreen extends Screen
             'articles.count'    => 'int|required|min:1',
         ]);
 
-
-        $intro = [
-            'enabled'    => (bool)(int)$validated['intro']['enabled'],
-            'title'      => $validated['intro']['title'],
-            'subtitle'   => $validated['intro']['subtitle'],
-            'background' => $validated['intro']['background'] ?? null,
-        ];
-
-        Variable::findOrNew('intro')->fill([
-            'name'  => 'intro',
-            'value' => $intro,
-        ])->save();
-
-        $articles = [
-            'enabled'  => (bool)(int)$validated['articles']['enabled'],
-            'title'    => $validated['articles']['title'],
-            'subtitle' => $validated['articles']['subtitle'],
-            'count'    => (int)$validated['articles']['count'],
-        ];
-
-        Variable::findOrNew('lastArticles')->fill([
-            'name'  => 'lastArticles',
-            'value' => $articles,
-        ])->save();
+        $this->updateVar('intro', $validated['intro']);
+        $this->updateVar('aboutMe', $validated['about']);
+        $this->updateVar('lastArticles', $validated['articles']);
 
         Toast::info('Сохранено');
 
         return redirect()->route('platform.homepage');
+    }
+
+    private function updateVar(string $name, array $var, array $casts = []): void
+    {
+        $casts = array_merge([
+            'enabled'    => 'bool',
+            'background' => 'int|null',
+            'count'      => 'int',
+        ], $casts);
+
+        foreach ($var as $key => $value) {
+            $var[$key] = match ($casts[$key] ?? 'string') {
+                'bool'     => (bool)(int)$value,
+                'int'      => (int)$value,
+                'int|null' => $value === null ? $value : (int)$value,
+                default    => $value,
+            };
+        }
+
+        Variable::findOrNew($name)->fill([
+            'name'  => $name,
+            'value' => $var,
+        ])->save();
     }
 }
