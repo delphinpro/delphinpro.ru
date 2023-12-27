@@ -7,6 +7,7 @@
 namespace App\Orchid\Screens\Homepage;
 
 use App\Models\Variable;
+use App\Orchid\Fields\TinyMCE;
 use App\Orchid\Helpers\ButtonSave;
 use App\Orchid\Helpers\LinkPreview;
 use Illuminate\Http\RedirectResponse;
@@ -24,6 +25,7 @@ class HomepageScreen extends Screen
     {
         return [
             'intro'    => Variable::find('intro')?->value ?? [],
+            'about'    => Variable::find('aboutMe')?->value ?? [],
             'articles' => Variable::find('lastArticles')?->value ?? [],
         ];
     }
@@ -67,6 +69,30 @@ class HomepageScreen extends Screen
             ]))->title('Вступительная секция'),
 
             Layout::block(Layout::rows([
+                CheckBox::make('about.enabled')
+                    ->placeholder('Отображать эту секцию')
+                    ->sendTrueOrFalse(),
+
+                CheckBox::make('about.strip')
+                    ->placeholder('Strip color')
+                    ->sendTrueOrFalse(),
+
+                Input::make('about.title')
+                    ->title('Заголовок')
+                    ->type('text')
+                    ->max(255),
+
+                TinyMCE::make('about.content')
+                    ->title('Основной текст'),
+
+                Picture::make('about.background')
+                    ->title('Фоновое изображение')
+                    ->groups('about.background')
+                    ->storage('public')
+                    ->targetId(),
+            ]))->title('Секция «Обо мне»'),
+
+            Layout::block(Layout::rows([
                 CheckBox::make('articles.enabled')
                     ->placeholder('Отображать эту секцию')
                     ->sendTrueOrFalse(),
@@ -100,6 +126,12 @@ class HomepageScreen extends Screen
             'intro.title'      => 'string|nullable',
             'intro.subtitle'   => 'string|nullable',
             'intro.background' => 'int|nullable',
+
+            'about.enabled'    => 'bool|required',
+            'about.strip'      => 'bool|required',
+            'about.title'      => 'string|nullable',
+            'about.content'    => 'string|nullable',
+            'about.background' => 'int|nullable',
 
             'articles.enabled'  => 'required|bool',
             'articles.strip'    => 'required|bool',

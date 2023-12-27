@@ -4,12 +4,16 @@
 .section-about-me {
     z-index: 1;
 
+    --bg-image: none;
+
+    &__wrapper {
+    }
+
     &__main {
         position: relative;
     }
 
     &__row {
-        background: linear-gradient(to right, var(--bs-body-bg) 60%, transparent);
     }
 
     &__content {
@@ -19,21 +23,19 @@
         margin-top: 50px;
     }
 
+    @include media-breakpoint-up(lg) {
+        background-image: var(--bg-image);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: auto 100%;
+        &__wrapper {
+            background: linear-gradient(to right, var(--section-bg) 65%, transparent);
+        }
+    }
 
-    &__decoration {
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        justify-content: flex-end;
-        width: 100%;
-
-        > img {
-            display: block;
-            border-top-right-radius: 20px;
-            border-bottom-right-radius: 20px;
-            object-fit: cover;
+    @include media-breakpoint-up(xxl) {
+        &__wrapper {
+            background: linear-gradient(to right, var(--section-bg) 55%, transparent);
         }
     }
 }
