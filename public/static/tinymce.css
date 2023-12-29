@@ -23,8 +23,20 @@ a {
 }
 
 img {
+    display: block;
     max-width: 100%;
     height: auto;
+    margin: auto;
+}
+
+img::before {
+    font-family: monospace;
+    font-size: 0.8em;
+    padding: 0.1em 0.5em;
+    content: 'Image not loaded: ' attr(src);
+    /*color: red;*/
+    border: 1px dotted red;
+    background: #ffdfe3;
 }
 
 code {
