@@ -1,6 +1,6 @@
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
 body {
@@ -45,4 +45,11 @@ code {
     border: 1px solid #ddd;
     background: #eee;
     padding-inline: 0.25em;
+}
+
+blockquote {
+    font-style: italic;
+    padding-left: 1em;
+    border-left: 5px solid #555;
+    margin-inline: 0;
 }

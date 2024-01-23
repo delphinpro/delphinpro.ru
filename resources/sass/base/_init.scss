@@ -1,5 +1,5 @@
 // Site delphinpro.ru
-// Copyright (c) 2023.
+// Copyright (c) 2023-2024.
 
 $rhythm: 1.5rem;
 
@@ -47,6 +47,25 @@ pre {
 
 code {
     font-size: inherit;
+}
+
+blockquote {
+    font-style: italic;
+    position: relative;
+    margin-left: 3rem;
+    padding: var(--padding-y) 0 var(--padding-y) 1.5rem;
+    border-left: 0.125rem solid $primary;
+    --padding-y: 0.25rem;
+    &::before {
+        font-size: 3em;
+        font-style: normal;
+        line-height: 1rem;
+        position: absolute;
+        top: 1rem;
+        left: -3rem;
+        content: "❜❜";
+        color: $primary
+    }
 }
 
 [x-cloak] {
