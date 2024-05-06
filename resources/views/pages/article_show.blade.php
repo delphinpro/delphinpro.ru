@@ -49,6 +49,14 @@
                         {{ $article->created_at->format('d.m.Y') }}
                     </time>
                 </div>
+                @if($article->created_at->diffInDays($article->updated_at) > 1)
+                    <div class="article__date">
+                        Обновлено:
+                        <time datetime="{{ $article->updated_at }}">
+                            {{ $article->updated_at->format('d.m.Y') }}
+                        </time>
+                    </div>
+                @endif
                 {{--
                 <div class="article__author">
                     {{ $article->user->name }}
