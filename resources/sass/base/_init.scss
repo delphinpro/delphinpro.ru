@@ -47,6 +47,14 @@ pre {
 
 code {
     font-size: inherit;
+    border: 1px solid #ddd;
+    background: #eee;
+    padding-inline: 0.25em;
+}
+
+pre code {
+    padding: 0;
+    border: none;
 }
 
 blockquote {
