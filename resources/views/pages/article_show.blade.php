@@ -93,3 +93,14 @@
     </div>
 
 @endsection
+
+@section('aside')
+    <div class="module">
+        <div class="module-title">На эту же тему:</div>
+        <ul class="side-nav">
+            @foreach($related as $article)
+                <li><a href="{{ route('article.show', $article) }}">{{ $article->title }}</a></li>
+            @endforeach
+        </ul>
+    </div>
+@endsection

@@ -26,7 +26,14 @@ class ArticleController extends Controller
 
         $article->load('tags');
 
-        return view('pages.article_show', compact('article'));
+        $tagIds = $article->tags->map(fn(Tag $tag) => $tag->id)->toArray();
+        $related = Article::whereHas('tags', static fn($q) => $q->whereIn('id', $tagIds))
+            ->where('id', '!=', $article->id)
+            ->orderBy('created_at', 'desc')
+            ->take(10)
+            ->get(['id', 'title']);
+
+        return view('pages.article_show', compact('article', 'related'));
     }
 
     public function tags()

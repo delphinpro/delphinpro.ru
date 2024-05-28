@@ -1,10 +1,10 @@
 // Site delphinpro.ru
-// Copyright (c) 2023.
+// Copyright (c) 2023-2024.
 
 .page {
     display: grid;
     padding-block: var(--page-py);
-    gap: rhythm(2);
+    gap: rhythm(1);
 
     &__main {
         min-width: 0;
