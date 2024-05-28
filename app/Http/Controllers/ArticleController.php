@@ -1,7 +1,7 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
 namespace App\Http\Controllers;
@@ -23,6 +23,8 @@ class ArticleController extends Controller
         if (!$article->published) {
             abort(404);
         }
+
+        $article->load('tags');
 
         return view('pages.article_show', compact('article'));
     }

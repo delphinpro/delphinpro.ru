@@ -62,6 +62,11 @@
                     {{ $article->user->name }}
                 </div>
                 --}}
+                <div class="tags">
+                    @foreach($article->tags as $tag)
+                        <a class="tag" href="{{ route('article.by_tag', $tag) }}">{{ $tag->name }}</a>
+                    @endforeach
+                </div>
             </div>
         </div>
         {{--             <div class="article__intro"> --}}

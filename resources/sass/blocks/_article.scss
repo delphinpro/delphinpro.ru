@@ -1,5 +1,5 @@
 // Site delphinpro.ru
-// Copyright (c) 2023.
+// Copyright (c) 2023-2024.
 
 .article {
     @extend .shadow-sm;
@@ -12,7 +12,7 @@
     --intro-width: 37.5rem;
 
     h1 {
-        margin-bottom: 0;
+        margin-bottom: rhythm(0.25);
     }
     &__header {
         min-width: 0;
@@ -21,7 +21,8 @@
         font-size: 16px;
         display: flex;
         align-items: baseline;
-        gap: 1rem;
+        flex-wrap: wrap;
+        gap: 0 1rem;
     }
     &__date {
         color: $gray-500;
