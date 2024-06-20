@@ -1,7 +1,7 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
 namespace App\Models;
@@ -36,20 +36,22 @@ class Article extends Model
     public const PER_PAGE = 10;
 
     protected $fillable = [
-        'title',
-        'content',
+        'user_id',
         'cover_id',
-        'summary',
         'published',
+        'title',
+        'summary',
+        'content',
+        'meta',
         'keywords',
         'description',
-        'user_id',
     ];
 
     protected $casts = [
-        'user_id'  => 'integer',
-        'cover_id' => 'integer',
-        'meta'     => 'array',
+        'user_id'   => 'integer',
+        'cover_id'  => 'integer',
+        'published' => 'boolean',
+        'meta'      => 'array',
     ];
 
     protected array $allowedSorts = [
