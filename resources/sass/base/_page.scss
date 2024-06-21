@@ -22,3 +22,8 @@
         }
     }
 }
+
+.side-fixed {
+    position: sticky;
+    top: var(--header-height);
+}
