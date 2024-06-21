@@ -1,7 +1,7 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2019-2023.
+ * Copyright (c) 2019-2024.
  */
 
 namespace App\Models;
@@ -81,4 +81,9 @@ class User extends Authenticatable
         'updated_at',
         'created_at',
     ];
+
+    public function isAdmin(): bool
+    {
+        return $this->inRole('admin');
+    }
 }
