@@ -364,6 +364,7 @@ $table-cell-vertical-align:   top;
 
 $table-color:                 var(--#{$prefix}body-color);
 $table-bg:                    var(--#{$prefix}body-bg);
+$table-bg:                    $gray-100;
 $table-accent-bg:             transparent;
 
 $table-th-font-weight:        null;
