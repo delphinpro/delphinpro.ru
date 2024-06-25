@@ -54,3 +54,25 @@ function pluralize(array $forms, int $number): string
 
     return $many;
 }
+
+function fmtSql(string $sql): string
+{
+    $repl = [
+        'select'   => 'SELECT',
+        'from'     => 'FROM',
+        'where'    => 'WHERE',
+        'and'      => 'AND',
+        'order by' => 'ORDER BY',
+        'group by' => 'GROUP BY',
+        'or '      => 'OR ',
+        'SELECT'   => "\nSELECT",
+        'FROM'     => "\nFROM",
+        'WHERE'    => "\nWHERE",
+        'AND'      => "\nAND",
+        'OR '      => "\nOR ",
+        'ORDER BY' => "\nORDER BY",
+        'GROUP BY' => "\nGROUP BY",
+    ];
+
+    return str_replace(array_keys($repl), array_values($repl), $sql);
+}
