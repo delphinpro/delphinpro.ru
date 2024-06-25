@@ -1,16 +1,17 @@
 /*
  * Site delphinpro.ru
- * Copyright (c) 2019-2023.
+ * Copyright (c) 2019-2024.
  */
 
 import laravel from 'laravel-vite-plugin';
 import path from 'path';
-import { defineConfig } from 'vite';
+import { defineConfig, normalizePath } from 'vite';
 
 export default defineConfig({
     resolve: {
         alias: {
-            '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
+            '@'         : normalizePath(path.resolve(__dirname, 'resources/js')),
+            '~bootstrap': normalizePath(path.resolve(__dirname, 'node_modules/bootstrap')),
         },
     },
     plugins: [
