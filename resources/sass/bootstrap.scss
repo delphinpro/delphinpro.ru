@@ -1,5 +1,5 @@
 // Site delphinpro.ru
-// Copyright (c) 2023.
+// Copyright (c) 2023-2024.
 
 @import "~bootstrap/scss/mixins/banner";
 
@@ -37,7 +37,7 @@ html {
 //@import "~bootstrap/scss/accordion";
 //@import "~bootstrap/scss/breadcrumb";
 //@import "~bootstrap/scss/pagination";
-//@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/badge";
 @import "~bootstrap/scss/alert";
 //@import "~bootstrap/scss/progress";
 //@import "~bootstrap/scss/list-group";
