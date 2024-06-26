@@ -2,7 +2,7 @@
     @foreach($articles as $article)
         <div class="articles-list__item">
             <article class="article-item">
-                <div>
+                <div class="article-item__header">
                     <h1 class="article-item__title">
                         <a href="{{ route('article.show', $article) }}">{{ $article->title }}</a>
                     </h1>

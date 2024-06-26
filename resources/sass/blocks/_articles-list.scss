@@ -1,24 +1,17 @@
 // Site delphinpro.ru
-// Copyright (c) 2023.
+// Copyright (c) 2023-2024.
 
 .articles-list {
     display: grid;
+    grid-template-columns: 100%;
     grid-gap: rhythm(2);
 
-    &__item {
-        //display: flex;
-    }
+    @include media-breakpoint-up(xl) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: rhythm(2) rhythm(1);
 
-    //@include media-breakpoint-up(md) {
-    //    grid-template-columns: repeat(2, 1fr);
-    //    grid-gap: rhythm(1);
-    //}
-    //
-    //@include media-breakpoint-up(xl) {
-    //    grid-template-columns: repeat(3, 1fr);
-    //}
-    //
-    //@include media-breakpoint-up(xxl) {
-    //    grid-gap: rhythm(2);
-    //}
+        &__item {
+            display: flex;
+        }
+    }
 }
