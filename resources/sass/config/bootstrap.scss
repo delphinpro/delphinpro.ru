@@ -1102,8 +1102,8 @@ $modal-content-inner-border-radius: subtract($modal-content-border-radius, $moda
 $modal-content-box-shadow-xs:       $box-shadow-sm;
 $modal-content-box-shadow-sm-up:    $box-shadow;
 
-$modal-backdrop-bg:                 $black;
-$modal-backdrop-opacity:            .5;
+$modal-backdrop-bg:                 $gray-900;
+$modal-backdrop-opacity:            .3;
 
 $modal-header-border-color:         var(--#{$prefix}border-color);
 $modal-header-border-width:         $modal-content-border-width;
@@ -1120,7 +1120,7 @@ $modal-md:                          500px;
 $modal-lg:                          800px;
 $modal-xl:                          1140px;
 
-$modal-fade-transform:              translate(0, -50px);
+$modal-fade-transform:              translate(0, -4rem);
 $modal-show-transform:              none;
 $modal-transition:                  transform .3s ease-out;
 $modal-scale-transform:             scale(1.02);
