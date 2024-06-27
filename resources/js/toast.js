@@ -6,20 +6,6 @@
 let toastId = 0;
 let previousToast;
 
-const TYPE = {
-    INFO   : 'info',
-    SUCCESS: 'success',
-    WARNING: 'warning',
-    ERROR  : 'error',
-};
-
-export const TOAST_POSITION = {
-    TOP_LEFT    : 'top-left',
-    TOP_RIGHT   : 'top-right',
-    BOTTOM_LEFT : 'bottom-left',
-    BOTTOM_RIGHT: 'bottom-right',
-};
-
 const CLASSES = {
     containerId  : 'toast-container',
     wrapperClass : 'toast__wrapper',
@@ -37,7 +23,7 @@ const CLASSES = {
 };
 
 let defaults = {
-    position         : TOAST_POSITION.TOP_RIGHT,
+    position         : 'top-right',
     closeButton      : true,
     closeHtml        : '<button type="button">&times;</button>',
     progressBar      : false,
@@ -81,39 +67,22 @@ function makeElementFromHtml(html) {
     return (new DOMParser()).parseFromString(html, 'text/html').body.firstElementChild;
 }
 
-export function toastNotify(message, title = '', options = {}) {
-    return new Toast(options).notify(message, title);
-}
 
-export function toastInfo(message, title = '', options = {}) {
-    return new Toast(options).notify(message, title, TYPE.INFO);
-}
+export default class Toast {
+    // noinspection JSUnusedGlobalSymbols
+    static TOP_LEFT = 'top-left';
+    // noinspection JSUnusedGlobalSymbols
+    static TOP_RIGHT = 'top-right';
+    // noinspection JSUnusedGlobalSymbols
+    static BOTTOM_LEFT = 'bottom-left';
+    // noinspection JSUnusedGlobalSymbols
+    static BOTTOM_RIGHT = 'bottom-right';
 
-export function toastSuccess(message, title = '', options = {}) {
-    return new Toast(options).notify(message, title, TYPE.SUCCESS);
-}
+    static INFO = 'info';
+    static SUCCESS = 'success';
+    static WARNING = 'warning';
+    static ERROR = 'error';
 
-export function toastWarning(message, title = '', options = {}) {
-    return new Toast(options).notify(message, title, TYPE.WARNING);
-}
-
-export function toastError(message, title = '', options = {}) {
-    return new Toast(options).notify(message, title, TYPE.ERROR);
-}
-
-export default {
-    notify : toastNotify,
-    info   : toastInfo,
-    success: toastSuccess,
-    warning: toastWarning,
-    error  : toastError,
-    setDefaults(options) {
-        defaults = Object.assign({}, defaults, options);
-    },
-    POSITION: TOAST_POSITION,
-};
-
-class Toast {
     version = '1.0.0';
     #options = {};
     /** @type {null|HTMLDivElement} */
@@ -133,6 +102,27 @@ class Toast {
 
     constructor(options = {}) {
         this.#options = Object.assign({}, defaults, options);
+    }
+
+    // noinspection JSUnusedGlobalSymbols
+    static setDefaults(options) {
+        defaults = Object.assign({}, defaults, options);
+    }
+
+    static info(message, title = '', options = {}) {
+        return new Toast(options).notify(message, title, Toast.INFO);
+    }
+
+    static success(message, title = '', options = {}) {
+        return new Toast(options).notify(message, title, Toast.SUCCESS);
+    }
+
+    static warning(message, title = '', options = {}) {
+        return new Toast(options).notify(message, title, Toast.WARNING);
+    }
+
+    static error(message, title = '', options = {}) {
+        return new Toast(options).notify(message, title, Toast.ERROR);
     }
 
     notify(message, title, type = '') {
@@ -243,8 +233,8 @@ class Toast {
     #setAria() {
         let ariaValue;
         switch (this.#type) {
-            case TYPE.SUCCESS:
-            case TYPE.INFO:
+            case Toast.SUCCESS:
+            case Toast.INFO:
             case '':
                 ariaValue = 'polite';
                 break;
