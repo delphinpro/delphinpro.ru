@@ -3,6 +3,8 @@
  * Copyright (c) 2019-2024.
  */
 
+import commentBox from '@/components/comment-box';
+import commentForm from '@/components/comment-form';
 import Toast from '@/toast';
 import axios from 'axios';
 import './bootstrap';
@@ -49,3 +51,27 @@ siteHeader.classList.toggle('is-sticky', scrollY > 0);
 window.addEventListener('scroll', () => {
     siteHeader.classList.toggle('is-sticky', scrollY > 0);
 });
+
+
+//== Editors
+
+document.querySelectorAll('.ta-comment').forEach(element => {
+    element.addEventListener('keydown', function (e) {
+        if (e.key === 'Tab') {
+            e.preventDefault();
+            const start = this.selectionStart;
+            const end = this.selectionEnd;
+
+            this.value = this.value.substring(0, start) + '    ' + this.value.substring(end);
+            this.selectionStart = this.selectionEnd = start + 4;
+        }
+    });
+});
+
+//== Comments
+
+window.commentForm = commentForm;
+window.commentBox = commentBox;
+
+commentForm('.comment-form');
+commentBox('.comment-box');

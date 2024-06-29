@@ -1,3 +1,4 @@
+@inject('settings', 'App\Services\Settings')
 <div class="articles-list">
     @foreach($articles as $article)
         <div class="articles-list__item">
@@ -22,20 +23,28 @@
                         {{ $article->summary }}
                     </div>
                 @endif
-                @if($article->tags->count())
+                @if($article->tags->count() || ($settings->displayComments && $article->availableCommentsCount()))
                     <div class="article-item__footer">
-                        <div class="article-item__tags tags">
-                            <span class="tags__title">Теги:</span>
-                            @foreach($article->tags as $tag)
-                                <a class="tag" href="{{ route('article.by_tag', $tag) }}">{{ $tag->name }}</a>
-                            @endforeach
-                        </div>
+                        @if($article->tags->count())
+                            <div class="article-item__tags tags">
+                                <span class="tags__title">Теги:</span>
+                                @foreach($article->tags as $tag)
+                                    <a class="tag" href="{{ route('article.by_tag', $tag) }}">{{ $tag->name }}</a>
+                                @endforeach
+                            </div>
+                        @endif
+                        @if($settings->displayComments && $article->availableCommentsCount())
+                            <div class="article-item__comments-count">
+                                {{ $article->availableCommentsCount() }}
+                                {{ pluralize(['комментариев','комментарий','комментария'], $article->availableCommentsCount()) }}
+                            </div>
+                        @endif
                     </div>
                 @endif
             </article>
         </div>
     @endforeach
-    {{-- <div class="mt-5"> --}}
+</div>
+<div class="mt-5">
     {{ $articles->links() }}
-    {{-- </div> --}}
 </div>

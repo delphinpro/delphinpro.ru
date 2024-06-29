@@ -12,6 +12,9 @@
 
         &__item {
             display: flex;
+            &:nth-child(odd):last-child {
+                grid-column: span 2;
+            }
         }
     }
 }

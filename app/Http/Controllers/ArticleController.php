@@ -8,17 +8,23 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Tag;
+use App\Services\Settings;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::with('tags')->lastPublished()->paginate(Article::PER_PAGE);
+        $articles = Article::with(['cover', 'tags', 'comments'])
+            ->lastPublished()
+            ->paginate(Article::PER_PAGE);
 
         return view('pages.article_index', compact('articles'));
     }
 
-    public function show(Article $article)
+    public function show(Article $article, Settings $settings)
     {
         if (!$article->published) {
             abort(404);
@@ -33,7 +39,21 @@ class ArticleController extends Controller
             ->take(10)
             ->get(['id', 'title']);
 
-        return view('pages.article_show', compact('article', 'related'));
+        $comments = $settings->displayComments
+            ? $article->comments()
+                ->with(['user', 'user.roles'])
+                ->when(Gate::denies('comment.moderate'), function (Builder $builder) {
+                    return $builder->where(function (Builder $builder) {
+                        return $builder->where('published', true)->when(Auth::id(), function (Builder $builder) {
+                            return $builder->orWhere('user_id', Auth::id());
+                        });
+                    });
+                })
+                ->orderBy('created_at')
+                ->get()
+            : collect();
+
+        return view('pages.article_show', compact('article', 'related', 'comments'));
     }
 
     public function tags()

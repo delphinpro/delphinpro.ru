@@ -1,8 +1,13 @@
 @extends('layouts.page')
 
-@php
-    /** @var \App\Models\Article $article */
-@endphp
+<?php
+/**
+ * @var \App\Models\Article    $article
+ * @var \App\Services\Settings $settings
+ */
+?>
+
+@inject('settings', 'App\Services\Settings')
 
 @section('title', $article->title)
 
@@ -91,6 +96,26 @@
             {!! $article->content !!}
         </div>
     </div>
+
+    @if($settings->displayComments)
+        <div class="comments">
+            @if($comments->isNotEmpty())
+                <h3 class="comments__title">Комментарии ({{ $comments->count() }})</h3>
+                <div class="comments__main" id="comments">
+                    @foreach($comments as $comment)
+                        <x-comment-box :comment="$comment"/>
+                    @endforeach
+                </div>
+            @endif
+
+            @if($settings->enableComments)
+                <h3 class="comments__title">Вы можете оставить комментарий:</h3>
+                <div class="comments__form">
+                    <x-comment-form :article="$article"/>
+                </div>
+            @endif
+        </div>
+    @endif
 
 @endsection
 
