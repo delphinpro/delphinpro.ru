@@ -21,7 +21,7 @@ class ArticleController extends Controller
             ->lastPublished()
             ->paginate(Article::PER_PAGE);
 
-        return view('pages.article_index', compact('articles'));
+        return view('pages.articles.index', compact('articles'));
     }
 
     public function show(Article $article, Settings $settings)
@@ -53,7 +53,7 @@ class ArticleController extends Controller
                 ->get()
             : collect();
 
-        return view('pages.article_show', compact('article', 'related', 'comments'));
+        return view('pages.articles.show', compact('article', 'related', 'comments'));
     }
 
     public function tags()
