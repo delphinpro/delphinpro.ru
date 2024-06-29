@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use Orchid\Platform\Models\User as Authenticatable;
 
@@ -30,6 +31,19 @@ class User extends Authenticatable
         'password'          => 'hashed',
         'settings'          => AsArrayObject::class,
     ];
+
+    /*==
+     *== Relationships
+     *== ======================================= ==*/
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    /*==
+     *== Helpers
+     *== ======================================= ==*/
 
     public function isAdmin(): bool
     {
