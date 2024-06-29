@@ -1,7 +1,7 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
 namespace App\Orchid\Screens\Settings;
@@ -49,6 +49,10 @@ class GeneralSettingsScreen extends Screen
                     ->style('font-size:20px;')
                     ->rows(12),
             ]),
+            Layout::rows([
+                Switcher::make('settings.displayComments')->placeholder('Показывать комментарии')->sendTrueOrFalse(),
+                Switcher::make('settings.enableComments')->placeholder('Разрешить комментировать')->sendTrueOrFalse(),
+            ])->title('Комментарии'),
         ];
     }
 

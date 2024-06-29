@@ -1,7 +1,7 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
 namespace App\Services;
@@ -15,6 +15,8 @@ use RuntimeException;
  *
  * @property-read bool   enableAnalytics
  * @property-read string analyticsCode
+ * @property-read bool   displayComments
+ * @property-read bool   enableComments
  */
 class Settings implements ArrayAccess
 {
@@ -105,8 +107,10 @@ class Settings implements ArrayAccess
     protected function castValue(string $name, mixed $value): mixed
     {
         return match ($name) {
-            'enableAnalytics' => (bool)$value,
-            default           => $value,
+            'enableAnalytics',
+            'displayComments',
+            'enableComments' => (bool)$value,
+            default          => $value,
         };
     }
 
@@ -115,6 +119,8 @@ class Settings implements ArrayAccess
         return [
             'enableAnalytics' => false,
             'analyticsCode'   => '',
+            'displayComments' => false,
+            'enableComments'  => false,
         ];
     }
 }
