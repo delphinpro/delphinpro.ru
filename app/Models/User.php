@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'trust_level',
         'permissions',
         'settings',
     ];
@@ -29,6 +30,7 @@ class User extends Authenticatable
         'permissions'       => 'array',
         'email_verified_at' => 'datetime',
         'password'          => 'hashed',
+        'trust_level'       => 'integer',
         'settings'          => AsArrayObject::class,
     ];
 
@@ -48,5 +50,26 @@ class User extends Authenticatable
     public function isAdmin(): bool
     {
         return $this->inRole('admin');
+    }
+
+    public function allowCommentWithoutModerate(): bool
+    {
+        return $this->trust_level >= 20 || $this->isAdmin();
+    }
+
+    public function trustLevelUp(int $value = 1): void
+    {
+        if ($this->trust_level < 2147483647) {
+            $this->trust_level += $value;
+            $this->save();
+        }
+    }
+
+    public function trustLevelDown(int $value = 1): void
+    {
+        if ($this->trust_level > -2147483647) {
+            $this->trust_level -= $value;
+            $this->save();
+        }
     }
 }

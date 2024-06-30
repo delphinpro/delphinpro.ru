@@ -111,7 +111,7 @@
             @if($settings->enableComments)
                 <h3 class="comments__title">Вы можете оставить комментарий:</h3>
                 <div class="comments__form">
-                    <x-comment-form :article="$article"/>
+                    <x-comment-form :article="$article" :isModerated="!auth()->user()?->allowCommentWithoutModerate()"/>
                 </div>
             @endif
         </div>

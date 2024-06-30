@@ -28,9 +28,19 @@ class CommentController extends Controller
             'min'      => 'Вряд ли вы смогли выразить свою мысль в столь коротком предложении.',
         ]);
 
+        /** @var \App\Models\User|null $currentUser */
+        $currentUser = auth()->user();
+
         /** @var Comment $comment */
-        $comment = $article->comments()->make($input)->fill(['user_id' => auth()->id()]);
+        $comment = $article->comments()->make($input)->fill([
+            'user_id'   => $currentUser?->id,
+            'published' => $currentUser?->allowCommentWithoutModerate() ?? false,
+        ]);
         $comment->save();
+
+        if ($currentUser?->allowCommentWithoutModerate()) {
+            $comment->user?->trustLevelUp();
+        }
 
         return response()->json([
             'message' => 'Комментарий будет опубликован после модерации',
@@ -44,6 +54,7 @@ class CommentController extends Controller
             abort(403, 'Вы не можете удалить этот комментарий');
         }
 
+        $comment->user?->trustLevelDown();
         $comment->delete();
 
         return response()->json(['message' => 'Комментарий удалён']);
@@ -58,6 +69,7 @@ class CommentController extends Controller
         try {
 
             $comment->update(['published' => true]);
+            $comment->user?->trustLevelUp();
 
             return response()->json(['message' => 'Публикация комментария одобрена']);
 

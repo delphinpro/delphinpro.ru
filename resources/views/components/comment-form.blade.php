@@ -1,4 +1,4 @@
-@props(['article'])
+@props(['article', 'isModerated' => true])
 
 <?php /** @var \App\Models\Article $article */ ?>
 
@@ -20,8 +20,10 @@
                 Предварительный просмотр
             </button>
         </div>
-        <div class="alert alert-primary">
-            Комментарий будет опубликован после модерации
-        </div>
+        @if($isModerated)
+            <div class="alert alert-primary">
+                Комментарий будет опубликован после модерации
+            </div>
+        @endif
     </fieldset>
 </form>

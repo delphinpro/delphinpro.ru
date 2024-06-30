@@ -11,6 +11,7 @@ use App\Orchid\Screens\Role\Layouts\RolePermissionLayout;
 use App\Orchid\Screens\User\Layouts\UserEditLayout;
 use App\Orchid\Screens\User\Layouts\UserPasswordLayout;
 use App\Orchid\Screens\User\Layouts\UserRoleLayout;
+use App\Orchid\Screens\User\Layouts\UserSettingsLayout;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -94,16 +95,21 @@ class UserEditScreen extends Screen
                 ->title(__('Permissions'))
                 ->description(__('Allow the user to perform some actions that are not provided for by his roles')),
 
+            Layout::block(UserSettingsLayout::class)
+                ->title('Настройки')
+                ->description('Персональные параметры пользователя'),
+
         ];
     }
 
     public function save(User $user, Request $request): RedirectResponse
     {
         $request->validate([
-            'user.email' => [
+            'user.email'       => [
                 'required',
                 Rule::unique(User::class, 'email')->ignore($user),
             ],
+            'user.trust_level' => ['required', 'int', 'min:-2147483647', 'max:2147483647'],
         ]);
 
         $permissions = collect($request->get('permissions'))
