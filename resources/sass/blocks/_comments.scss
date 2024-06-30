@@ -87,6 +87,9 @@
         background-size: 6.93px 6.93px;
         --c: #ddd;
     }
+    &:target {
+        box-shadow: var(--bs-box-shadow-sm), inset 0 0 0 100vw rgba($primary, 0.25) !important;
+    }
 }
 
 .comment-form {

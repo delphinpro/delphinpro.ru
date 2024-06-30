@@ -1,7 +1,7 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
 declare(strict_types=1);
@@ -12,6 +12,7 @@ use App\Orchid\Controllers\UploadController;
 use App\Orchid\Screens\Article\ArticleEditScreen;
 use App\Orchid\Screens\Article\ArticleListScreen;
 use App\Orchid\Screens\Article\ArticleTrashScreen;
+use App\Orchid\Screens\Comments\CommentListScreen;
 use App\Orchid\Screens\Examples as Ex;
 use App\Orchid\Screens\Homepage\HomepageScreen;
 use App\Orchid\Screens\PlatformScreen;
@@ -41,6 +42,8 @@ Route::screen('articles/{article}/edit', ArticleEditScreen::class)->name('platfo
 Route::screen('articles', ArticleListScreen::class)->name('platform.article.list');
 
 Route::screen('tags', TagListScreen::class)->name('platform.tag.list');
+
+Route::screen('comments', CommentListScreen::class)->name('platform.comment.list');
 
 Route::screen('profile', UserProfileScreen::class)->name('platform.profile');
 Route::screen('users/{user}/edit', UserEditScreen::class)->name('platform.systems.users.edit');

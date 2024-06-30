@@ -11,12 +11,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Orchid\Screen\AsSource;
 use Parsedown;
 
 class Comment extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    use AsSource;
 
     protected $fillable = [
         'commentable_id',

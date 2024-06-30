@@ -1,7 +1,7 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
 declare(strict_types=1);
@@ -57,7 +57,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.article.list'),
 
             Menu::make('Теги')
-                ->route('platform.tag.list')
+                ->route('platform.tag.list'),
+
+            Menu::make('Комментарии')
+                ->route('platform.comment.list')
                 ->divider(),
 
             Menu::make(__('Настройки'))
