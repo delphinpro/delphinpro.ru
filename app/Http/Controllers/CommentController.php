@@ -10,6 +10,7 @@ use App\Models\Article;
 use App\Models\Comment;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
 use Throwable;
 
@@ -33,7 +34,7 @@ class CommentController extends Controller
 
         return response()->json([
             'message' => 'Комментарий будет опубликован после модерации',
-            'content' => view('pages.comment-box', compact('comment'))->render(),
+            'content' => Blade::render('<x-comment-box :comment="$comment" />', compact('comment')),
         ]);
     }
 
