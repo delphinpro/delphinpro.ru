@@ -1,25 +1,17 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
-
-declare(strict_types=1);
 
 namespace App\Orchid\Screens\User\Layouts;
 
 use Orchid\Platform\Models\Role;
-use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Layouts\Rows;
 
 class UserRoleLayout extends Rows
 {
-    /**
-     * The screen's layout elements.
-     *
-     * @return Field[]
-     */
     public function fields(): array
     {
         return [

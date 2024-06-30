@@ -1,24 +1,16 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
-
-declare(strict_types=1);
 
 namespace App\Orchid\Screens\Role\Layouts;
 
-use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Rows;
 
 class RoleEditLayout extends Rows
 {
-    /**
-     * The screen's layout elements.
-     *
-     * @return Field[]
-     */
     public function fields(): array
     {
         return [

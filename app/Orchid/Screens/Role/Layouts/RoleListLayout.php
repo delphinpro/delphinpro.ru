@@ -1,10 +1,9 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
-declare(strict_types=1);
 
 namespace App\Orchid\Screens\Role\Layouts;
 
@@ -17,13 +16,10 @@ use Orchid\Screen\TD;
 
 class RoleListLayout extends Table
 {
-    /**
-     * @var string
-     */
     public $target = 'roles';
 
     /**
-     * @return TD[]
+     * @throws \ReflectionException
      */
     public function columns(): array
     {

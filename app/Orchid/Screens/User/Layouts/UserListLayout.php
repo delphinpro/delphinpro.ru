@@ -1,10 +1,8 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
-
-declare(strict_types=1);
 
 namespace App\Orchid\Screens\User\Layouts;
 
@@ -21,14 +19,8 @@ use Orchid\Screen\TD;
 
 class UserListLayout extends Table
 {
-    /**
-     * @var string
-     */
     public $target = 'users';
 
-    /**
-     * @return TD[]
-     */
     public function columns(): array
     {
         return [

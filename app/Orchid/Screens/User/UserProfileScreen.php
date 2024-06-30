@@ -1,10 +1,8 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
-
-declare(strict_types=1);
 
 namespace App\Orchid\Screens\User;
 
@@ -15,7 +13,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Orchid\Access\Impersonation;
 use Orchid\Platform\Models\User;
-use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Support\Color;
@@ -24,12 +21,6 @@ use Orchid\Support\Facades\Toast;
 
 class UserProfileScreen extends Screen
 {
-    /**
-     * Fetch data to be displayed on the screen.
-     *
-     *
-     * @return array
-     */
     public function query(Request $request): iterable
     {
         return [
@@ -37,27 +28,16 @@ class UserProfileScreen extends Screen
         ];
     }
 
-    /**
-     * The name of the screen displayed in the header.
-     */
     public function name(): ?string
     {
         return 'My Account';
     }
 
-    /**
-     * Display header description.
-     */
     public function description(): ?string
     {
         return 'Update your account details such as name, email address and password';
     }
 
-    /**
-     * The screen's action buttons.
-     *
-     * @return Action[]
-     */
     public function commandBar(): iterable
     {
         return [
@@ -74,9 +54,6 @@ class UserProfileScreen extends Screen
         ];
     }
 
-    /**
-     * @return \Orchid\Screen\Layout[]
-     */
     public function layout(): iterable
     {
         return [
@@ -127,7 +104,7 @@ class UserProfileScreen extends Screen
             'password'     => 'required|confirmed|different:old_password',
         ]);
 
-        tap($request->user(), function ($user) use ($request) {
+        tap($request->user(), static function ($user) use ($request) {
             $user->password = Hash::make($request->get('password'));
         })->save();
 

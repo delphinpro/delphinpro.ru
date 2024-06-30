@@ -1,16 +1,13 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
-
-declare(strict_types=1);
 
 namespace App\Orchid\Screens\Role\Layouts;
 
 use Illuminate\Support\Collection;
 use Orchid\Platform\Models\User;
-use Orchid\Screen\Field;
 use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Layouts\Rows;
@@ -18,17 +15,10 @@ use Throwable;
 
 class RolePermissionLayout extends Rows
 {
-    /**
-     * @var User|null
-     */
-    private $user;
+    private ?User $user;
 
     /**
-     * The screen's layout elements.
-     *
-     * @return Field[]
      * @throws Throwable
-     *
      */
     public function fields(): array
     {
