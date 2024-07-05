@@ -21,9 +21,11 @@
                         </div>
                     </div>
                     @if($article->cover->exists)
-                        <figure class="article-item__preview">
-                            <img class="article-item__image" alt="" src="{{ $article->cover->url }}">
-                        </figure>
+                        <a href="{{ route('article.show', $article) }}">
+                            <figure class="article-item__preview">
+                                <img class="article-item__image" alt="" src="{{ $article->cover->url }}">
+                            </figure>
+                        </a>
                     @endif
                     @if($article->summary)
                         <div class="article-item__content">
