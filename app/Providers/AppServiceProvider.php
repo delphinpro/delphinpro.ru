@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use Orchid\Support\Facades\Dashboard;
 
 /**
  * @property \Illuminate\Contracts\Foundation\Application $app
@@ -28,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        Dashboard::useModel(\Orchid\Platform\Models\User::class, User::class);
+
         Paginator::defaultView('pagination::bootstrap-5');
         Article::observe(ArticleObserver::class);
 

@@ -17,7 +17,12 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::with(['cover', 'tags', 'comments'])
+        $relation = Gate::allows('comment.moderate')
+            ? 'comments AS comments_count'
+            : 'publishedComments AS comments_count';
+
+        $articles = Article::with(['cover', 'tags'])
+            ->withCount($relation)
             ->lastPublished()
             ->paginate(Article::PER_PAGE);
 

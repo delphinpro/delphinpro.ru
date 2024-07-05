@@ -30,7 +30,7 @@
                             {{ $article->summary }}
                         </div>
                     @endif
-                    @if($article->tags->count() || ($displayComments && $article->availableCommentsCount()))
+                    @if(($displayComments && $article->comments_count) || $article->tags->count())
                         <div class="article-item__footer">
                             @if($article->tags->count())
                                 <div class="article-item__tags tags">
@@ -40,10 +40,10 @@
                                     @endforeach
                                 </div>
                             @endif
-                            @if($displayComments && $article->availableCommentsCount())
+                            @if($displayComments && $article->comments_count)
                                 <div class="article-item__comments-count">
-                                    {{ $article->availableCommentsCount() }}
-                                    {{ pluralize(['комментариев','комментарий','комментария'], $article->availableCommentsCount()) }}
+                                    {{ $article->comments_count }}
+                                    {{ pluralize(['комментариев','комментарий','комментария'], $article->comments_count) }}
                                 </div>
                             @endif
                         </div>

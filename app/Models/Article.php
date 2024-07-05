@@ -18,7 +18,6 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
 use Orchid\Attachment\Attachable;
 use Orchid\Attachment\Models\Attachment;
 use Orchid\Filters\Filterable;
@@ -64,8 +63,6 @@ class Article extends Model
         'updated_at',
         'deleted_at',
     ];
-
-    private $commentsCount = null;
 
     /*==
      *== Attributes
@@ -121,6 +118,15 @@ class Article extends Model
         return $this->morphMany(Comment::class, 'commentable');
     }
 
+    public function publishedComments(): MorphMany
+    {
+        return $this->comments()->where(function (Builder $builder) {
+            return $builder->where('published', true)->when(Auth::id(), function (Builder $builder) {
+                return $builder->orWhere('user_id', Auth::id());
+            });
+        });
+    }
+
     /*==
      *== Scopes
      *== ======================================= ==*/
@@ -128,20 +134,5 @@ class Article extends Model
     public function scopeLastPublished(Builder $query): void
     {
         $query->where('published', true)->orderByDesc('created_at')->orderByDesc('id');
-    }
-
-    /*==
-     *== Helpers
-     *== ======================================= ==*/
-
-    public function availableCommentsCount(): int
-    {
-        if ($this->commentsCount === null) {
-            $this->commentsCount = (Gate::denies('comment.moderate'))
-                ? $this->comments->filter(fn(Comment $c) => $c->published || $c->user_id === Auth::id())->count()
-                : $this->comments->count();
-        }
-
-        return $this->commentsCount;
     }
 }
