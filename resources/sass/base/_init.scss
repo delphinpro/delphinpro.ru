@@ -47,8 +47,9 @@ pre {
 
 code {
     font-size: inherit;
-    border: 1px solid #ddd;
-    background: #eee;
+    border: 1px solid rgba(#000, 0.1);
+    border-radius: 0.25em;
+    background: rgba(#000, 0.05);
     padding-inline: 0.25em;
 }
 
