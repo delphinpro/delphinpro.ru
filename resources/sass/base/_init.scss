@@ -37,6 +37,17 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 
 img {
     max-width: 100%;
+
+    &::before {
+        font-family: monospace;
+        font-size: 0.8em;
+        display: block;
+        padding: 0.1em 0.5em;
+        content: 'Image can\'t load: ' attr(src);
+        text-align: center;
+        border: 1px dotted var(--danger);
+        background: #ffdfe3;
+    }
 }
 
 pre {
