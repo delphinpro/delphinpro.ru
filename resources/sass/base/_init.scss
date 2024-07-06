@@ -60,19 +60,21 @@ pre code {
 blockquote {
     font-style: italic;
     position: relative;
-    margin-left: 3rem;
-    padding: var(--padding-y) 0 var(--padding-y) 1.5rem;
-    border-left: 0.125rem solid $primary;
-    --padding-y: 0.25rem;
+    margin-left: 2rem;
+    padding: 0 0 0 1rem;
+    border-left: 0.5rem solid var(--blockquote-color, #{$primary});
     &::before {
-        font-size: 3em;
+        font-size: 2em;
         font-style: normal;
         line-height: 1rem;
         position: absolute;
-        top: 1rem;
-        left: -3rem;
+        top: 0.5rem;
+        right: 100%;
+        display: flex;
+        align-items: center;
+        margin-right: 0.75rem;
         content: "❜❜";
-        color: $primary
+        color: var(--blockquote-color, #{$primary});
     }
 }
 
