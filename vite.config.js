@@ -20,6 +20,7 @@ export default defineConfig({
                 'resources/sass/app.scss',
                 'resources/js/app.js',
                 'resources/admin/js/dashboard.js',
+                'resources/sass/prism.scss',
             ],
             refresh: true,
         }),

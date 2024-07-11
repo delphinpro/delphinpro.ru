@@ -50,7 +50,7 @@ img {
     }
 }
 
-pre {
+pre:not([class*=language-]) {
     @include media-breakpoint-down(sm) {
         font-size: 0.75rem;
     }
@@ -62,11 +62,6 @@ code {
     border-radius: 0.25em;
     background: rgba(#000, 0.05);
     padding-inline: 0.25em;
-}
-
-pre code {
-    padding: 0;
-    border: none;
 }
 
 blockquote {

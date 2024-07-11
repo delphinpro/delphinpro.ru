@@ -52,7 +52,7 @@
     }
     &__content {
         min-width: 0;
-        :last-child {
+        :last-child:not(pre :last-child) {
             margin-bottom: 0;
         }
     }

@@ -36,7 +36,7 @@
 @section('body_class', 'line-numbers')
 
 @section('vendor_styles')
-    <link rel="stylesheet" href="{{ asset('static/prismjs/prism.css') }}">
+    @vite(['resources/sass/prism.scss'])
 @endsection
 
 @section('vendor_scripts')

@@ -1,0 +1,539 @@
+// Site delphinpro.ru
+// Copyright (c) 2023-2024.
+
+/* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+apacheconf+bash+batch+css-extras+diff+javadoclike+jsdoc+less+markdown+markup-templating+nginx+php+phpdoc+scss+sql+twig+typescript+yaml&plugins=line-highlight+line-numbers+custom-class+file-highlight+show-language+highlight-keywords+inline-color+toolbar+copy-to-clipboard+diff-highlight+treeview */
+
+/*
+Languages:
+
+markup
+css
+clike
+javascript
+apacheconf
+bash
+batch
+css-extras
+diff
+javadoclike
+jsdoc
+less
+markdown
+markup-templating
+nginx
+php
+phpdoc
+scss
+sql
+twig
+typescript
+yaml
+
+Plugins:
+
+line-highlight
+line-numbers
+custom-class
+file-highlight
+show-language
+highlight-keywords
+inline-color
+toolbar
+copy-to-clipboard
+diff-highlight
+treeview
+
+*/
+
+:root {
+    --prism-margin-y: 3rem;
+    --prism-padding: 1rem;
+    --prism-color: #f8f8f2;
+    --prism-bg: #282a36;
+
+    --prism-unchanged: var(--prism-color);
+    --prism-deleted: #f85149;
+    --prism-deleted-bg: #f8514926;
+    --prism-inserted: #50fa7b;
+    --prism-inserted-bg: #2ea04326;
+
+    --prism-punctuation: #f8f8f2;
+    --prism-tag: #ff79c6;
+    --prism-attr-name: #50fa7b;
+    --prism-attr-value: #f1fa8c;
+    --prism-function: #f1fa8c;
+    --prism-function-variable: #ff79c6;
+    --prism-property: #ff79c6;
+    --prism-literal-property: var(--prism-property);
+    --prism-operator: #f8f8f2;
+    --prism-string: #50fa7b;
+    --prism-boolean: #bd93f9;
+    --prism-number: #bd93f9;
+    --prism-keyword: #8be9fd;
+    --prism-comment: #6272a4;
+    --prism-class-name: #f1fa8c;
+    --prism-delimiter: #ffb86c;
+    --prism-important: #ffb86c;
+    --prism-type-hint: #8be9fd;
+    --prism-variable: var(--prism-color);
+    --prism-selector: #50fa7b;
+    --prism-unit: var(--prism-number);
+    --prism-combinator: var(--prism-color);
+    --prism-label: var(--prism-property);
+
+    --prism-tree-lines: var(--prism-comment);
+}
+
+
+code[class*=language-],
+pre[class*=language-] {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 1em;
+    line-height: 1.5;
+    display: block;
+    margin: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-wrap: normal;
+    word-break: normal;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    -webkit-hyphens: none;
+    hyphens: none;
+    color: var(--prism-color);
+    background: 0 0;
+}
+
+pre[class*=language-] {
+    overflow: auto;
+    padding: var(--prism-padding);
+    background: var(--prism-bg);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+
+    &:not(.code-toolbar > pre) {
+        margin: var(--prism-margin-y) 0;
+    }
+}
+
+code[class*=language-] {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+}
+
+code[class*=language-diff] > .prism-token { display: block; }
+
+:not(pre) > code[class*=language-] {
+    padding: .1em;
+    white-space: normal;
+    border-radius: .3em;
+    background: var(--prism-bg);
+}
+
+
+pre[class*=language-].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+
+    > code {
+        position: relative;
+        white-space: inherit;
+    }
+}
+
+
+.code-toolbar {
+    position: relative;
+    margin: var(--prism-margin-y) 0;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    .toolbar {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        display: flex;
+        overflow: hidden;
+        justify-content: flex-end;
+        transition: opacity .3s ease-in-out;
+        opacity: 1;
+        background: var(--prism-bg);
+        gap: .2em;
+    }
+
+    .toolbar-item {
+        display: flex;
+
+        > a, > button, > span {
+            font: inherit;
+            font-size: .8em;
+            line-height: normal;
+            overflow: visible;
+            padding: .2em .5em;
+            color: #bbb;
+            border: 0;
+            background: rgba(224, 224, 224, .2);
+            box-shadow: 0 2px 0 0 rgba(0, 0, 0, .2);
+        }
+
+        > span { background: none; }
+
+        > a, > button {
+            cursor: pointer;
+            &:focus,
+            &:hover {
+                text-decoration: none;
+                color: #000;
+                background: var(--bs-primary);
+            }
+        }
+    }
+}
+
+
+.prism {
+    &-unchanged { color: var(--prism-unchanged); }
+    &-deleted:not(.prism-prefix) { color: var(--prism-deleted); background: var(--prism-deleted-bg); }
+    &-inserted:not(.prism-prefix) { color: var(--prism-inserted); background: var(--prism-inserted-bg); }
+
+    &-tag { color: var(--prism-tag); }
+    &-punctuation { color: var(--prism-punctuation); }
+    &-attr-name { color: var(--prism-attr-name); }
+    &-attr-value { color: var(--prism-attr-value); }
+    &-function { color: var(--prism-function); }
+    &-function-variable { color: var(--prism-function-variable); }
+    &-property { color: var(--prism-property); }
+    &-literal-property { color: var(--prism-literal-property); }
+    &-operator { color: var(--prism-operator); }
+    &-string { color: var(--prism-string); }
+    &-boolean { color: var(--prism-boolean); }
+    &-number { color: var(--prism-number); }
+    &-keyword { color: var(--prism-keyword); }
+    &-parameter { font-style: italic; }
+    &-comment { color: var(--prism-comment); }
+    &-class-name { color: var(--prism-class-name); }
+    &-delimiter { color: var(--prism-delimiter); }
+    &-important { color: var(--prism-important); }
+    &-type-hint { color: var(--prism-type-hint); }
+    &-variable { color: var(--prism-variable); }
+    &-selector { color: var(--prism-selector); }
+    &-unit { color: var(--prism-unit); }
+    &-combinator { color: var(--prism-combinator); }
+    &-label { color: var(--prism-label); }
+
+    &-doc-comment {
+        --prism-comment: #4f9b4a;
+        --prism-keyword: #569cbf;
+        --prism-punctuation: #8a653b;
+        --prism-class-name: #8a653b;
+    }
+}
+
+.prism-token {
+    &.keyword-ERRORLEVEL { color: #bd93f9; }
+}
+
+code.language-php {
+    --prism-function: #d856c0;
+    .prism-function-definition {
+        --prism-function: #f1fa8c;
+    }
+}
+
+code.language-scss,
+code.language-css {
+    --prism-variable: #8be9fd;
+}
+
+code.language-batch {
+    --prism-attr-name: #ffc107;
+    --prism-variable: #ff79c6;
+    --prism-label: #f75e06;
+    .prism-command:has(.keyword-goto) { color: var(--prism-label); }
+    .prism-parameter { font-style: normal; }
+}
+
+.prism-bold,
+.prism-important {
+    font-weight: 700;
+}
+
+.prism-italic { font-style: italic; }
+
+.prism-entity { cursor: help; }
+
+pre[data-line] {
+    position: relative;
+    padding: 1em 0 1em 3em;
+}
+
+.line-highlight {
+    line-height: inherit;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin-top: 1em;
+    padding: inherit;
+    white-space: pre;
+    pointer-events: none;
+    background: hsla(24, 20%, 50%, .08);
+    background: linear-gradient(to right, hsla(24, 20%, 50%, .1) 70%, hsla(24, 20%, 50%, 0));
+    padding-inline: 0;
+
+    @media print {
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+
+    &::before,
+    &[data-end]::after {
+        font: bold 65%/1.5 sans-serif;
+        position: absolute;
+        top: .4em;
+        left: .6em;
+        min-width: 1em;
+        padding: 0 .5em;
+        content: attr(data-start);
+        text-align: center;
+        vertical-align: .3em;
+        color: #f4f1ef;
+        border-radius: 999px;
+        background-color: hsla(24, 20%, 50%, .4);
+        box-shadow: 0 1px #fff;
+        text-shadow: none;
+    }
+
+    &[data-end]::after {
+        top: auto;
+        bottom: .4em;
+        content: attr(data-end);
+    }
+
+    .line-numbers &::after,
+    .line-numbers &::before {
+        content: none;
+    }
+}
+
+pre[id].linkable-line-numbers span.line-numbers-rows {
+    pointer-events: all;
+    > span::before { cursor: pointer; }
+    > span:hover::before { background-color: rgba(128, 128, 128, .2); }
+}
+
+.line-numbers-rows {
+    font-size: 100%;
+    position: absolute;
+    top: 0;
+    left: -3.8em;
+    width: 3em;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    letter-spacing: -1px;
+    pointer-events: none;
+    border-right: 1px solid #999;
+
+    > span {
+        display: block;
+        counter-increment: linenumber;
+    }
+
+    > span::before {
+        display: block;
+        padding-right: .8em;
+        content: counter(linenumber);
+        text-align: right;
+        color: #999;
+    }
+}
+
+.inline-color-wrapper {
+    display: inline-block;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 1.333ch;
+    height: 1.333ch;
+    margin: 0 .333ch;
+    border: 1px solid #fff;
+    outline: 1px solid rgba(0, 0, 0, .5);
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyIDIiPjxwYXRoIGZpbGw9ImdyYXkiIGQ9Ik0wIDBoMnYySDB6Ii8+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0wIDBoMXYxSDB6TTEgMWgxdjFIMXoiLz48L3N2Zz4=) center;
+    background-size: 110%;
+
+    .inline-color {
+        display: block;
+        width: 120%;
+        height: 120%;
+    }
+}
+
+// Always without lines number
+
+pre.language-bash,
+pre.language-treeview {
+    padding-left: var(--prism-padding) !important;
+    .line-numbers-rows { display: none; }
+}
+
+//== Treeview
+
+pre.language-treeview {
+    max-width: 30rem;
+    margin-inline: auto;
+    + .toolbar { display: none; }
+}
+
+@font-face {
+    font-family: PrismTreeview;
+    src: url(data:application/font-woff;base64,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) format("woff");
+}
+
+.prism {
+    &-entry-line {
+        position: relative;
+        display: inline-block;
+        width: 1.2em;
+        vertical-align: top;
+        text-indent: -99em;
+        color: var(--prism-tree-lines);
+    }
+
+    &-entry-line:before,
+    &-line-h:after {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        content: "";
+    }
+
+    &-line-h:before,
+    &-line-v:before {
+        border-left: 1px solid var(--prism-tree-lines);
+    }
+
+    &-line-v-last:before {
+        height: 50%;
+        border-bottom: 1px solid var(--prism-tree-lines);
+        border-left: 1px solid var(--prism-tree-lines);
+    }
+
+    &-line-h:after {
+        height: 50%;
+        border-bottom: 1px solid var(--prism-tree-lines);
+    }
+
+    &-entry-name {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+
+        &::before {
+            //noinspection CssNoGenericFontName
+            font-family: PrismTreeview;
+            font-size: inherit;
+            font-style: normal;
+            display: inline-block;
+            width: 3ex;
+            content: "\ea01";
+            vertical-align: middle;
+            color: var(--prism-tree-lines);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        &.dotfile:not(.dir) { color: #8b8b88; }
+        &.dir::before { content: "\ea02"; }
+        &.dir::after { content: "/"; }
+
+        &.ext-bmp:before,
+        &.ext-eps:before,
+        &.ext-gif:before,
+        &.ext-jpe:before,
+        &.ext-jpeg:before,
+        &.ext-jpg:before,
+        &.ext-png:before,
+        &.ext-svg:before,
+        &.ext-tiff:before { content: "\ea03"; }
+
+        &.ext-cfg:before,
+        &.ext-conf:before,
+        &.ext-config:before,
+        &.ext-csv:before,
+        &.ext-ini:before,
+        &.ext-log:before,
+        &.ext-md:before,
+        &.ext-nfo:before,
+        &.ext-txt:before { content: "\ea06"; }
+
+        &.ext-asp:before,
+        &.ext-aspx:before,
+        &.ext-c:before,
+        &.ext-cc:before,
+        &.ext-cpp:before,
+        &.ext-cs:before,
+        &.ext-css:before,
+        &.ext-h:before,
+        &.ext-hh:before,
+        &.ext-htm:before,
+        &.ext-html:before,
+        &.ext-jav:before,
+        &.ext-java:before,
+        &.ext-js:before,
+        &.ext-php:before,
+        &.ext-rb:before,
+        &.ext-xml:before { content: "\ea07"; }
+
+        &.ext-7z:before,
+        &.ext-bz2:before,
+        &.ext-bz:before,
+        &.ext-gz:before,
+        &.ext-rar:before,
+        &.ext-tar:before,
+        &.ext-tgz:before,
+        &.ext-zip:before { content: "\ea08"; }
+
+        &.ext-aac:before,
+        &.ext-au:before,
+        &.ext-cda:before,
+        &.ext-flac:before,
+        &.ext-mp3:before,
+        &.ext-oga:before,
+        &.ext-ogg:before,
+        &.ext-wav:before,
+        &.ext-wma:before { content: "\ea04"; }
+
+        &.ext-avi:before,
+        &.ext-flv:before,
+        &.ext-mkv:before,
+        &.ext-mov:before,
+        &.ext-mp4:before,
+        &.ext-mpeg:before,
+        &.ext-mpg:before,
+        &.ext-ogv:before,
+        &.ext-webm:before { content: "\ea05"; }
+
+        &.ext-pdf:before { content: "\ea09"; }
+
+        &.ext-xls:before,
+        &.ext-xlsx:before { content: "\ea0a"; }
+
+        &.ext-doc:before,
+        &.ext-docm:before,
+        &.ext-docx:before { content: "\ea0c"; }
+
+        &.ext-pps:before,
+        &.ext-ppt:before,
+        &.ext-pptx:before { content: "\ea0b"; }
+    }
+}

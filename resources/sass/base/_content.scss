@@ -11,20 +11,17 @@
             margin: auto;
         }
     }
-    code:not(pre code) {
+    code:not([class*=language-]) {
         color: #000;
         //border: 1px solid #ddd;
         //border-radius: 2px;
         //background: #eee;
         //padding-inline: 0.125em;
     }
-    pre {
+    pre:not([class*=language-]) {
         padding: rhythm(0.5) rhythm(1);
         border: 1px solid #ddd;
         background: #eee;
-    }
-    pre[class*=language-] {
-        margin: 1rem 0;
     }
 
     table {
