@@ -1,7 +1,9 @@
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
+
+import { CodeSamplePlugin } from '@admin/plugins/codesample';
 
 function getToken() {
     return document.getElementById('csrf_token')?.content;
@@ -30,6 +32,7 @@ function saveContent(editor, url) {
         .catch(err => console.log(err));
 }
 
+tinymce.PluginManager.add('codesample', CodeSamplePlugin);
 /**
  * @var {object} Controller
  */
@@ -43,6 +46,7 @@ export default class extends Controller {
         const savingUrl = this.textareaTarget.dataset.savingUrl;
         console.log(savingUrl);
 
+        // noinspection JSUnusedGlobalSymbols
         tinymce.init({
             target: this.textareaTarget,
 
@@ -109,11 +113,25 @@ export default class extends Controller {
             ],
 
             codesample_languages: [
+                { text: 'Plain text', value: 'none' },
                 { text: 'HTML/XML', value: 'markup' },
                 { text: 'JavaScript', value: 'javascript' },
-                { text: 'CSS', value: 'css' },
+                { text: 'TypeScript', value: 'typescript' },
                 { text: 'PHP', value: 'php' },
-                { text: 'Shell', value: 'shell' },
+                { text: 'CSS', value: 'css' },
+                { text: 'Scss', value: 'scss' },
+                { text: 'Less', value: 'less' },
+                { text: 'Shell', value: 'bash' },
+                { text: 'Diff', value: 'diff' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'Apache', value: 'apacheconf' },
+                { text: 'Nginx', value: 'nginx' },
+                { text: 'Batch', value: 'batch' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Twig', value: 'twig' },
+                { text: 'Yaml', value: 'yaml' },
+                { text: 'C-like', value: 'clike' },
+                { text: 'Treeview', value: 'treeview' },
             ],
 
             autosave_retention: (60 * 24 * 7) + 'm',
