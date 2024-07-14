@@ -11,6 +11,7 @@ export default defineConfig({
     resolve: {
         alias: {
             '@'         : normalizePath(path.resolve(__dirname, 'resources/js')),
+            '@admin'    : normalizePath(path.resolve(__dirname, 'resources/admin/js')),
             '~bootstrap': normalizePath(path.resolve(__dirname, 'node_modules/bootstrap')),
         },
     },
