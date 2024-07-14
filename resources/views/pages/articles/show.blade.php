@@ -40,7 +40,7 @@
 @endsection
 
 @section('vendor_scripts')
-    <script src="{{ asset('static/prismjs/prism.js') }}"></script>
+    <script src="{{ hashed_asset('static/prismjs/prism.js') }}"></script>
 @endsection
 
 @section('content')

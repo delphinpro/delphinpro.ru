@@ -107,6 +107,16 @@ function safeHtmlString(string $html, bool $allowLinks = false): string
     );
 }
 
+function hashed_asset(string $path): string
+{
+    $file = public_path($path);
+    if (is_file($file) && ($time = filemtime($file)) !== false) {
+        return asset($path).'?v='.$time;
+    }
+
+    return asset($path);
+}
+
 function fmtSql(string $sql): string
 {
     $repl = [
