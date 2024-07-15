@@ -1,7 +1,7 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
 namespace App\Orchid\Screens\Tags;
@@ -11,6 +11,7 @@ use App\Orchid\Helpers\ButtonDelete;
 use App\Orchid\Helpers\LinkPreview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\TextArea;
@@ -25,7 +26,7 @@ class TagListScreen extends Screen
     public function query(): iterable
     {
         return [
-            'entries' => Tag::filters()->defaultSort('name')->paginate(100),
+            'entries' => Tag::filters()->withCount('articles')->defaultSort('name')->paginate(100),
         ];
     }
 
@@ -72,7 +73,16 @@ class TagListScreen extends Screen
                         ->asyncParameters([
                             'id' => $tag->id,
                         ])),
-                TD::make('actions', '')->alignRight()->width(400)
+                TD::make('', 'Кол-во статей')->alignRight()->render(function (Tag $tag) {
+                    return $tag->articles_count ? "<code class='text-black'>$tag->articles_count</code>" : '';
+                }),
+                TD::make()->alignRight()->width(100)
+                    ->render(fn(Tag $tag) => Link::make('Перейти')
+                        ->type(Color::LIGHT)
+                        ->icon('bs.display')
+                        ->target('_black')
+                        ->href(route('article.by_tag', ['tag' => $tag->name]))),
+                TD::make()->alignRight()->width(100)
                     ->render(fn(Tag $tag) => ButtonDelete::make('Удалить')
                         ->method('deleteTag')
                         ->confirm('Вы уверены, что хотите удалить этот тег?')
