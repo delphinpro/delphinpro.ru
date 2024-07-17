@@ -228,6 +228,8 @@ pre[class*=language-].line-numbers {
     &-unit { color: var(--prism-unit); }
     &-combinator { color: var(--prism-combinator); }
     &-label { color: var(--prism-label); }
+    &-regex-delimiter { color: #ffa200; }
+    &-regex-source { color: #149abb; }
 
     &-doc-comment {
         --prism-comment: #4f9b4a;
