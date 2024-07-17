@@ -1,7 +1,7 @@
 // Site delphinpro.ru
-// Copyright (c) 2023.
+// Copyright (c) 2023-2024.
 
-@mixin custom-scrollbar($color, $background: transparent, $size: 5px) {
+@mixin custom-scrollbar($color, $background: transparent, $size: 0.5rem) {
     &::-webkit-scrollbar {
         width: $size;
         height: $size;
