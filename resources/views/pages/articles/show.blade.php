@@ -120,8 +120,8 @@
 @endsection
 
 @section('aside')
-    <div class="side-fixed">
-        @if($related->isNotEmpty())
+    @if($related->isNotEmpty())
+        <div class="side-fixed">
             <div class="module">
                 <div class="module-title">На эту же тему:</div>
                 <ul class="side-nav">
@@ -130,6 +130,6 @@
                     @endforeach
                 </ul>
             </div>
-        @endif
-    </div>
+        </div>
+    @endif
 @endsection
