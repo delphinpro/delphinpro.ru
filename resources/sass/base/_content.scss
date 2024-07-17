@@ -36,6 +36,14 @@
         margin-left: 2rem;
     }
 
+    hr,
+    p:has(img),
+    .code-toolbar,
+    blockquote,
+    .alert {
+        margin-block: 3rem;
+    }
+
     > :first-child { margin-top: 0 !important; }
     > :last-child { margin-bottom: 0 !important; }
 }

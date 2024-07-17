@@ -58,12 +58,6 @@
         }
     }
     &__body {
-        blockquote {
-            margin-left: 0;
-            border-left-width: 5px;
-            &::before { content: none; }
-            > :last-child { margin-bottom: 0; }
-        }
     }
     &__date {
         font-size: $font-size-xs;

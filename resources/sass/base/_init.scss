@@ -11,6 +11,7 @@ $rhythm: 1.5rem;
     --page-py: #{rhythm(2)};
 }
 
+pre[class*=language-],
 body {
     @include custom-scrollbar(
             darken($primary, 10%),
@@ -83,6 +84,10 @@ blockquote {
         content: "❜❜";
         color: var(--blockquote-color, #{$primary});
     }
+}
+
+pre[class*=language-] {
+    max-height: 85vh;
 }
 
 [x-cloak] {
