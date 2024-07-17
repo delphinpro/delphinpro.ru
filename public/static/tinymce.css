@@ -74,6 +74,71 @@ hr {
     color: white;
 }
 
+.alert {
+    margin-bottom: 1rem;
+    cursor: default;
+    color: #000;
+    background: var(--alert-bg, #eee);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --alert-color: #b5bbc3;
+    --alert-bg: #fff;
+    --blockquote-color: var(--alert-color);
+
+    & > * {
+        cursor: text;
+        pointer-events: none;
+    }
+}
+
+/* Fix compatibility with visualblocks plugin */
+
+div.alert,
+.mce-visualblocks div.alert {
+    margin-left: 2rem !important;
+    padding: 1rem !important;
+    border: 1px solid var(--alert-color);
+    border-left-width: 2rem;
+}
+
+/* End fix */
+
+.alert-info {
+    --alert-color: var(--info);
+    --alert-bg: var(--info-light);
+}
+
+.alert-success {
+    --alert-color: var(--primary);
+    --alert-bg: var(--primary-light);
+}
+
+.alert-warning {
+    --alert-color: var(--warning);
+    --alert-bg: var(--warning-light);
+}
+
+.alert-danger {
+    --alert-color: var(--danger);
+    --alert-bg: var(--danger-light);
+}
+
+.alert > :first-child {
+    margin-top: 0;
+}
+
+.alert > :last-child {
+    margin-bottom: 0;
+}
+
+.mce-visualblocks p {
+    /*outline: 1px dotted red;*/
+    border-color: red;
+}
+
+.tox .tox-listboxfield {
+    min-width: 200px;
+}
+
 /* Fix visualblocks */
 .mce-visualblocks address,
 .mce-visualblocks article,

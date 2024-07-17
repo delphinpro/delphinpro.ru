@@ -3,6 +3,7 @@
  * Copyright (c) 2023-2024.
  */
 
+import { AlertsPlugin } from '@admin/plugins/alerts';
 import { CodeSamplePlugin } from '@admin/plugins/codesample';
 
 function getToken() {
@@ -33,6 +34,8 @@ function saveContent(editor, url) {
 }
 
 tinymce.PluginManager.add('codesample', CodeSamplePlugin);
+tinymce.PluginManager.add('alerts', AlertsPlugin);
+
 /**
  * @var {object} Controller
  */
@@ -55,6 +58,7 @@ export default class extends Controller {
             },
 
             plugins: [
+                'alerts',
                 'code',
                 'fullscreen',
                 'table',
@@ -76,7 +80,7 @@ export default class extends Controller {
                     'restoredraft',
                     'undo redo',
                     'table',
-                    'image codesample hr',
+                    'alerts image codesample hr',
                     'visualblocks visualchars wordcount',
                 ].filter(s => s).join('|'),
                 [
