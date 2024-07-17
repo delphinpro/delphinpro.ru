@@ -4,7 +4,7 @@
 
 @section('content')
     @if($tags->isEmpty())
-        <div class="alert alert-success">Нет опубликованных тегов</div>
+        <div class="alert">Нет опубликованных тегов</div>
     @else
         <h1 class="page-title">Все теги</h1>
         <div class="tags tags_large">

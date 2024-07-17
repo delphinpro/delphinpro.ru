@@ -8,7 +8,7 @@
 
 @section('content')
     @if($articles->isEmpty())
-        <div class="alert alert-success">Нет опубликованных материалов</div>
+        <div class="alert">Нет опубликованных материалов</div>
     @else
         <h1 class="page-title">Публикации с тегом «{{ $tag->name }}» ({{ $articles->count() }})</h1>
         <x-articles-list :articles="$articles" :displayComments="$settings->displayComments"/>
