@@ -136,6 +136,8 @@ export default class extends Controller {
 
             autosave_retention: (60 * 24 * 7) + 'm',
 
+            contextmenu: false,
+
             content_css: '/static/tinymce.css',
             // skin       : 'oxide-dark',
             skin    : 'tinymce-5-dark',
