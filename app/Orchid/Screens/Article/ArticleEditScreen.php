@@ -1,7 +1,7 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
 namespace App\Orchid\Screens\Article;
@@ -35,11 +35,6 @@ class ArticleEditScreen extends Screen
 {
     protected Article $article;
 
-    /**
-     * Fetch data to be displayed on the screen.
-     *
-     * @return array
-     */
     public function query(Article $article): iterable
     {
         $article->load('tags');
@@ -50,11 +45,6 @@ class ArticleEditScreen extends Screen
         ];
     }
 
-    /**
-     * The name of the screen displayed in the header.
-     *
-     * @return string|null
-     */
     public function name(): ?string
     {
         return $this->article->title ?? 'Новая публикация';
@@ -68,11 +58,6 @@ class ArticleEditScreen extends Screen
             : null;
     }
 
-    /**
-     * The screen's action buttons.
-     *
-     * @return \Orchid\Screen\Action[]
-     */
     public function commandBar(): iterable
     {
         $commands = [
@@ -90,9 +75,6 @@ class ArticleEditScreen extends Screen
     }
 
     /**
-     * The screen's layout elements.
-     *
-     * @return \Orchid\Screen\Layout[]|string[]
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function layout(): iterable
