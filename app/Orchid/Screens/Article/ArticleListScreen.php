@@ -56,9 +56,9 @@ class ArticleListScreen extends Screen
                 TD::make('published', 'Опубликовано')->sort()
                     ->render(fn(Article $article) => Display::bool($article->published)),
                 TD::make('created_at', 'Дата создания')->sort()
-                    ->render(fn(Article $article) => Display::datetime($article->created_at)),
+                    ->render(fn(Article $article) => Display::datetime($article->local_created_at)),
                 TD::make('updated_at', 'Дата обновления')->sort()
-                    ->render(fn(Article $article) => Display::datetime($article->updated_at)),
+                    ->render(fn(Article $article) => Display::datetime($article->local_updated_at)),
                 TD::make('actions', '')->alignRight()
                     ->render(fn(Article $article) => ButtonEdit::make()
                         ->href(route('platform.article.edit', $article))),
