@@ -1,7 +1,7 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
 namespace App\Orchid\Controllers;
@@ -17,9 +17,7 @@ class ArticleController extends Controller
     {
         $content = $request['content'] ?? null;
         if ($content) {
-            $article->update([
-                'content' => $content,
-            ]);
+            Article::withoutTimestamps(static fn() => $article->update(['content' => $content]));
         }
 
         return response()->json(['ok' => true]);
