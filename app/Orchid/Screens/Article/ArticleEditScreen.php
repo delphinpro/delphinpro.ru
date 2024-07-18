@@ -129,8 +129,9 @@ class ArticleEditScreen extends Screen
                     Input::make('article.keywords')->title('Ключевые слова'),
                     TextArea::make('article.description')->title('Описание')->rows(4),
                     Label::make('')->title('Дата и время создания')->value($createdAt)->canSee($this->article->exists),
-                    CheckBox::make('update_time')->placeholder('Обновить время создания')->value(false)->canSee($this->article->exists),
-                    Label::make('')->title('Дата и время обновления')->value($updatedAt)->canSee($this->article->exists),
+                    CheckBox::make('update_created_time')->placeholder('Обновить время создания')->value(false)->canSee($this->article->exists),
+                    Label::make('')->title('Дата и время редактирования')->value($updatedAt)->canSee($this->article->exists),
+                    CheckBox::make('update_edited_time')->placeholder('Обновить время редактирования')->value(false)->canSee($this->article->exists),
                     Label::make('')->title('Пользователь')->value($this->article->user?->name.' ('.$this->article->user_id.')')->canSee($this->article->exists),
                 ]),
             ])->ratio('60/40'),
@@ -139,8 +140,6 @@ class ArticleEditScreen extends Screen
 
     public function save(Article $article, Request $request): RedirectResponse
     {
-        $newArticle = !$article->exists;
-
         $validated = $request->validate([
             'article.title'       => 'required|string',
             'article.summary'     => 'nullable|string',
@@ -151,15 +150,20 @@ class ArticleEditScreen extends Screen
             'article.description' => 'nullable|string|max:255',
         ]);
 
-        if ($newArticle) {
+        if (!$article->exists) {
             $article->user_id = $request->user()->id;
         }
 
-        $article->fill($validated['article'])->save();
+        $article->fill($validated['article']);
 
-        if (!$newArticle && $request->input('update_time')) {
+        if ($request->input('update_created_time')) {
             $article->created_at = now();
+        }
+
+        if (!$article->exists || $request->input('update_edited_time') || $request->input('update_created_time')) {
             $article->save();
+        } else {
+            Article::withoutTimestamps(static fn() => $article->save());
         }
 
         $tags = $request->input('article.tags') ?? [];
