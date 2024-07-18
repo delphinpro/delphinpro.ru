@@ -96,10 +96,17 @@ class ArticleTrashScreen extends Screen
     {
         $article = Article::withTrashed()->findOrFail($request->get('id'));
         $title = $article->title;
+        $restoreSuccessful = false;
 
-        if ($article->restore()) {
-            $article->update(['published' => false]);
-            Toast::success(__('Публикация «:title» восстановлена и корзины', ['title' => $title]))->delay(3000);
+        Article::withoutTimestamps(static function () use ($article, &$restoreSuccessful) {
+            if ($restoreSuccessful = $article->restore()) {
+                $article->update(['published' => false]);
+            }
+        });
+
+        if ($restoreSuccessful) {
+            Toast::success(__('Публикация «:title» восстановлена и корзины', ['title' => $article->title]))
+                ->delay(3000);
 
             return Article::onlyTrashed()->count()
                 ? redirect()->route('platform.article.trash')
@@ -111,7 +118,7 @@ class ArticleTrashScreen extends Screen
         return redirect()->route('platform.article.trash');
     }
 
-    public function clear(Request $request): RedirectResponse
+    public function clear(): RedirectResponse
     {
         $deleted = Article::onlyTrashed()->forceDelete();
 

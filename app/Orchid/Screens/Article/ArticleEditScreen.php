@@ -170,12 +170,18 @@ class ArticleEditScreen extends Screen
         return redirect()->route('platform.article.edit', $article);
     }
 
-    public function delete(Article $article, Request $request): RedirectResponse
+    public function delete(Article $article): RedirectResponse
     {
         $title = $article->title;
+        $deleteSuccessfully = false;
 
-        if ($article->delete()) {
-            $article->update(['published' => false]);
+        Article::withoutTimestamps(static function () use ($article, &$deleteSuccessfully) {
+            if ($deleteSuccessfully = $article->delete()) {
+                $article->update(['published' => false]);
+            }
+        });
+
+        if ($deleteSuccessfully) {
             Toast::success(__('Публикация «:title» перемещена в корзину', ['title' => $title]))->delay(3000);
 
             return redirect()->route('platform.article.list');
