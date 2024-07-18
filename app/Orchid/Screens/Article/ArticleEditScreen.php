@@ -82,12 +82,12 @@ class ArticleEditScreen extends Screen
         $createdAt = $updatedAt = '–';
         if ($this->article->exists) {
             $createdAt = new HtmlString(__(':date <small>:tz</small>', [
-                'date' => Display::datetime($this->article->created_at),
-                'tz'   => $this->article->created_at->timezone,
+                'date' => Display::datetime($this->article->local_created_at),
+                'tz'   => $this->article->local_created_at->timezone,
             ]));
             $updatedAt = new HtmlString(__(':date <small>:tz</small>', [
-                'date' => Display::datetime($this->article->updated_at),
-                'tz'   => $this->article->updated_at->timezone,
+                'date' => Display::datetime($this->article->local_updated_at),
+                'tz'   => $this->article->local_updated_at->timezone,
             ]));
         }
 

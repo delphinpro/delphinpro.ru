@@ -1,20 +1,23 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
 namespace App\Models\Traits;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Support\Carbon;
 
+/**
+ * @property-read \Illuminate\Support\Carbon $local_deleted_at
+ */
 trait HasUserTimezoneInSoftDeletes
 {
-    public function deletedAt(): Attribute
+    public function localDeletedAt(): Attribute
     {
         return new Attribute(
-            get: fn($value) => $value === null ? null : Carbon::parse($value)->timezone(getUserTimeZone()),
+            get: fn() => $this->deleted_at === null ? null
+                : $this->deleted_at->toImmutable()->timezone(getUserTimeZone()),
         );
     }
 }

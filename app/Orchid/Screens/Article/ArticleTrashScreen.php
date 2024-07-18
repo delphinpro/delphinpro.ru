@@ -56,11 +56,11 @@ class ArticleTrashScreen extends Screen
                 TD::make('title', 'Заголовок')->sort()
                     ->render(fn(Article $article) => $this->getTitle($article)),
                 TD::make('deleted_at', 'Дата удаления')->sort()
-                    ->render(fn(Article $article) => Display::datetime($article->deleted_at)),
+                    ->render(fn(Article $article) => Display::datetime($article->local_deleted_at)),
                 TD::make('created_at', 'Дата создания')->sort()
-                    ->render(fn(Article $article) => Display::datetime($article->created_at)),
+                    ->render(fn(Article $article) => Display::datetime($article->local_created_at)),
                 TD::make('actions', '')
-                    ->render(function ($model) {
+                    ->render(function (Article $model) {
                         return Group::make([
                             ButtonRestore::make()
                                 ->confirm('Публикация будет восстановлена из корзины. Продолжить?')

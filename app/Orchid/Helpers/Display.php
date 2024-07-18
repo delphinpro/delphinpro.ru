@@ -1,12 +1,12 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
 namespace App\Orchid\Helpers;
 
-use Illuminate\Support\Carbon;
+use Carbon\CarbonInterface;
 
 class Display
 {
@@ -17,7 +17,7 @@ class Display
             : '<span class="bulb"><i class="bg-danger"></i>'.$false.'</span>';
     }
 
-    public static function datetime(?Carbon $carbon): string
+    public static function datetime(?CarbonInterface $carbon): string
     {
         return $carbon
             ? '<span class="font-monospace">'.$carbon->format('d.m.Y').'</span>'
