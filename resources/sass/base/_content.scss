@@ -33,7 +33,9 @@
 
     blockquote,
     .alert {
-        margin-left: 2rem;
+        @include media-breakpoint-up(md) {
+            margin-left: 2rem;
+        }
     }
 
     hr,
