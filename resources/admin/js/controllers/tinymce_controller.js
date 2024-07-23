@@ -73,6 +73,9 @@ export default class extends Controller {
                 'autosave',
             ],
 
+            toolbar_sticky       : true,
+            toolbar_sticky_offset: 60,
+
             toolbar: [
                 [
                     savingUrl ? 'save' : '',
@@ -147,7 +150,7 @@ export default class extends Controller {
             skin    : 'tinymce-5-dark',
             menubar : false,
             branding: false,
-            height  : 500,
+            height  : 700,
         });
     }
 
