@@ -5,6 +5,7 @@
 
 import { AlertsPlugin } from '@admin/plugins/alerts';
 import { CodeSamplePlugin } from '@admin/plugins/codesample';
+import { SandboxPlugin } from '@admin/plugins/sandbox';
 
 function getToken() {
     return document.getElementById('csrf_token')?.content;
@@ -35,6 +36,7 @@ function saveContent(editor, url) {
 
 tinymce.PluginManager.add('codesample', CodeSamplePlugin);
 tinymce.PluginManager.add('alerts', AlertsPlugin);
+tinymce.PluginManager.add('sandbox', SandboxPlugin);
 
 /**
  * @var {object} Controller
@@ -47,7 +49,6 @@ export default class extends Controller {
 
     connect() {
         const savingUrl = this.textareaTarget.dataset.savingUrl;
-        console.log(savingUrl);
 
         // noinspection JSUnusedGlobalSymbols
         tinymce.init({
@@ -59,6 +60,7 @@ export default class extends Controller {
 
             plugins: [
                 'alerts',
+                'sandbox',
                 'code',
                 'fullscreen',
                 'table',
@@ -83,7 +85,8 @@ export default class extends Controller {
                     'restoredraft',
                     'undo redo',
                     'table',
-                    'alerts image codesample hr',
+                    'alerts sandbox',
+                    'image codesample hr',
                     'visualblocks visualchars wordcount',
                 ].filter(s => s).join('|'),
                 [

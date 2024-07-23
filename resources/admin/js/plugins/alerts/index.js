@@ -92,7 +92,7 @@ export const AlertsPlugin = editor => {
 
     editor.ui.registry.addToggleButton('alerts', {
         icon    : 'warning',
-        text    : 'Alert',
+        tooltip : 'Insert Alert block',
         onAction: () => editor.execCommand('edit_alert'),
         onSetup : onSetupEditable(editor, api => {
             api.setActive(editor.selection.getStart().closest('.alert') !== null);

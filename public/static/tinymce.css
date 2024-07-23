@@ -53,10 +53,10 @@ img::before {
 code {
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     font-size: inherit;
+    padding-inline: 0.25em;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 0.25em;
     background: rgba(0, 0, 0, 0.05);
-    padding-inline: 0.25em;
 }
 
 blockquote {
@@ -164,4 +164,21 @@ div.alert,
 
 pre[class*=language-] {
     padding-top: 1em;
+}
+
+.code-snippet {
+    margin: 1rem 0;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #3d3d3e;
+}
+
+.code-snippet__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.code-snippet__link {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    word-break: break-word;
 }

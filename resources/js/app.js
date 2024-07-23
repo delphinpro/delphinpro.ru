@@ -75,3 +75,15 @@ window.commentBox = commentBox;
 
 commentForm('.comment-form');
 commentBox('.comment-box');
+
+
+//== Code snippets
+
+document.querySelectorAll('.code-snippet').forEach(el => {
+    const url = el.dataset.source ?? '';
+    if (url.indexOf('codepen.io') !== -1) {
+        let source = url.replace('/pen/', '/embed/') + '?default-tab=result&editable=true&theme-id=light';
+        el.innerHTML = `<iframe src="${source}" loading="lazy" allowtransparency allowfullscreen></iframe>`;
+        el.classList.add('is-init');
+    }
+});

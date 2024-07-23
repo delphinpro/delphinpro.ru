@@ -2427,7 +2427,7 @@ const open = editor => {
     });
 };
 
-const register$1 = editor => {
+const registerCommand = editor => {
     editor.addCommand('codesample', () => {
         const node = editor.selection.getNode();
         if (editor.selection.isCollapsed() || isCodeSample(node)) {
@@ -2512,7 +2512,7 @@ const isCodeSampleSelection = editor => {
     const node = editor.selection.getStart();
     return editor.dom.is(node, 'pre[class*="language-"]');
 };
-const register = editor => {
+const registerControls = editor => {
     const onAction = () => editor.execCommand('codesample');
     editor.ui.registry.addToggleButton('codesample', {
         icon   : 'code-sample',
@@ -2537,8 +2537,8 @@ const register = editor => {
 export const CodeSamplePlugin = editor => {
     register$2(editor);
     setup(editor);
-    register(editor);
-    register$1(editor);
+    registerControls(editor);
+    registerCommand(editor);
     editor.on('dblclick', ev => {
         if (isCodeSample(ev.target)) {
             open(editor);
