@@ -89,8 +89,8 @@ treeview
 code[class*=language-],
 pre[class*=language-] {
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    font-size: 1em;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.2;
     display: block;
     margin: 0;
     text-align: left;
@@ -284,11 +284,11 @@ pre[data-line] {
     left: 0;
     margin-top: 1em;
     padding: inherit;
+    padding-inline: 0;
     white-space: pre;
     pointer-events: none;
     background: hsla(24, 20%, 50%, .08);
     background: linear-gradient(to right, hsla(24, 20%, 50%, .1) 70%, hsla(24, 20%, 50%, 0));
-    padding-inline: 0;
 
     @media print {
         -webkit-print-color-adjust: exact;
