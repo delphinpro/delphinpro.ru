@@ -63,6 +63,13 @@ class CommentForm {
             Toast.success(res['message'], 'Успешно', { timeout: 7000 });
             this.#clear();
             this.#toggle('editor');
+            if (!this.target) {
+                document.querySelector('.comments').insertAdjacentHTML(
+                    'afterbegin',
+                    '<h3 class="comments__title">Комментарии (1)</h3><div class="comments__main" id="comments"></div>',
+                );
+                this.target = document.getElementById('comments');
+            }
             this.target.insertAdjacentHTML('beforeend', res['content']);
             commentBox('.comment-box');
         }).finally(() => {
