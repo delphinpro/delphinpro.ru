@@ -8,7 +8,9 @@ $rhythm: 1.5rem;
     --header-height: #{$rhythm * 2};
     --header-full-height: #{$rhythm * 2 + 2rem};
     --header-color: #fff;
+    --header-bg: #{$gray-900};
     --page-py: #{rhythm(2)};
+    --transition: 0.3s ease;
 }
 
 pre[class*=language-],
@@ -59,10 +61,10 @@ pre:not([class*=language-]) {
 
 code {
     font-size: inherit;
+    padding-inline: 0.25em;
     border: 1px solid rgba(#000, 0.1);
     border-radius: 0.25em;
     background: rgba(#000, 0.05);
-    padding-inline: 0.25em;
 }
 
 blockquote {

@@ -1,5 +1,5 @@
 // Site delphinpro.ru
-// Copyright (c) 2023.
+// Copyright (c) 2023-2024.
 
 .branding {
     font-weight: 500;
@@ -36,7 +36,7 @@
 
     .header &__part {
         @include media-breakpoint-down(sm) {
-            display: none;
+            //display: none;
         }
     }
 }

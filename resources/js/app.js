@@ -9,6 +9,10 @@ import Toast from '@/toast';
 import axios from 'axios';
 import './bootstrap';
 
+//= Config
+
+const MAINMENU_TOGGLE_BP = '768px';
+
 //== PREPARE
 
 /** @type {HTMLMetaElement} */
@@ -42,6 +46,9 @@ axios.interceptors.response.use(
     },
 );
 
+const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+document.documentElement.style.setProperty('--scrollbar-width', scrollbarWidth + 'px');
+
 
 //== Sticky header
 
@@ -50,6 +57,40 @@ siteHeader.classList.toggle('is-sticky', scrollY > 0);
 
 window.addEventListener('scroll', () => {
     siteHeader.classList.toggle('is-sticky', scrollY > 0);
+});
+
+
+//== Main navigation
+
+document.querySelectorAll('.main-navigation').forEach(el => {
+    const isReadyClass = 'is-ready';
+    const isOpenClass = 'is-open-menu';
+    const overlay = document.getElementById('menu-overlay');
+    const btn = el.querySelector('.main-navigation__button');
+    const menu = el.querySelector('.main-navigation__menu');
+
+    const toggleMenu = state => document.body.classList.toggle(isOpenClass, state);
+
+    btn?.addEventListener('click', () => toggleMenu(!document.body.classList.contains(isOpenClass)));
+    overlay?.addEventListener('click', () => toggleMenu(false));
+
+    const mqMenuToggle = matchMedia(`(min-width:${MAINMENU_TOGGLE_BP})`);
+
+    function menuToggleListener(e) {
+        if (e.matches) {
+            toggleMenu(false);
+            overlay?.classList.remove(isReadyClass);
+            menu?.classList.remove(isReadyClass);
+        } else {
+            setTimeout(() => {
+                overlay?.classList.add(isReadyClass);
+                menu?.classList.add(isReadyClass);
+            }, 100);
+        }
+    }
+
+    mqMenuToggle.addEventListener('change', menuToggleListener);
+    menuToggleListener(mqMenuToggle);
 });
 
 

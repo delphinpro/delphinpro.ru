@@ -5,6 +5,8 @@
 
     <div id="app" class="site">
 
+        <div id="menu-overlay"></div>
+
         <div class="site__header">
             @include('partials.app.header')
         </div>
