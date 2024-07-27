@@ -182,6 +182,7 @@ body.is-open-menu {
         &__menu {
             display: flex;
             padding: 0;
+            box-shadow: none !important;
             gap: 1.5rem;
             @include media-breakpoint-down(sm) {
                 display: none;
