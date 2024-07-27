@@ -6,6 +6,7 @@
 .article-item {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     padding: var(--padding);
     border-radius: $border-radius-sm;
     background: #fff;
