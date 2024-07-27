@@ -97,7 +97,7 @@
         </div>
     </div>
 
-    @if($settings->displayComments)
+    @if($settings->displayComments && ($settings->enableComments || $comments->isNotEmpty()))
         <div class="comments">
             @if($comments->isNotEmpty())
                 <h3 class="comments__title">Комментарии ({{ $comments->count() }})</h3>
