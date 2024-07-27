@@ -12,8 +12,8 @@ body.is-open-menu {
 }
 
 #menu-overlay {
+    position: fixed;
     @include media-breakpoint-down($main-menu-toggle-breakpoint) {
-        position: fixed;
         z-index: 100;
         top: 0;
         left: 0;
