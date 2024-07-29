@@ -1,51 +1,40 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
-
-declare(strict_types=1);
 
 namespace App\Orchid\Screens;
 
 use App\Models\Article;
+use App\Models\Comment;
 use App\Orchid\Helpers\LinkPreview;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 
 class PlatformScreen extends Screen
 {
-    /**
-     * Fetch data to be displayed on the screen.
-     *
-     * @return array
-     */
     public function query(): iterable
     {
-        $articlesCount = Article::count();
+        $totalArticles = Article::count();
+        $publishedArticles = Article::where('published', true)->count();
+        $totalComments = Comment::count();
+        $newComments = Comment::where('published', false)->count();
 
         return [
             'metrics' => [
-                'articles' => ['value' => number_format($articlesCount)],
+                'totalArticles'     => ['value' => number_format($totalArticles)],
+                'publishedArticles' => ['value' => number_format($publishedArticles)],
+                'totalComments'     => ['value' => number_format($totalComments)],
+                'publishedComments' => ['value' => number_format($newComments)],
             ],
         ];
     }
 
-    /**
-     * The name of the screen displayed in the header.
-     */
     public function name(): ?string { return 'Панель управления'; }
 
-    /**
-     * Display header description.
-     */
     public function description(): ?string { return 'delphinpro.ru'; }
 
-    /**
-     * The screen's action buttons.
-     *
-     * @return \Orchid\Screen\Action[]
-     */
     public function commandBar(): iterable
     {
         return [
@@ -53,18 +42,16 @@ class PlatformScreen extends Screen
         ];
     }
 
-    /**
-     * The screen's layout elements.
-     *
-     * @return \Orchid\Screen\Layout[]
-     */
     public function layout(): iterable
     {
         return [
             Layout::view('platform::partials.update-assets'),
 
             Layout::metrics([
-                'Кол-во публикаций' => 'metrics.articles',
+                'Общее кол-во статей'          => 'metrics.totalArticles',
+                'Кол-во опубликованных статей' => 'metrics.publishedArticles',
+                'Общее кол-во комментариев'    => 'metrics.totalComments',
+                'Кол-во новых комментариев'    => 'metrics.publishedComments',
             ]),
         ];
     }
