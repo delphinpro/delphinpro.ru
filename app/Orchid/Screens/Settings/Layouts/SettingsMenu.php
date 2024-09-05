@@ -1,7 +1,7 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
 namespace App\Orchid\Screens\Settings\Layouts;
@@ -11,11 +11,6 @@ use Orchid\Screen\Layouts\TabMenu;
 
 class SettingsMenu extends TabMenu
 {
-    /**
-     * Get the menu elements to be displayed.
-     *
-     * @return Menu[]
-     */
     protected function navigations(): iterable
     {
         return [
