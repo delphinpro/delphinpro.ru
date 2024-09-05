@@ -8,15 +8,17 @@ namespace App\Orchid\Screens\Comments;
 
 use App\Models\Comment;
 use App\Orchid\Helpers\Display;
+use App\Services\Settings;
 use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
 
 class CommentListScreen extends Screen
 {
-    public function query(): iterable
+    public function query(Settings $settings): iterable
     {
-        $comments = Comment::orderByDesc('created_at')->paginate();
+        $comments = Comment::orderByDesc('created_at')
+            ->paginate($settings->adminPaginationCount);
 
         return [
             'comments' => $comments,

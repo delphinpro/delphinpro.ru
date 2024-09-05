@@ -9,6 +9,7 @@ namespace App\Orchid\Screens\User;
 use App\Orchid\Screens\User\Layouts\UserEditLayout;
 use App\Orchid\Screens\User\Layouts\UserFiltersLayout;
 use App\Orchid\Screens\User\Layouts\UserListLayout;
+use App\Services\Settings;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Orchid\Platform\Models\User;
@@ -19,13 +20,13 @@ use Orchid\Support\Facades\Toast;
 
 class UserListScreen extends Screen
 {
-    public function query(): iterable
+    public function query(Settings $settings): iterable
     {
         return [
             'users' => User::with('roles')
                 ->filters(UserFiltersLayout::class)
                 ->defaultSort('id', 'desc')
-                ->paginate(),
+                ->paginate($settings->adminPaginationCount),
         ];
     }
 

@@ -11,6 +11,7 @@ use App\Orchid\Helpers\ButtonDelete;
 use App\Orchid\Helpers\ButtonRestore;
 use App\Orchid\Helpers\Display;
 use App\Orchid\Helpers\LinkBack;
+use App\Services\Settings;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -24,10 +25,13 @@ use Orchid\Support\Facades\Toast;
 
 class ArticleTrashScreen extends Screen
 {
-    public function query(): iterable
+    public function query(Settings $settings): iterable
     {
         return [
-            'articles' => Article::onlyTrashed()->filters()->defaultSort('deleted_at', 'desc')->paginate(),
+            'articles' => Article::onlyTrashed()
+                ->filters()
+                ->defaultSort('deleted_at', 'desc')
+                ->paginate($settings->adminPaginationCount),
         ];
     }
 

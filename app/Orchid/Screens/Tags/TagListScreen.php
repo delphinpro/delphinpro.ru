@@ -9,6 +9,7 @@ namespace App\Orchid\Screens\Tags;
 use App\Models\Tag;
 use App\Orchid\Helpers\ButtonDelete;
 use App\Orchid\Helpers\LinkPreview;
+use App\Services\Settings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Orchid\Screen\Actions\Link;
@@ -23,10 +24,13 @@ use Orchid\Support\Facades\Toast;
 
 class TagListScreen extends Screen
 {
-    public function query(): iterable
+    public function query(Settings $settings): iterable
     {
         return [
-            'entries' => Tag::filters()->withCount('articles')->defaultSort('name')->paginate(100),
+            'entries' => Tag::filters()
+                ->withCount('articles')
+                ->defaultSort('name')
+                ->paginate($settings->adminPaginationCount),
         ];
     }
 

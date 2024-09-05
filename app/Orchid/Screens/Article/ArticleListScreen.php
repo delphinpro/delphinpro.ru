@@ -11,6 +11,7 @@ use App\Orchid\Helpers\ButtonCreate;
 use App\Orchid\Helpers\ButtonEdit;
 use App\Orchid\Helpers\Display;
 use App\Orchid\Helpers\LinkPreview;
+use App\Services\Settings;
 use Illuminate\Support\Str;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
@@ -20,10 +21,12 @@ use Orchid\Support\Facades\Layout;
 
 class ArticleListScreen extends Screen
 {
-    public function query(): iterable
+    public function query(Settings $settings): iterable
     {
         return [
-            'articles' => Article::filters()->defaultSort('created_at', 'desc')->paginate(),
+            'articles' => Article::filters()
+                ->defaultSort('created_at', 'desc')
+                ->paginate($settings->adminPaginationCount),
         ];
     }
 
