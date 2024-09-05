@@ -15,6 +15,7 @@ class SettingsMenu extends TabMenu
     {
         return [
             Menu::make('Общие')->route('platform.settings.general'),
+            Menu::make('Системные')->route('platform.settings.system'),
             Menu::make('Пользовательские')->route('platform.settings.user'),
         ];
     }

@@ -17,6 +17,7 @@ use RuntimeException;
  * @property-read string analyticsCode
  * @property-read bool   displayComments
  * @property-read bool   enableComments
+ * @property-read int    adminPaginationCount
  */
 class Settings implements ArrayAccess
 {
@@ -118,18 +119,20 @@ class Settings implements ArrayAccess
         return match ($name) {
             'enableAnalytics',
             'displayComments',
-            'enableComments' => (bool)$value,
-            default          => $value,
+            'enableComments'       => (bool)$value,
+            'adminPaginationCount' => (int)$value,
+            default                => $value,
         };
     }
 
     private function getDefaultSettings(): array
     {
         return [
-            'enableAnalytics' => false,
-            'analyticsCode'   => '',
-            'displayComments' => false,
-            'enableComments'  => false,
+            'enableAnalytics'      => false,
+            'analyticsCode'        => '',
+            'displayComments'      => false,
+            'enableComments'       => false,
+            'adminPaginationCount' => 15,
         ];
     }
 }

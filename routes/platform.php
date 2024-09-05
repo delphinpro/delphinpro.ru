@@ -19,6 +19,7 @@ use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\Settings\GeneralSettingsScreen;
+use App\Orchid\Screens\Settings\SystemSettingsScreen;
 use App\Orchid\Screens\Settings\UserSettingsScreen;
 use App\Orchid\Screens\Tags\TagListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
@@ -33,6 +34,7 @@ Route::screen('/main', PlatformScreen::class)
 Route::screen('homepage', HomepageScreen::class)->name('platform.homepage');
 
 Route::screen('settings/general', GeneralSettingsScreen::class)->name('platform.settings.general');
+Route::screen('settings/system', SystemSettingsScreen::class)->name('platform.settings.system');
 Route::screen('settings/user', UserSettingsScreen::class)->name('platform.settings.user');
 
 Route::post('articles/save/{article}', [ArticleController::class, 'saveContent'])->name('platform.article.saveContent');
