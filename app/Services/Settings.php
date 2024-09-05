@@ -91,16 +91,25 @@ class Settings implements ArrayAccess
     {
         $this->data = [];
 
-        if (file_exists($this->filename)) {
-            $this->data = include $this->filename;
-            if (!is_array($this->data)) {
-                $this->data = $this->getDefaultSettings();
-            }
-        } else {
+        if (!file_exists($this->filename)) {
             $this->data = $this->getDefaultSettings();
 
             $string = '<?'."php\nreturn ".var_export($this->data, true).";\n";
-            file_put_contents($this->filename, $string);
+
+            if (file_put_contents($this->filename, $string) === false) {
+                return;
+            }
+        }
+
+        $this->data = include $this->filename;
+
+        if (!is_array($this->data)) {
+            $this->data = $this->getDefaultSettings();
+        } else {
+            $this->data = array_merge(
+                $this->getDefaultSettings(),
+                $this->data
+            );
         }
     }
 
