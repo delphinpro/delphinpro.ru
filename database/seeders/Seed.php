@@ -1,13 +1,15 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
 namespace Database\Seeders;
 
 use DirectoryIterator;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Orchid\Attachment\File;
 use Orchid\Attachment\Models\Attachment;
 use RuntimeException;
@@ -18,9 +20,6 @@ class Seed
 
     private static array $usedFiles = [];
 
-    /**
-     * @throws \Exception
-     */
     public static function randomFile($sourceDirectory, $absolute = false, $reset = false): string
     {
 
@@ -83,6 +82,21 @@ class Seed
         $cover = self::randomFile($dir, absolute: false);
 
         return self::loadFile($dir.'/'.$cover);
+    }
+
+    public static function copyRandomPublicFile(string $sourceDir, string $targetDir): string
+    {
+        $source = self::randomFile($sourceDir, true);
+
+        $file = pathinfo($source);
+        $destination = $targetDir.'/'.substr(md5(date('Y/m')), 0, 8).'/';
+        $targetFile = $destination.Str::slug($file['filename']).'.'.$file['extension'];
+
+        Storage::disk('public')->makeDirectory($destination);
+
+        copy(base_path($source), Storage::disk('public')->path($targetFile));
+
+        return Storage::url($targetFile);
     }
 
     public static function getContent(string $filename, ?array $placeholders = null): string
