@@ -15,6 +15,10 @@ use App\Orchid\Screens\Article\ArticleTrashScreen;
 use App\Orchid\Screens\Comments\CommentListScreen;
 use App\Orchid\Screens\Examples as Ex;
 use App\Orchid\Screens\Homepage\HomepageScreen;
+use App\Orchid\Screens\Links\CategoryEditScreen;
+use App\Orchid\Screens\Links\CategoryListScreen;
+use App\Orchid\Screens\Links\LinkEditScreen;
+use App\Orchid\Screens\Links\LinkListScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
@@ -46,6 +50,13 @@ Route::screen('articles', ArticleListScreen::class)->name('platform.article.list
 Route::screen('tags', TagListScreen::class)->name('platform.tag.list');
 
 Route::screen('comments', CommentListScreen::class)->name('platform.comment.list');
+
+Route::screen('links/create', LinkEditScreen::class)->name('platform.link.create');
+Route::screen('links/{link}/edit', LinkEditScreen::class)->name('platform.link.edit');
+Route::screen('links', LinkListScreen::class)->name('platform.link.list');
+Route::screen('link-categories/create', CategoryEditScreen::class)->name('platform.link-category.create');
+Route::screen('link-categories/{category}/edit', CategoryEditScreen::class)->name('platform.link-category.edit');
+Route::screen('link-categories', CategoryListScreen::class)->name('platform.link-category.list');
 
 Route::screen('profile', UserProfileScreen::class)->name('platform.profile');
 Route::screen('users/{user}/edit', UserEditScreen::class)->name('platform.systems.users.edit');

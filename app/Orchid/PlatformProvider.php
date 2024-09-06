@@ -54,7 +54,8 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.homepage'),
 
             Menu::make('Публикации')
-                ->route('platform.article.list'),
+                ->route('platform.article.list')
+                ->title('Контент'),
 
             Menu::make('Теги')
                 ->route('platform.tag.list'),
@@ -63,9 +64,17 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.comment.list')
                 ->divider(),
 
+            Menu::make('Ссылки')
+                ->route('platform.link.list'),
+
+            Menu::make('Категории ссылок')
+                ->route('platform.link-category.list')
+                ->divider(),
+
             Menu::make(__('Настройки'))
                 ->route('platform.settings.general')
                 ->active('*/settings/*')
+                ->title('Настройки')
                 ->divider(),
 
             Menu::make(__('Пользователи'))
