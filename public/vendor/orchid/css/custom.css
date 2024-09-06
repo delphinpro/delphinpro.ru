@@ -1,6 +1,6 @@
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
 :root {
@@ -68,9 +68,9 @@
 }
 
 .layout {
+    padding-block: 0.5rem !important;
     border-radius: 0 !important;
     box-shadow: 0 .125rem 3rem rgba(16, 9, 57, 0.15) !important;
-    padding-block: 0.5rem !important;
 }
 
 .picture-preview,
@@ -207,6 +207,24 @@ body .tox .tox-toolbar__primary {
 }
 
 /*************************************************/
+
+.preview-image {
+}
+
+.preview-image__image {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #efefef;
+}
+
+.preview-image img {
+    max-width: 100%;
+    min-height: 64px;
+    vertical-align: middle;
+    object-fit: contain;
+}
 
 .bulb {
     font-size: 0.85em;
