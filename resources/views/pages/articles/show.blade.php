@@ -35,13 +35,13 @@
 
 @section('body_class', 'line-numbers')
 
-@section('vendor_styles')
+@push('vendor_styles')
     @vite(['resources/sass/prism.scss'])
-@endsection
+@endpush
 
-@section('vendor_scripts')
+@push('vendor_scripts')
     <script src="{{ hashed_asset('static/prismjs/prism.js') }}"></script>
-@endsection
+@endpush
 
 @section('content')
 

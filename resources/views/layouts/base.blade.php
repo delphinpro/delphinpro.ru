@@ -15,18 +15,19 @@
 
     <link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
 
-    @yield('vendor_styles')
+    @stack('vendor_styles')
     @vite(['resources/sass/app.scss'])
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @yield('og')
-    @yield('head')
+    @stack('head')
 </head>
 
 <body class="@yield('body_class')">
 @yield('body')
-@yield('vendor_scripts')
+@stack('vendor_scripts')
 @vite(['resources/js/app.js'])
+@stack('user_scripts')
 
 @if($settings->enableAnalytics)
     {!! $settings->analyticsCode !!}
