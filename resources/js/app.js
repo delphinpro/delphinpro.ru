@@ -27,7 +27,7 @@ axios.interceptors.response.use(
     },
     function (err) {
         let defaultTitle;
-        switch (err.response.status) {
+        switch (err.response?.status) {
             case 403:
                 defaultTitle = 'Запрещено';
                 break;
@@ -38,9 +38,9 @@ axios.interceptors.response.use(
                 defaultTitle = 'Ошибка';
         }
         Toast.error(
-            err.response.data.message || err.message,
-            err.response.data.title || `${err.response.status} ${defaultTitle}`,
-            { timeout: err.response.status >= 500 ? 0 : 5000 },
+            err.response?.data.message || err.message,
+            err.response?.data.title || `${err.response?.status} ${defaultTitle}`,
+            { timeout: err.response?.status >= 500 ? 0 : 5000 },
         );
         return Promise.reject(err);
     },
