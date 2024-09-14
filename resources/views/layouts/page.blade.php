@@ -12,7 +12,7 @@
         </div>
 
         <div class="site__main" id="content">
-            <div class="container">
+            <div class="@yield('page-container', 'container')">
                 <div class="page @hasSection('aside') page_columns @endif">
                     <main class="page__main" role="main">
                         @yield('content')
