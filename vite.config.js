@@ -7,6 +7,7 @@ import laravel from 'laravel-vite-plugin';
 import path from 'path';
 import { defineConfig, normalizePath } from 'vite';
 
+// noinspection JSUnusedGlobalSymbols
 export default defineConfig({
     resolve: {
         alias: {
