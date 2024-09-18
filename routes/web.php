@@ -7,6 +7,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\LinkController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomepageController::class)->name('home');
@@ -33,3 +34,13 @@ Route::resource('article.comments', CommentController::class)
     ->names('article.comments')
     ->only(['store', 'destroy'])
     ->shallow();
+
+/*-------------------------------------------------------------------------
+| Useful Links
+|------------------------------------------------------------------------*/
+
+Route::prefix('links')->group(function () {
+    Route::get('/', [LinkController::class, 'index'])->name('link.index');
+    Route::get('categories', [LinkController::class, 'categories'])->name('link.categories');
+    Route::get('links', [LinkController::class, 'links'])->name('link.links');
+});

@@ -49,6 +49,10 @@ axios.interceptors.response.use(
 const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 document.documentElement.style.setProperty('--scrollbar-width', scrollbarWidth + 'px');
 
+if (document.getElementById('links-app')) {
+    import('@/pages/links').then(module => module.default());
+}
+
 
 //== Sticky header
 
