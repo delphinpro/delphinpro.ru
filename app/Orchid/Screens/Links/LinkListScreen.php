@@ -10,6 +10,7 @@ use App\Models\Link;
 use App\Orchid\Helpers\ButtonCreate;
 use App\Orchid\Helpers\ButtonEdit;
 use App\Orchid\Helpers\Display;
+use App\Orchid\Helpers\LinkPreview;
 use App\Services\Settings;
 use Illuminate\Support\Str;
 use Orchid\Screen\Screen;
@@ -21,7 +22,9 @@ class LinkListScreen extends Screen
     public function query(Settings $settings): iterable
     {
         return [
-            'links' => Link::paginate($settings->adminPaginationCount),
+            'links' => Link::with('categories')
+                ->orderBy('title')
+                ->paginate($settings->adminPaginationCount),
         ];
     }
 
@@ -33,6 +36,7 @@ class LinkListScreen extends Screen
     public function commandBar(): iterable
     {
         return [
+            LinkPreview::make(route('link.index')),
             ButtonCreate::make('Добавить ссылку')->href(route('platform.link.create')),
         ];
     }
@@ -44,6 +48,7 @@ class LinkListScreen extends Screen
                 TD::make('id'),
                 TD::make('title', 'Название')->render(fn(Link $link) => $this->getTitle($link)),
                 TD::make('url', 'Ссылка')->render(fn(Link $link) => $this->getUrl($link)),
+                TD::make('categories', 'Категории')->render(fn(Link $link) => $this->getCategories($link)),
                 TD::make('published', 'Опубликовано')->sort()
                     ->render(fn(Link $link) => Display::bool($link->published)),
                 TD::make('actions', '')->alignRight()
@@ -64,7 +69,6 @@ class LinkListScreen extends Screen
         }
 
         return '<a href="'.route('platform.link.edit', $link).'">'.$title.'</a>';
-
     }
 
     private function getUrl(Link $link): string
@@ -78,6 +82,13 @@ class LinkListScreen extends Screen
         }
 
         return '<a href="'.$link->url.'" target="_blank">'.$title.'</a>';
+    }
 
+    private function getCategories(Link $link): string
+    {
+        return $link->categories()
+            ->pluck('title')
+            ->map(fn($t) => '<span class="badge rounded-pill text-bg-secondary" style="font-weight:500">'.$t.'</span>')
+            ->implode(' ');
     }
 }

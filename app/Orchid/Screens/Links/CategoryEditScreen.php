@@ -10,6 +10,7 @@ use App\Models\LinkCategory;
 use App\Orchid\Helpers\ButtonDelete;
 use App\Orchid\Helpers\ButtonSave;
 use App\Orchid\Helpers\LinkBack;
+use App\Orchid\Helpers\LinkPreview;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Input;
@@ -47,6 +48,7 @@ class CategoryEditScreen extends Screen
     public function commandBar(): iterable
     {
         return [
+            LinkPreview::make(route('link.index')),
             LinkBack::make()->href(route('platform.link-category.list')),
             ButtonSave::make(),
             ButtonDelete::make()->confirm('Вы хотите удалить категорию?')->canSee($this->category->exists),
