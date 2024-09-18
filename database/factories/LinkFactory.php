@@ -24,11 +24,12 @@ class LinkFactory extends Factory
         }
 
         return [
-            'title'      => ucfirst($this->faker->unique()->words(2, true)),
-            'url'        => $this->faker->url(),
-            'cover'      => Seed::copyRandomPublicFile('links', 'links'),
-            'background' => $this->faker->hexColor(),
-            'published'  => $this->faker->boolean(90),
+            'title'       => ucfirst($this->faker->unique()->words(2, true)),
+            'url'         => $this->faker->url(),
+            'cover'       => Seed::copyRandomPublicFile('links', 'links'),
+            'background'  => $this->faker->hexColor(),
+            'published'   => $this->faker->boolean(90),
+            'description' => $this->faker->randomElement([null, $this->faker->sentences(3, true)]),
         ];
     }
 }

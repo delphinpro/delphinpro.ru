@@ -84,6 +84,25 @@ class Seed
         return self::loadFile($dir.'/'.$cover);
     }
 
+    public static function copyPublicFile(string $sourceFile, string $targetDir): string
+    {
+        $source = self::$DIR_ASSETS.'/'.$sourceFile;
+
+        if (!is_file($source)) {
+            throw new RuntimeException(__METHOD__.': source in not a file: '.$source);
+        }
+
+        $file = pathinfo($source);
+        $destination = $targetDir.'/'.substr(md5(date('Y/m')), 0, 8).'/';
+        $targetFile = $destination.Str::slug($file['filename']).'.'.$file['extension'];
+
+        Storage::disk('public')->makeDirectory($destination);
+
+        copy(base_path($source), Storage::disk('public')->path($targetFile));
+
+        return Storage::url($targetFile);
+    }
+
     public static function copyRandomPublicFile(string $sourceDir, string $targetDir): string
     {
         $source = self::randomFile($sourceDir, true);
