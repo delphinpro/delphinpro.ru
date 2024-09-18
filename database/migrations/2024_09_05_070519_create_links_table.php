@@ -13,11 +13,12 @@ return new class extends Migration {
     {
         Schema::create('links', static function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->index();
             $table->string('url');
             $table->boolean('published')->default(true)->index();
             $table->string('cover')->nullable();
             $table->string('background')->nullable();
+            $table->string('description')->nullable();
         });
     }
 

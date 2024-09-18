@@ -24,6 +24,7 @@ class Link extends Model
         'cover',
         'background',
         'published',
+        'description',
     ];
 
     protected $casts = [
