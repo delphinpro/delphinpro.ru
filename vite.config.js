@@ -3,6 +3,7 @@
  * Copyright (c) 2019-2024.
  */
 
+import vue from '@vitejs/plugin-vue';
 import laravel from 'laravel-vite-plugin';
 import path from 'path';
 import { defineConfig, normalizePath } from 'vite';
@@ -26,5 +27,7 @@ export default defineConfig({
             ],
             refresh: true,
         }),
+
+        vue(),
     ],
 });
