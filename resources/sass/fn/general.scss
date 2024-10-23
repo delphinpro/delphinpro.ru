@@ -1,0 +1,8 @@
+// Site delphinpro.ru
+// Copyright (c) 2024.
+
+@use "../config";
+
+@function rhythm($n) {
+    @return $n * config.$rhythm;
+}

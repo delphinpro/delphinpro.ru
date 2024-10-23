@@ -4,7 +4,7 @@
  */
 
 :root {
-    --border-color: rgb(21 20 26 / 25%);
+    --orchid-border-color: rgb(21 20 26 / 25%);
 }
 
 .table tbody tr td {
@@ -14,7 +14,7 @@
 .table thead tr th,
 .table tbody tr td {
     padding: 0.5rem 1rem;
-    border-color: var(--border-color) !important;
+    border-color: var(--orchid-border-color) !important;
 }
 
 .btn-light {
@@ -31,7 +31,7 @@
 }
 
 .bootstrap-tagsinput, .chosen-choices, .chosen-single, .form-control {
-    border-color: var(--border-color);
+    border-color: var(--orchid-border-color);
 }
 
 .form-group label ~ p {
@@ -43,7 +43,7 @@
 }
 
 .ql-container.ql-snow, .ql-toolbar.ql-snow {
-    border-color: var(--border-color);
+    border-color: var(--orchid-border-color);
 }
 
 .command-bar-wrapper {
@@ -81,7 +81,7 @@
 }
 
 .cropper-actions {
-    border: 1px solid var(--border-color) !important;
+    border: 1px solid var(--orchid-border-color) !important;
 }
 
 .flatpickr-calendar {

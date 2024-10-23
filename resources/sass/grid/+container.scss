@@ -1,0 +1,10 @@
+// Site delphinpro.ru
+// Copyright (c) 2024.
+
+@mixin make-container() {
+    width: 100%;
+    padding-right: var(--container-gutter-x);
+    padding-left: var(--container-gutter-x);
+    margin-right: auto;
+    margin-left: auto;
+}

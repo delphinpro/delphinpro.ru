@@ -1,0 +1,38 @@
+// Site delphinpro.ru
+// Copyright (c) 2024.
+
+@use "palette";
+
+// @formatter:off
+
+$primary-light:             #34D986;
+$primary:                   palette.$green-500;
+$secondary:                 palette.$gray-600;
+$success:                   palette.$green-500;
+$info:                      #0DCAF0;
+$warning:                   #FFC107;
+$danger:                    #DC3545;
+$light:                     palette.$gray-100;
+$dark:                      palette.$gray-900;
+
+$theme-colors: (
+    primary-light:  $primary-light,
+    primary:        $primary,
+    secondary:      $secondary,
+    success:        $success,
+    info:           $info,
+    warning:        $warning,
+    danger:         $danger,
+    light:          $light,
+    dark:           $dark,
+);
+
+// Body
+
+$body-color:                palette.$gray-900;
+$body-bg:                   #F3F6F9;
+
+// Links
+
+$link-color:                palette.$green-500;
+$link-hover-color:          palette.$orange-500;

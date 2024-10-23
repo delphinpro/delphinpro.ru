@@ -1,0 +1,30 @@
+// Site delphinpro.ru
+// Copyright (c) 2024.
+
+@use "../mixins/transition" as *;
+
+.fade {
+    @include transition($transition-fade);
+
+    &:not(.show) {
+        opacity: 0;
+    }
+}
+
+.collapse {
+    &:not(.show) {
+        display: none;
+    }
+}
+
+.collapsing {
+    overflow: hidden;
+    height: 0;
+    @include transition($transition-collapse);
+
+    &.collapse-horizontal {
+        width: 0;
+        height: auto;
+        @include transition($transition-collapse-width);
+    }
+}

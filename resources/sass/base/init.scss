@@ -1,0 +1,22 @@
+// Site delphinpro.ru
+// Copyright (c) 2023-2024.
+
+@use "../mixins/scrollbars" as *;
+@use "../config";
+
+pre[class*=language-],
+body {
+    @include custom-scrollbar(
+            darken(config.$primary-light, 10%),
+            darken(config.$primary-light, 100%),
+    );
+}
+
+pre[class*=language-] {
+    max-height: 85vh;
+    //overscroll-behavior: contain;
+}
+
+[x-cloak] {
+    display: none;
+}

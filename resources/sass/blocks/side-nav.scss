@@ -1,0 +1,25 @@
+// Site delphinpro.ru
+// Copyright (c) 2024.
+
+@use '../fn/general' as *;
+
+.side-nav {
+    //font-size: 0.85em;
+    font-weight: 500;
+    line-height: 1.2;
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: rhythm(0.5);
+
+    > li {
+        display: flex;
+        gap: 0.5rem;
+        &::before { content: '»'; }
+
+        > a {
+            text-decoration: none;
+        }
+    }
+}

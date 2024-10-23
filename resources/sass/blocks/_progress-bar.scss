@@ -1,30 +1,32 @@
 // Site delphinpro.ru
-// Copyright (c) 2023.
+// Copyright (c) 2023-2024.
+
+@use '../config';
 
 .progress-bar {
     &__title {
-        font-size: rfs-value(14px);
+        font-size: 0.875rem;
         font-weight: 500;
         letter-spacing: 1px;
         text-transform: uppercase;
-        color: $gray-600;
+        color: config.$gray-600;
     }
 
     &__line {
-        line-height: rfs-value(8px);
-        height: rfs-value(8px);
+        line-height: 0.5rem;
+        height: 0.5rem;
         border-radius: 2px;
-        background-color: $gray-200;
+        background-color: config.$gray-200;
     }
 
     &__bar {
-        font-size: rfs-value(11px);
+        font-size: 0.75rem;
         display: flex;
         width: 0;
         height: 100%;
         transition: width 1s ease-in-out;
         border-radius: 2px;
-        background-color: var(--bs-primary);
+        background-color: var(--primary-light);
     }
 
     &__text {
@@ -36,9 +38,9 @@
     }
 
     &__label {
-        font-size: rfs-value(14px);
+        font-size: 0.875rem;
         font-weight: 500;
         position: relative;
-        top: rfs-value(-16px);
+        top: -1rem;
     }
 }

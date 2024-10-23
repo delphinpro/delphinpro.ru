@@ -16,7 +16,7 @@
         <div class="comment-form__preview content"></div>
         <div class="comment-form__actions">
             <button type="submit" class="comment-form__btn-send btn btn-primary">Отправить</button>
-            <button type="button" class="comment-form__btn-preview btn btn-light">
+            <button type="button" class="comment-form__btn-preview btn btn-secondary">
                 Предварительный просмотр
             </button>
         </div>

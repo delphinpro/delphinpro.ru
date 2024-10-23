@@ -1,0 +1,36 @@
+// Site delphinpro.ru
+// Copyright (c) 2023-2024.
+
+// @formatter:off
+
+// Z-index master list
+
+$zindex-base:                   1000;
+
+@function z_index($inc: 10) {
+    $zindex-base: $zindex-base + $inc !global;
+    @return $zindex-base;
+}
+
+//$zindex-dropdown:               z_index();
+//$zindex-sticky:                 z_index();
+//$zindex-fixed:                  z_index();
+//$zindex-offcanvas-backdrop:     z_index();
+//$zindex-offcanvas:              z_index();
+$zindex-site-header:            z_index();
+$zindex-modal-backdrop:         z_index();
+$zindex-modal:                  z_index();
+//$zindex-popover:                z_index();
+//$zindex-tooltip:                z_index();
+//$zindex-toast:                  z_index();
+
+
+$border-radius:                 .375rem;
+$border-radius-sm:              .25rem;
+$border-radius-lg:              .5rem;
+
+
+$box-shadow:                  0 .5rem 1rem rgba(black, .15);
+$box-shadow-sm:               0 .125rem .25rem rgba(black, .075);
+$box-shadow-lg:               0 1rem 3rem rgba(black, .175);
+$box-shadow-inset:            inset 0 1px 2px rgba(black, .075);

@@ -1,0 +1,27 @@
+// Site delphinpro.ru
+// Copyright (c) 2023-2024.
+
+@use '../grid/+breakpoints' as *;
+
+.section-skills {
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: 50% auto;
+
+    @include media-breakpoint-up(xl) {
+        background-size: 500px auto;
+    }
+
+    &__container {
+        padding-top: 0;
+    }
+
+    &__bar {
+        margin-bottom: 2.25rem;
+    }
+
+    &__footer {
+        margin-top: 3rem;
+    }
+}

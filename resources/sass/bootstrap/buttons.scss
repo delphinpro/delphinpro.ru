@@ -1,0 +1,317 @@
+// Site delphinpro.ru
+// Copyright (c) 2024.
+
+@use "../config";
+@use "../config/palette";
+@use "../mixins";
+
+// Base styles
+
+.btn {
+    font-family: var(--btn-font-family);
+    font-size: var(--btn-font-size);
+    font-weight: var(--btn-font-weight);
+    line-height: var(--btn-line-height);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--btn-padding-y) var(--btn-padding-x);
+    cursor: if(config.$enable-button-pointers, pointer, null);
+    user-select: none;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    color: var(--btn-color);
+    border: var(--btn-border-width) solid var(--btn-border-color);
+    border-radius: var(--btn-border-radius);
+    background-color: var(--btn-bg);
+    box-shadow: var(--btn-box-shadow);
+    @include mixins.transition(config.$btn-transition);
+
+    --btn-font-family: #{config.$controls-font-family};
+    --btn-font-size: #{config.$controls-font-size};
+    --btn-font-weight: #{config.$btn-font-weight};
+    --btn-line-height: #{config.$controls-line-height};
+    --btn-padding-x: #{config.$controls-padding-x};
+    --btn-padding-y: #{config.$controls-padding-y};
+    --btn-border-radius: #{config.$btn-border-radius-sm};
+    --btn-box-shadow: #{config.$btn-box-shadow};
+    --btn-border-width: #{config.$controls-border-width};
+
+    --btn-color: #{config.$btn-color};
+    --btn-bg: #{palette.$gray-200};
+    --btn-border-color: transparent;
+
+    --btn-hover-color: var(--btn-color);
+    --btn-hover-bg: var(--btn-bg);
+    --btn-hover-border-color: var(--btn-border-color);
+
+    --btn-disabled-color: var(--btn-color);
+    --btn-disabled-bg: var(--btn-bg);
+    --btn-disabled-border-color: var(--btn-border-color);
+
+    &:hover {
+        text-decoration: none;
+        color: var(--btn-hover-color);
+        border-color: var(--btn-hover-border-color);
+        background-color: var(--btn-hover-bg);
+    }
+
+    //.btn-check + &:hover {
+    //    // override for the checkbox/radio buttons
+    //    color: var(--btn-color);
+    //    border-color: var(--btn-border-color);
+    //    background-color: var(--btn-bg);
+    //}
+    //
+    //&:focus-visible {
+    //    color: var(--btn-hover-color);
+    //    @include gradient-bg(var(--btn-hover-bg));
+    //    border-color: var(--btn-hover-border-color);
+    //    outline: 0;
+    //    // Avoid using mixin so we can pass custom focus shadow properly
+    //    @if $enable-shadows {
+    //        box-shadow: var(--btn-box-shadow), var(--btn-focus-box-shadow);
+    //    } @else {
+    //        box-shadow: var(--btn-focus-box-shadow);
+    //    }
+    //}
+    //
+    //.btn-check:focus-visible + & {
+    //    border-color: var(--btn-hover-border-color);
+    //    outline: 0;
+    //    // Avoid using mixin so we can pass custom focus shadow properly
+    //    @if $enable-shadows {
+    //        box-shadow: var(--btn-box-shadow), var(--btn-focus-box-shadow);
+    //    } @else {
+    //        box-shadow: var(--btn-focus-box-shadow);
+    //    }
+    //}
+    //
+    //.btn-check:checked + &,
+    //:not(.btn-check) + &:active,
+    //&:first-child:active,
+    //&.active,
+    //&.show {
+    //    color: var(--btn-active-color);
+    //    border-color: var(--btn-active-border-color);
+    //    // Remove CSS gradients if they're enabled
+    //    background-color: var(--btn-active-bg);
+    //    background-image: if($enable-gradients, none, null);
+    //    @include box-shadow(var(--btn-active-shadow));
+    //
+    //    &:focus-visible {
+    //        // Avoid using mixin so we can pass custom focus shadow properly
+    //        @if $enable-shadows {
+    //            box-shadow: var(--btn-active-shadow), var(--btn-focus-box-shadow);
+    //        } @else {
+    //            box-shadow: var(--btn-focus-box-shadow);
+    //        }
+    //    }
+    //}
+
+    &:disabled,
+    &.disabled,
+    fieldset:disabled & {
+        pointer-events: none;
+        color: var(--btn-disabled-color);
+        border-color: var(--btn-disabled-border-color);
+        background-color: var(--btn-disabled-bg);
+        box-shadow: none;
+    }
+}
+
+//
+// Alternate buttons
+//
+
+.btn-primary {
+    $bg: config.$primary-light;
+    $color: palette.$green-800;
+
+    --btn-color: #{$color};
+    --btn-bg: #{$bg};
+    --btn-hover-bg: #{mix(black, $bg, 10%)};
+    --btn-disabled-color: #{palette.$green-500};
+    --btn-disabled-bg: #{mix(white, $bg, 30%)};
+    --busy-strip-color: #{rgba(white, 0.15)};
+}
+
+.btn-info {
+    --btn-color: #fff;
+    --btn-bg: #{palette.$blue-500};
+    --btn-hover-bg: #{palette.$blue-600};
+    --btn-disabled-color: #{palette.$blue-500};
+    --btn-disabled-bg: #{palette.$blue-300};
+    --busy-strip-color: #{rgba(white, 0.15)};
+}
+
+.btn-success {
+    --btn-color: #fff;
+    --btn-bg: #{palette.$green-500};
+    --btn-hover-bg: #{palette.$green-600};
+    --btn-disabled-color: #{palette.$green-500};
+    --btn-disabled-bg: #{palette.$green-300};
+    --busy-strip-color: #{rgba(white, 0.15)};
+}
+
+.btn-warning {
+    --btn-color: #fff;
+    --btn-bg: #{palette.$orange-400};
+    --btn-hover-bg: #{palette.$orange-500};
+    --btn-disabled-color: #{palette.$orange-500};
+    --btn-disabled-bg: #{palette.$orange-300};
+    --busy-strip-color: #{rgba(white, 0.15)};
+}
+
+.btn-danger {
+    --btn-color: #fff;
+    --btn-bg: #{palette.$red-500};
+    --btn-hover-bg: #{palette.$red-600};
+    --btn-disabled-color: #{palette.$red-500};
+    --btn-disabled-bg: #{palette.$red-300};
+    --busy-strip-color: #{rgba(white, 0.15)};
+}
+
+.btn-secondary {
+    --btn-bg: #{palette.$gray-200};
+    --btn-hover-bg: #{palette.$gray-300};
+    --btn-disabled-color: #{palette.$gray-500};
+    --btn-disabled-bg: #{palette.$gray-300};
+}
+
+.btn-outline-info,
+.btn-outline-success,
+.btn-outline-warning,
+.btn-outline-danger,
+.btn-outline-secondary {
+    --btn-border-color: var(--btn-color);
+    --btn-bg: transparent;
+    --btn-hover-color: white;
+    --btn-hover-bg: var(--btn-color);
+}
+
+.btn-outline-primary {
+    $bg: config.$primary-light;
+    $color: config.$primary-light;
+
+    --btn-color: #{palette.$green-600};
+    --btn-border-color: #{$color};
+    --btn-bg: transparent;
+    --btn-hover-color: #{palette.$green-800};
+    --btn-hover-bg: #{mix(black, $bg, 10%)};
+    --btn-disabled-color: #{palette.$green-500};
+    --btn-disabled-bg: #{mix(white, $bg, 30%)};
+    --busy-strip-color: #{rgba(white, 0.15)};
+}
+
+.btn-outline-info {
+    --btn-color: #{palette.$blue-500};
+    --btn-disabled-color: #{palette.$blue-400};
+    --btn-disabled-bg: #{palette.$blue-200};
+    --btn-disabled-border-color: #{palette.$blue-300};
+    --busy-strip-color: #{rgba(palette.$blue-500, 0.25)};
+}
+
+.btn-outline-success {
+    --btn-color: #{palette.$green-500};
+    --btn-disabled-color: #{palette.$green-400};
+    --btn-disabled-bg: #{palette.$green-200};
+    --btn-disabled-border-color: #{palette.$green-300};
+    --busy-strip-color: #{rgba(palette.$green-500, 0.25)};
+}
+
+.btn-outline-warning {
+    --btn-color: #{palette.$orange-500};
+    --btn-disabled-color: #{palette.$orange-400};
+    --btn-disabled-bg: #{palette.$orange-200};
+    --btn-disabled-border-color: #{palette.$orange-300};
+    --busy-strip-color: #{rgba(palette.$orange-500, 0.25)};
+}
+
+.btn-outline-danger {
+    --btn-color: #{palette.$red-500};
+    --btn-disabled-color: #{palette.$red-400};
+    --btn-disabled-bg: #{palette.$red-200};
+    --btn-disabled-border-color: #{palette.$red-300};
+    --busy-strip-color: #{rgba(palette.$red-500, 0.25)};
+}
+
+.btn-outline-secondary {
+    --btn-color: #{palette.$gray-500};
+    --btn-disabled-color: #{palette.$gray-400};
+    --btn-disabled-bg: #{palette.$gray-200};
+    --btn-disabled-border-color: #{palette.$gray-300};
+    --busy-strip-color: #{rgba(palette.$gray-500, 0.25)};
+}
+
+
+////
+//// Link buttons
+////
+//
+//// Make a button look and behave like a link
+//.btn-link {
+//    text-decoration: $link-decoration;
+//    --btn-font-weight: #{$font-weight-normal};
+//    --btn-color: #{$btn-link-color};
+//    --btn-bg: transparent;
+//    --btn-border-color: transparent;
+//    --btn-hover-color: #{$btn-link-hover-color};
+//    --btn-hover-border-color: transparent;
+//    --btn-active-color: #{$btn-link-hover-color};
+//    --btn-active-border-color: transparent;
+//    --btn-disabled-color: #{$btn-link-disabled-color};
+//    --btn-disabled-border-color: transparent;
+//    --btn-box-shadow: 0 0 0 #000; // Can't use `none` as keyword negates all values when used with multiple shadows
+//
+//    --btn-focus-shadow-rgb: #{$btn-link-focus-shadow-rgb};
+//    @if $enable-gradients {
+//        background-image: none;
+//    }
+//
+//    &:hover,
+//    &:focus-visible {
+//        text-decoration: $link-hover-decoration;
+//    }
+//
+//    &:focus-visible {
+//        color: var(--btn-color);
+//    }
+//
+//    &:hover {
+//        color: var(--btn-hover-color);
+//    }
+//
+//    // No need for an active state here
+//}
+
+
+//
+// Button Sizes
+//
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
+    --btn-padding-y: #{$padding-y};
+    --btn-padding-x: #{$padding-x};
+    --btn-font-size: #{$font-size};
+    --btn-border-radius: #{$border-radius};
+}
+
+.btn-lg {
+    @include button-size(
+            config.$controls-padding-y-lg,
+            config.$controls-padding-x-lg,
+            config.$controls-font-size-lg,
+            config.$btn-border-radius-lg
+    );
+}
+
+.btn-xs,
+.btn-sm {
+    @include button-size(
+            config.$controls-padding-y-sm,
+            config.$controls-padding-x-sm,
+            config.$controls-font-size-sm,
+            config.$btn-border-radius-sm
+    );
+}

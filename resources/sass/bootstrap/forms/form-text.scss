@@ -1,0 +1,10 @@
+// Site delphinpro.ru
+// Copyright (c) 2024.
+
+@use '../../config';
+
+.form-text {
+    font-size: var(--font-size-sm);
+    margin-top: config.$form-text-margin-top;
+    color: config.$form-text-color;
+}

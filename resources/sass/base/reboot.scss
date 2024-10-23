@@ -1,0 +1,558 @@
+// Site delphinpro.ru
+// Copyright (c) 2024.
+
+@use "../config";
+@use "../mixins";
+
+
+// Document
+
+* {
+    &,
+    &::before,
+    &::after {
+        box-sizing: border-box;
+    }
+}
+
+
+// Body
+
+body {
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+    font-weight: 400;
+    line-height: var(--body-line-height);
+    margin: 0;
+    text-align: start;
+    color: var(--body-color);
+    background-color: var(--body-bg);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
+// Content grouping
+
+hr {
+    margin: config.$hr-margin-y 0;
+    opacity: config.$hr-opacity;
+    color: config.$hr-color;
+    border: 0;
+    border-top: config.$hr-border-width solid currentColor;
+}
+
+
+// Typography
+
+%resetMargins {
+    @include mixins.reset-margins();
+}
+
+%heading {
+    font-family: var(--headings-font-family);
+    line-height: var(--headings-line-height);
+    margin-top: config.$headings-margin-top;
+    margin-bottom: config.$headings-margin-bottom;
+    color: var(--heading-color);
+}
+
+.h1, h1 {
+    @extend %heading;
+    @extend %resetMargins;
+    font-size: config.$h1-font-size;
+    font-weight: var(--headings-font-weight);
+}
+
+.h2, h2 {
+    @extend %heading;
+    @extend %resetMargins;
+    font-size: config.$h2-font-size;
+    font-weight: var(--headings-font-weight);
+}
+
+.h3, h3 {
+    @extend %heading;
+    @extend %resetMargins;
+    font-size: config.$h3-font-size;
+    font-weight: var(--headings-font-weight);
+}
+
+.h4, h4 {
+    @extend %heading;
+    @extend %resetMargins;
+    font-size: config.$h4-font-size;
+    font-weight: 600;
+}
+
+.h5, h5 {
+    @extend %heading;
+    @extend %resetMargins;
+    font-size: config.$h5-font-size;
+    font-weight: 600;
+}
+
+.h6, h6 {
+    @extend %heading;
+    @extend %resetMargins;
+    font-size: config.$h6-font-size;
+    font-weight: 600;
+}
+
+
+// Reset margins on paragraphs
+
+p {
+    margin-block: config.$paragraph-margin-y;
+    @extend %resetMargins;
+}
+
+
+// Abbreviations
+
+abbr[title] {
+    cursor: help;
+    text-decoration: underline dotted;
+    text-decoration-skip-ink: none;
+}
+
+
+// Address
+
+address {
+    font-style: normal;
+    line-height: inherit;
+    margin-bottom: 1rem;
+}
+
+
+// Lists
+
+ol, ul {
+    padding-left: 2rem;
+}
+
+ol, ul, dl {
+    margin-top: 0;
+    margin-bottom: config.$spacer;
+}
+
+ol ol, ul ul, ol ul, ul ol {
+    margin-bottom: 0;
+}
+
+dt {
+    font-weight: 600;
+}
+
+dd {
+    margin-bottom: .5rem;
+    margin-left: 0;
+}
+
+
+// Blockquote
+
+blockquote {
+    @extend %resetMargins;
+    font-size: config.$blockquote-font-size;
+    font-style: italic;
+    position: relative;
+    margin-block: config.$blockquote-margin-y;
+    margin-left: 2rem;
+    padding: 0 0 0 1rem;
+    border-left: 0.5rem solid var(--blockquote-color, #{config.$primary});
+
+    &::before {
+        font-size: 2em;
+        font-style: normal;
+        line-height: 1rem;
+        position: absolute;
+        top: 0.5rem;
+        right: 100%;
+        display: flex;
+        align-items: center;
+        margin-right: 0.75rem;
+        content: "❜❜";
+        color: var(--blockquote-color, #{config.$primary});
+    }
+}
+
+
+// Strong
+
+b, strong {
+    font-weight: 500;
+}
+
+
+// Small
+
+.small, small {
+    font-size: .875em;
+}
+
+
+// Mark
+
+.mark, mark {
+    padding: .1875em;
+    color: var(--highlight-color);
+    background-color: var(--highlight-bg);
+}
+
+
+// Sub and Sup
+
+sub, sup {
+    font-size: 0.75em;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub { bottom: -.25em; }
+
+sup { top: -.5em; }
+
+
+// Links
+
+a {
+    transition: color 0.25s ease;
+    text-decoration: var(--link-decoration, underline);
+    color: var(--link-color);
+
+    &:hover {
+        text-decoration: var(--link-hover-decoration, underline);
+        color: var(--link-hover-color);
+    }
+}
+
+// And undo these styles for placeholder links/named anchors (without href).
+// It would be more straightforward to just use a[href] in previous block, but that
+// causes specificity issues in many other styles that are too complex to fix.
+// See https://github.com/twbs/bootstrap/issues/19402
+
+a:not([href]):not([class]) {
+    &,
+    &:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+
+// Code
+
+pre, code, kbd, samp {
+    font-family: var(--font-monospace);
+    font-size: 1.05em;
+}
+
+pre {
+    @extend %resetMargins;
+    display: block;
+    overflow: auto;
+    margin-block: config.$spacer;
+
+    // Account for some code outputs that place code tags in pre tags
+    code {
+        font-size: inherit;
+        word-break: normal;
+        color: inherit;
+    }
+}
+
+code {
+    font-size: inherit;
+    padding-inline: 0.25em;
+    word-wrap: break-word;
+    color: var(--code-color);
+    border: 1px solid rgba(#000, 0.1);
+    border-radius: 0.15em;
+    background: rgba(#000, 0.05);
+
+
+    // Streamline the style when inside anchors to avoid broken underline and more
+    a > & {
+        color: inherit;
+    }
+}
+
+kbd {
+    padding: .1875rem .375rem;
+    color: var(--body-bg);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--body-color);
+
+    kbd {
+        font-size: 1em;
+        padding: 0;
+    }
+}
+
+
+// Figures
+
+figure {
+    margin: config.$spacer 0;
+    @extend %resetMargins;
+}
+
+
+// Images and content
+
+img, svg {
+    vertical-align: middle;
+}
+
+img {
+    max-width: 100%;
+    &::before {
+        font-family: monospace;
+        font-size: 0.8em;
+        display: block;
+        padding: 0.1em 0.5em;
+        content: 'Image can\'t load: ' attr(src);
+        text-align: center;
+        text-decoration: none;
+        border: 1px dotted var(--danger);
+        background: #ffdfe3;
+    }
+}
+
+
+// Tables
+
+table {
+    caption-side: bottom;
+    border-collapse: collapse;
+}
+
+caption {
+    padding-top: config.$table-cell-padding-y;
+    padding-bottom: config.$table-cell-padding-y;
+    text-align: left;
+    color: var(--table-caption-color);
+}
+
+th {
+    text-align: inherit;
+    text-align: -webkit-match-parent;
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+    border-width: 0;
+    border-style: solid;
+    border-color: inherit;
+}
+
+
+// Forms
+
+label {
+    display: inline-block;
+}
+
+// Remove the default `border-radius` that macOS Chrome adds.
+// See https://github.com/twbs/bootstrap/issues/24093
+
+button {
+    border-radius: 0;
+}
+
+// Explicitly remove focus outline in Chromium when it shouldn't be
+// visible (e.g. as result of mouse click or touch tap). It already
+// should be doing this automatically, but seems to currently be
+// confused and applies its very visible two-tone outline anyway.
+
+button:focus:not(:focus-visible) {
+    outline: 0;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+}
+
+// Remove the inheritance of text transform in Firefox
+button,
+select {
+    text-transform: none;
+}
+
+// Set the cursor for non-`<button>` buttons
+// Details at https://github.com/twbs/bootstrap/pull/30562
+[role="button"] {
+    cursor: pointer;
+}
+
+select {
+    // Remove the inheritance of word-wrap in Safari.
+    // See https://github.com/twbs/bootstrap/issues/24990
+    word-wrap: normal;
+
+    // Undo the opacity change from Chrome
+    &:disabled {
+        opacity: 1;
+    }
+}
+
+// Remove the dropdown arrow only from text type inputs built with datalists in Chrome.
+// See https://stackoverflow.com/a/54997118
+
+[list]:not([type="date"]):not([type="datetime-local"]):not([type="month"]):not([type="week"]):not([type="time"])::-webkit-calendar-picker-indicator {
+    display: none !important;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+
+    @if (config.$enable-button-pointers) {
+        &:not(:disabled) {
+            cursor: pointer;
+        }
+    }
+}
+
+// Remove inner border and padding from Firefox, but don't restore the outline like Normalize.
+
+::-moz-focus-inner {
+    padding: 0;
+    border-style: none;
+}
+
+// Textarea should really only resize vertically so they don't break their (horizontal) containers.
+
+textarea {
+    resize: vertical;
+}
+
+fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+// 1. By using `float: left`, the legend will behave like a block element.
+//    This way the border of a fieldset wraps around the legend if present.
+// 2. Fix wrapping bug.
+//    See https://github.com/twbs/bootstrap/issues/29712
+
+legend {
+    @extend %resetMargins;
+    font-size: config.$legend-font-size;
+    line-height: inherit;
+    float: left; // 1
+    width: 100%;
+    margin-block: config.$spacer;
+    padding: 0;
+
+    + * {
+        clear: left; // 2
+    }
+}
+
+// Fix height of inputs with a type of datetime-local, date, month, week, or time
+// See https://github.com/twbs/bootstrap/issues/18842
+
+::-webkit-datetime-edit-fields-wrapper,
+::-webkit-datetime-edit-text,
+::-webkit-datetime-edit-minute,
+::-webkit-datetime-edit-hour-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-year-field {
+    padding: 0;
+}
+
+::-webkit-inner-spin-button {
+    height: auto;
+}
+
+// 1. This overrides the extra rounded corners on search inputs in iOS so that our
+//    `.form-control` class can properly style them. Note that this cannot simply
+//    be added to `.form-control` as it's not specific enough. For details, see
+//    https://github.com/twbs/bootstrap/issues/11586.
+// 2. Correct the outline style in Safari.
+
+[type="search"] {
+    outline-offset: -2px; // 2
+    -webkit-appearance: textfield; // 1
+}
+
+// Remove the inner padding in Chrome and Safari on macOS.
+
+::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+// Remove padding around color pickers in webkit browsers
+
+::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+
+// 1. Inherit font family and line height for file input buttons
+// 2. Correct the inability to style clickable types in iOS and Safari.
+
+::file-selector-button {
+    font: inherit; // 1
+    -webkit-appearance: button; // 2
+}
+
+// Correct element displays
+
+output {
+    display: inline-block;
+}
+
+// Remove border from iframe
+
+iframe {
+    border: 0;
+}
+
+// Summary
+//
+// 1. Add the correct display in all browsers
+
+summary {
+    display: list-item; // 1
+    cursor: pointer;
+}
+
+
+// Progress
+//
+// Add the correct vertical alignment in Chrome, Firefox, and Opera.
+
+progress {
+    vertical-align: baseline;
+}
+
+
+// Hidden attribute
+//
+// Always hide an element with the `hidden` HTML attribute.
+
+[hidden] {
+    display: none !important;
+}

@@ -2,74 +2,80 @@
 // Copyright (c) 2023-2024.
 
 //==
-//== Config & Mixins
+//== Configure
 //== ======================================= ==//
 
-@import "~bootstrap/scss/functions";
-@import "config/bootstrap";
-@import "config/z-index-list";
-
-@import "mixins/scrollbars";
-@import "mixins/use-webfont";
-@import "mixins/rhythm";
+@use "config";
+@use "grid/config" as grid-config with (
+    $container-widths:  config.$container-max-widths,
+    $breakpoints:       config.$grid-breakpoints,
+    $grid-columns:      config.$grid-columns,
+    $grid-gutter-width: config.$grid-gutter-width,
+    $enable-grid:       config.$enable-grid-classes,
+);
 
 //==
 //== Base
 //== ======================================= ==//
 
-@import "base/webfonts";
-@import "bootstrap";
-@import "toast";
-@import "base/init";
-@import "base/site";
-@import "base/page";
-@import "base/section";
-@import "base/page-title";
-@import "base/content";
-@import "base/extend-bs";
+@use "base/webfonts";
+@use "base/root";
+@use "base/reboot";
+@use "base/init";
+@use "base/type";
+@use "grid";
+@use "bootstrap";
+@use "base/content";
+
+@use "layout/site";
+@use "layout/page";
+@use "layout/module";
 
 //==
-//== Blocks
+//== Blocks & Components
 //== ======================================= ==//
 
-@import "components/panel";
+@use "components/panel";
+@use "components/toast";
 
-@import "blocks/article";
-@import "blocks/article-card";
-@import "blocks/articles-grid";
-@import "blocks/articles-item";
-@import "blocks/articles-list";
-@import "blocks/branding";
-@import "blocks/code-snippet";
-@import "blocks/comments";
-@import "blocks/footer";
-@import "blocks/footer-list";
-@import "blocks/footer-widget";
-@import "blocks/gallery";
-@import "blocks/header";
-@import "blocks/main-navigation";
-@import "blocks/module";
-@import "blocks/pagination";
-@import "blocks/progress-bar";
-@import "blocks/publish-date";
-@import "blocks/review-card";
-@import "blocks/service-card";
-@import "blocks/side-nav";
-@import "blocks/tags";
+@use "blocks/article";
+@use "blocks/article-card";
+@use "blocks/articles-grid";
+@use "blocks/articles-item";
+@use "blocks/articles-list";
+@use "blocks/branding";
+@use "blocks/code-snippet";
+@use "blocks/comments";
+@use "blocks/footer";
+@use "blocks/footer-list";
+@use "blocks/footer-widget";
+@use "blocks/gallery";
+@use "blocks/header";
+@use "blocks/main-navigation";
+@use "blocks/pagination";
+@use "blocks/progress-bar";
+@use "blocks/publish-date";
+@use "blocks/review-card";
+@use "blocks/service-card";
+@use "blocks/side-nav";
+@use "blocks/tags";
 
 //==
 //== Sections
 //== ======================================= ==//
 
-@import "pages/404";
-@import "pages/links";
-@import "sections/section-about-me";
-@import "sections/section-articles";
-@import "sections/section-intro";
-@import "sections/section-skills";
+@use "pages/404" as not_found;
+@use "pages/links";
+@use "sections/section";
+@use "sections/section-about-me";
+@use "sections/section-articles";
+@use "sections/section-intro";
+@use "sections/section-skills";
 
 //==
 //== Other
 //== ======================================= ==//
 
-@import "base/utilities";
+//@use "~bootstrap/scss/helpers";
+@use "helpers";
+@use "base/utilities";

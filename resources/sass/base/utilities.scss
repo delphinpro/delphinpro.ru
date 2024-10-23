@@ -1,0 +1,27 @@
+// Site delphinpro.ru
+// Copyright (c) 2024.
+
+@use "../config";
+@use "../grid/config" as *;
+@use "../grid/+breakpoints" as *;
+@use "../mixins/generate-utilities" as *;
+
+$use-important-rule: config.$enable-important-utilities !default;
+$utilities: config.$utilities !default;
+
+// Loop over each breakpoint
+@each $breakpoint in map-keys($breakpoints) {
+    // Generate media query if needed
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $breakpoints);
+
+        // Loop over each utility property
+        @each $key, $utility in $utilities {
+            // The utility can be disabled with `false`, thus check if the utility is a map first
+            // Only proceed if responsive media queries are enabled or if it's the base media query
+            @if type-of($utility) == "map" and (map-get($utility, responsive) or $infix == "") {
+                @include generate-utility($utility, $infix, $use-important-rule);
+            }
+        }
+    }
+}

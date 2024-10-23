@@ -1,0 +1,7 @@
+// Site delphinpro.ru
+// Copyright (c) 2024.
+
+@mixin reset-margins() {
+    &:first-child { margin-top: 0; }
+    &:last-child { margin-bottom: 0; }
+}

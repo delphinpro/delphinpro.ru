@@ -57,11 +57,13 @@ if (document.getElementById('links-app')) {
 //== Sticky header
 
 const siteHeader = document.querySelector('.header');
-siteHeader.classList.toggle('is-sticky', scrollY > 0);
-
-window.addEventListener('scroll', () => {
+if (siteHeader) {
     siteHeader.classList.toggle('is-sticky', scrollY > 0);
-});
+
+    window.addEventListener('scroll', () => {
+        siteHeader.classList.toggle('is-sticky', scrollY > 0);
+    });
+}
 
 
 //== Main navigation

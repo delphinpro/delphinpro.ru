@@ -1,0 +1,81 @@
+// Site delphinpro.ru
+// Copyright (c) 2023-2024.
+
+@use 'sass:math';
+@use '../config';
+@use '../config/palette';
+@use '../fn/general' as *;
+@use '../grid/+breakpoints' as *;
+
+.article-item {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: var(--padding);
+    border-radius: config.$border-radius-sm;
+    background: #fff;
+    box-shadow: 0 23px 49px 0 rgba(61, 82, 96, 0.15);
+    gap: rhythm(1);
+
+    --padding: #{rhythm(1)};
+
+    &__preview {
+        width: 100%;
+        max-width: 37.5rem;
+        margin: 0 auto;
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 25rem;
+        border-radius: config.$border-radius-sm;
+        box-shadow: config.$box-shadow;
+        aspect-ratio: 1.9;
+        object-fit: cover;
+    }
+
+    &__content {
+        flex-grow: 1;
+    }
+    &__header {
+        @include media-breakpoint-up(xl) {
+            height: (config.$h1-font-size * config.$headings-line-height * 2) + (0.85rem * config.$line-height-base);
+        }
+    }
+
+    &__title {
+        overflow: hidden;
+        max-height: config.$h1-font-size * config.$headings-line-height * 2;
+        margin: 0 !important;
+        --link-color: var(--body-color);
+        --link-decoration: none;
+        --link-hover-decoration: none;
+    }
+
+    &:has(&__preview:hover) &__title {
+        --link-color: var(--link-hover-color);
+    }
+
+    &__datebox {
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+        color: var(--muted);
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+    }
+
+    &__tags { }
+
+    &__comments-count {
+        font-size: 0.85rem;
+        color: #64748b;
+        color: var(--muted);
+    }
+}

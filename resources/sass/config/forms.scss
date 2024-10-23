@@ -1,0 +1,184 @@
+// Site delphinpro.ru
+// Copyright (c) 2024.
+
+@use "type";
+@use "colors";
+@use "palette";
+@use "general";
+
+
+// @formatter:off
+
+$component-active-color:        palette.$green-800;
+$component-active-bg:           colors.$primary-light;
+$focus-ring-box-shadow:         0 0 0 0.125rem rgba(colors.$primary-light, 0.5);
+
+// Buttons + Forms
+
+$controls-font-family:          type.$font-family-base;
+$controls-font-size:            type.$font-size-base * 0.875;
+$controls-font-size-lg:         type.$font-size-lg;
+$controls-line-height:          type.$line-height-base;
+$controls-padding-y:            .375rem;
+$controls-padding-x:            1.5rem;
+
+$controls-padding-y-sm:         .125rem;
+$controls-padding-x-sm:         1.0rem;
+$controls-font-size-sm:         type.$font-size-base * 0.75;
+
+$controls-padding-y-lg:         .5rem;
+$controls-padding-x-lg:         2rem;
+
+$controls-border-width:         1px;
+
+
+// Buttons
+
+$btn-font-weight:               500;
+$btn-color:                     colors.$body-color;
+
+//$btn-padding-y-sm:            $controls-padding-y-sm;
+//$btn-padding-x-sm:            $controls-padding-x-sm;
+//$btn-font-size-sm:            $controls-font-size-sm;
+//
+//$btn-padding-y-lg:            $controls-padding-y-lg;
+//$btn-padding-x-lg:            $controls-padding-x-lg;
+//$btn-font-size-lg:            $controls-font-size-lg;
+
+$btn-box-shadow:                inset 0 1px 0 rgba(#fff, .15), 0 1px 1px rgba(#000, .075);
+//$btn-focus-width:             $input-btn-focus-width;
+//$btn-focus-box-shadow:        $input-btn-focus-box-shadow;
+//$btn-disabled-opacity:        .65;
+//$btn-active-box-shadow:       inset 0 3px 5px rgba($black, .125);
+//
+//$btn-link-color:              var(--link-color);
+//$btn-link-hover-color:        var(--link-hover-color);
+//$btn-link-disabled-color:     $gray-600;
+//$btn-link-focus-shadow-rgb:   to-rgb(mix(color-contrast($link-color), $link-color, 15%));
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius:             var(--border-radius);
+$btn-border-radius-sm:          var(--border-radius-sm);
+$btn-border-radius-lg:          var(--border-radius-lg);
+
+$btn-transition:                color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+//$btn-hover-bg-shade-amount:       15%;
+//$btn-hover-bg-tint-amount:        15%;
+//$btn-hover-border-shade-amount:   20%;
+//$btn-hover-border-tint-amount:    10%;
+//$btn-active-bg-shade-amount:      20%;
+//$btn-active-bg-tint-amount:       20%;
+//$btn-active-border-shade-amount:  25%;
+//$btn-active-border-tint-amount:   10%;
+
+
+// Forms
+
+$form-text-margin-top:                  .25rem;
+$form-text-color:                       palette.$gray-500;
+
+$form-label-margin-bottom:              .5rem;
+$form-label-font-size:                  null;
+
+$input-padding-y:                       $controls-padding-y;
+$input-padding-x:                       0.75rem;
+//$input-font-family:                     $input-btn-font-family;
+//$input-font-size:                       $input-btn-font-size;
+//$input-font-weight:                     $font-weight-base;
+//$input-line-height:                     $input-btn-line-height;
+//
+//$input-padding-y-sm:                    $input-btn-padding-y-sm;
+//$input-padding-x-sm:                    $input-btn-padding-x-sm;
+//$input-font-size-sm:                    $input-btn-font-size-sm;
+//
+//$input-padding-y-lg:                    $input-btn-padding-y-lg;
+//$input-padding-x-lg:                    $input-btn-padding-x-lg;
+//$input-font-size-lg:                    $input-btn-font-size-lg;
+
+$input-bg:                              var(--body-bg);
+$input-disabled-color:                  null;
+$input-disabled-bg:                     palette.$gray-200;
+$input-disabled-border-color:           null;
+
+$input-color:                           var(--body-color);
+$input-border-color:                    palette.$gray-300;
+//$input-border-width:                    $input-btn-border-width;
+//$input-box-shadow:                      var(--box-shadow-inset);
+
+$input-border-radius:                   3px;
+//$input-border-radius-sm:                var(--border-radius-sm);
+//$input-border-radius-lg:                var(--border-radius-lg);
+//
+//$input-focus-bg:                        $input-bg;
+//$input-focus-border-color:              tint-color($component-active-bg, 50%);
+//$input-focus-color:                     $input-color;
+//$input-focus-width:                     $input-btn-focus-width;
+//$input-focus-box-shadow:                $input-btn-focus-box-shadow;
+
+$input-placeholder-color:               palette.$gray-400;
+//$input-plaintext-color:                 var(--body-color);
+//
+//$input-height-border:                   calc(#{$input-border-width} * 2); // stylelint-disable-line function-disallowed-list
+//
+//$input-height-inner:                    add($input-line-height * 1em, $input-padding-y * 2);
+//$input-height-inner-half:               add($input-line-height * .5em, $input-padding-y);
+//$input-height-inner-quarter:            add($input-line-height * .25em, $input-padding-y * .5);
+//
+//$input-height:                          add($input-line-height * 1em, add($input-padding-y * 2, $input-height-border, false));
+//$input-height-sm:                       add($input-line-height * 1em, add($input-padding-y-sm * 2, $input-height-border, false));
+//$input-height-lg:                       add($input-line-height * 1em, add($input-padding-y-lg * 2, $input-height-border, false));
+//
+//$input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+//
+//$form-color-width:                      3rem;
+
+$form-check-input-width:                  1em;
+$form-check-min-height:                   type.$font-size-base * type.$line-height-base;
+$form-check-padding-start:                $form-check-input-width + .5em;
+//$form-check-margin-bottom:                .125rem;
+//$form-check-label-color:                  null;
+//$form-check-label-cursor:                 null;
+$form-check-transition:                   null;
+
+//$form-check-input-active-filter:          brightness(90%);
+
+$form-check-input-bg:                     $input-bg;
+$form-check-input-border:                 $controls-border-width solid palette.$gray-500;
+//$form-check-input-border-radius:          .25em;
+//$form-check-radio-border-radius:          50%;
+//$form-check-input-focus-border:           $input-focus-border-color;
+//$form-check-input-focus-box-shadow:       $focus-ring-box-shadow;
+//
+$form-check-input-checked-color:          $component-active-color;
+$form-check-input-checked-bg-color:       $component-active-bg;
+$form-check-input-checked-border-color:   $form-check-input-checked-bg-color;
+$form-check-input-checked-bg-image:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-checked-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/></svg>");
+$form-check-radio-checked-bg-image:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$form-check-input-checked-color}'/></svg>");
+
+$form-check-input-indeterminate-color:          $component-active-color;
+$form-check-input-indeterminate-bg-color:       $component-active-bg;
+$form-check-input-indeterminate-border-color:   $form-check-input-indeterminate-bg-color;
+$form-check-input-indeterminate-bg-image:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-indeterminate-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/></svg>");
+
+//$form-check-input-disabled-opacity:        .5;
+//$form-check-label-disabled-opacity:        $form-check-input-disabled-opacity;
+//$form-check-btn-check-disabled-opacity:    $btn-disabled-opacity;
+//
+//$form-check-inline-margin-end:    1rem;
+//// scss-docs-end form-check-variables
+//
+//// scss-docs-start form-switch-variables
+//$form-switch-color:               rgba($black, .25);
+//$form-switch-width:               2em;
+//$form-switch-padding-start:       $form-switch-width + .5em;
+//$form-switch-bg-image:            url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color}'/></svg>");
+//$form-switch-border-radius:       $form-switch-width;
+//$form-switch-transition:          background-position .15s ease-in-out;
+//
+//$form-switch-focus-color:         $input-focus-border-color;
+//$form-switch-focus-bg-image:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-focus-color}'/></svg>");
+//
+//$form-switch-checked-color:       $component-active-color;
+//$form-switch-checked-bg-image:    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-checked-color}'/></svg>");
+//$form-switch-checked-bg-position: right center;

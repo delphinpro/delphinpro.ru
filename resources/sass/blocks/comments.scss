@@ -1,0 +1,116 @@
+// Site delphinpro.ru
+// Copyright (c) 2024.
+
+@use '../config';
+@use '../fn/general' as *;
+
+.comments {
+    display: grid;
+    margin-top: var(--comments-gap);
+    grid-template-columns: 100%;
+    gap: var(--comments-gap);
+
+    --comments-gap: #{rhythm(1)};
+
+    &__title {
+        margin: 0 !important;
+    }
+
+    &__main {
+        display: grid;
+        grid-template-columns: 100%;
+        gap: calc(var(--comments-gap) / 4);
+    }
+
+    &__form {
+        padding: var(--comments-gap);
+        background: #fff;
+        box-shadow: config.$box-shadow-sm;
+    }
+}
+
+.comment-box {
+    position: relative;
+    display: grid;
+    padding: var(--comments-gap);
+    background: #fff;
+    box-shadow: config.$box-shadow-sm;
+    grid-template-columns: 100%;
+    gap: calc(var(--comments-gap) / 2);
+    .badge.is-moderate {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    &__header {
+        font-size: 0.85em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__user {
+        font-weight: bold;
+        &.is-owner {
+            color: var(--primary);
+        }
+        &.is-admin {
+            color: var(--danger);
+        }
+    }
+    &__body {
+    }
+    &__date {
+        font-size: config.$font-size-xs;
+        color: var(--muted);
+    }
+    &__footer {
+        font-size: config.$font-size-xs;
+        display: flex;
+        align-items: baseline;
+        justify-content: flex-end;
+        gap: 1rem;
+    }
+
+    &:not(.is-moderate) {
+        .comment-box__btn-publish,
+        .badge.is-moderate { display: none; }
+    }
+    &.is-moderate {
+        border: none;
+        background: #fff linear-gradient(135deg, #fff 25%, var(--c) 25%, var(--c) 50%, #fff 50%, #fff 75%, var(--c) 75%);
+        background-size: 6.93px 6.93px;
+        --c: #ddd;
+    }
+    &:target {
+        box-shadow: var(--box-shadow-sm), inset 0 0 0 100vw rgba(config.$primary, 0.25) !important;
+    }
+}
+
+.comment-form {
+    &__editor,
+    &__preview {
+        &:not(.show) {
+            display: none;
+        }
+    }
+    &__preview {
+        padding: 1rem;
+        border: 1px solid red; //$input-border-color;
+    }
+    &__actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+    textarea { font-family: var(--font-monospace), monospace; }
+    fieldset {
+        display: grid;
+        gap: 1rem;
+        > :last-child { margin-bottom: 0; }
+    }
+}

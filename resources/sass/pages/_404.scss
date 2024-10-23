@@ -1,20 +1,20 @@
 // Site delphinpro.ru
-// Copyright (c) 2023.
+// Copyright (c) 2023-2024.
 
 .page404 {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
     padding-block: var(--page-py);
+    text-align: center;
     gap: 1rem;
 
     &__dot {
-        font-family: var(--bs-font-monospace);
+        font-family: var(--font-monospace);
         display: inline-block;
         letter-spacing: -0.3em;
-        color: var(--bs-primary);
+        color: var(--primary);
 
         &:first-child {
             margin-right: 0.2em;

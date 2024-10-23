@@ -1,5 +1,7 @@
 // Site delphinpro.ru
-// Copyright (c) 2023.
+// Copyright (c) 2023-2024.
+
+@use '../grid/+breakpoints' as *;
 
 .gallery {
     display: flex;

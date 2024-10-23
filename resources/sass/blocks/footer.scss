@@ -1,0 +1,20 @@
+// Site delphinpro.ru
+// Copyright (c) 2023-2024.
+
+@use "../config/palette";
+
+.footer {
+    padding-block: 3.25rem;
+    color: palette.$gray-500;
+    background: palette.$gray-900;
+
+    &__column {
+    }
+
+    &__brand {
+        font-size: 1.5rem;
+        position: relative;
+        top: -7px;
+        color: palette.$gray-400;
+    }
+}

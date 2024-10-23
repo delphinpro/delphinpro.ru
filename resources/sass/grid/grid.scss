@@ -1,0 +1,32 @@
+// Site delphinpro.ru
+// Copyright (c) 2024.
+
+@use "config" as *;
+@use "+grid" as *;
+
+// Row
+
+:root {
+    @each $name, $value in $breakpoints {
+        --breakpoint-#{$name}: #{$value};
+    }
+}
+
+@if $enable-grid {
+    .row {
+        @include make-row();
+
+        > * {
+            @include make-col-ready();
+        }
+    }
+}
+
+
+// Columns
+//
+// Common styles for small and large grid columns
+
+@if $enable-grid {
+    @include make-grid-columns();
+}

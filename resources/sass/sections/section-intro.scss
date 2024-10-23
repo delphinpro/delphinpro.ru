@@ -1,0 +1,64 @@
+// Site delphinpro.ru
+// Copyright (c) 2023-2024.
+
+@use "../config";
+@use "../grid/+breakpoints" as *;
+
+.section-intro {
+    min-width: 100%;
+    max-height: 100vh;
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    color: #fff;
+    background: #7d7d88 50% 50% no-repeat;
+    background-size: cover;
+    aspect-ratio: 1920 / 1060;
+
+    &__overlay {
+        transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+        opacity: 0.5;
+        background-color: #04081d;
+    }
+
+    &__container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        min-height: 50vh;
+        max-height: 100vh;
+        padding-top: calc(var(--header-height) * 2);
+        padding-bottom: var(--header-height);
+    }
+
+    &__content {
+        width: 100%;
+        padding: config.$spacer;
+        text-align: center;
+    }
+
+    &__title {
+        font-size: clamp(2rem, 7.14vw, 6.25rem);
+        font-weight: 500;
+        line-height: 1;
+        margin: 0;
+        padding: 0;
+        color: currentColor;
+    }
+
+    &__text {
+        font-size: 1.2rem;
+        margin-top: 1.5rem;
+    }
+
+    &__action {
+        margin-top: 1.5rem;
+    }
+
+    @include media-breakpoint-up(sm) {
+        &__text {
+            font-size: 1.5rem;
+            max-width: 75%;
+            margin-inline: auto;
+        }
+    }
+}

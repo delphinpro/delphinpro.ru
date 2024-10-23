@@ -84,7 +84,7 @@
             </div>
         @endif
         @if($article->summary)
-            <div class="article__summary">
+            <div class="article__summary lead">
                 {!! $article->summary !!}
             </div>
         @endif

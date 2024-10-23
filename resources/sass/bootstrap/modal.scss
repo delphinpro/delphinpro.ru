@@ -1,0 +1,316 @@
+// Site delphinpro.ru
+// Copyright (c) 2024.
+
+@use "../config";
+@use "../config/palette";
+@use "../fn";
+@use "../grid/+breakpoints" as *;
+@use "../mixins/transition" as *;
+
+// .modal-open      - body class for killing the scroll
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and stuff
+
+// @formatter:off
+
+$z-index:               config.$zindex-modal            !default;
+$z-index-backdrop:      config.$zindex-modal-backdrop   !default;
+$inner-padding:         1.5rem                          !default;
+
+$dialog-margin:         .5rem                           !default;
+$dialog-margin-y-sm-up: 1.75rem                         !default;
+
+$box-shadow-xs:         var(--box-shadow-sm)          !default;
+$box-shadow-sm-up:      var(--box-shadow)             !default;
+
+$color:                 #fff                          !default;
+$background:            palette.$gray-700             !default;
+$body-color:            palette.$gray-900             !default;
+$body-bg:               palette.$gray-300             !default;
+
+$warning-color:         #000                          !default;
+$warning-bg:            config.$danger                !default;
+
+$success-color:         #000                          !default;
+$success-bg:            config.$success               !default;
+
+$border-width:          0.1875rem                     !default;
+$border-radius:         0.375rem                      !default;
+$border-color:          $background                   !default;
+
+$title-line-height:     1.5                           !default;
+
+$modal-sm:              18.75rem                      !default; // 300px
+$modal-md:              31.25rem                      !default; // 500px
+$modal-lg:              50rem                         !default; // 800px
+$modal-xl:              71.25rem                      !default; // 1140px
+
+$transition:            transform .3s ease-out        !default;
+$fade-transform:        translate(0, -4rem)           !default;
+$show-transform:        none                          !default;
+$scale-transform:       scale(1.02)                   !default;
+
+$backdrop-bg:           palette.$gray-900             !default;
+$backdrop-opacity:      .5                            !default;
+
+$inner-border-radius:   fn.subtract($border-radius, $border-width);
+
+$header-color:            $color;
+$header-bg:               $background;
+$header-padding-y:        $inner-padding * 0.25;
+$header-padding-x:        $inner-padding;
+
+$footer-padding-y:        0.5rem;
+$footer-padding-x:        0.5rem;
+
+// @formatter:on
+
+// Container that the modal scrolls within
+.modal {
+    font-size: 1.2rem;
+    position: fixed;
+    z-index: $z-index;
+    top: 0;
+    left: 0;
+    display: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+    outline: 0;
+
+    --modal-width: #{$modal-md};
+    --modal-color: #{$color};
+    --modal-bg: #{$background};
+    --modal-body-color: #{$body-color};
+    --modal-body-bg: #{$body-bg};
+    --modal-border-color: #{$border-color};
+    //--modal-header-border-color: #{$border-color};
+    //--modal-header-color: #{$header-color};
+    //--modal-header-bg: #{$header-bg};
+    ////--modal-footer-gap: #{$modal-footer-margin-between};
+    //--modal-footer-bg: #{$footer-bg};
+    //--modal-footer-border-color: #{$footer-border-color};
+}
+
+
+// Shell div to position the modal with bottom padding
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: $dialog-margin;
+    pointer-events: none;
+
+    // When fading in the modal, animate it to slide down
+    .modal.fade & {
+        @include transition($transition);
+        transform: $fade-transform;
+    }
+    .modal.show & {
+        transform: $show-transform;
+    }
+
+    // When trying to close, animate focus to scale
+    .modal.modal-static & {
+        transform: $scale-transform;
+    }
+}
+
+.modal-dialog-scrollable {
+    //    height: calc(100% - var(--modal-margin) * 2);
+    //
+    //    .modal-content {
+    //        max-height: 100%;
+    //        overflow: hidden;
+    //    }
+    //
+    //    .modal-body {
+    //        overflow-y: auto;
+    //    }
+}
+
+.modal-dialog-centered {
+    //    display: flex;
+    //    align-items: center;
+    //    min-height: calc(100% - var(--modal-margin) * 2);
+}
+
+// Actual modal
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%; // Ensure `.modal-content` extends the full width of the parent `.modal-dialog`
+    pointer-events: auto;
+    color: var(--modal-color);
+    border: $border-width solid var(--modal-border-color);
+    border-radius: $border-radius;
+    outline: 0;
+    outline: 1px solid rgba(#fff, 0.15);
+    outline-offset: -2px;
+    //box-shadow: inset 0 1px 0 rgba(#fff, .15), 0 1px 1px rgba(#000, .075);
+    //    box-shadow: $box-shadow-xs;
+    background-color: var(--modal-bg);
+    background-clip: padding-box;
+}
+
+//.modal-content {
+//    //--modal-header-border-color: var(--modal-bg);
+//    //--modal-footer-border-width: 0;
+//    //--modal-footer-gap: 0;
+//    //.modal-body, .modal-footer {
+//    //    background: var(--body-bg);
+//    //}
+//    //.modal-body { }
+//    //.modal-footer {
+//    //    display: flex;
+//    //    flex-wrap: wrap;
+//    //    justify-content: center;
+//    //    padding: 0 0.5rem 0.5rem;
+//    //    gap: 0.5rem;
+//    //}
+//    //.btn-close {
+//    //    margin-right: -1rem;
+//    //}
+//    //&:not(.modal-success) .btn-close {
+//    //    --btn-close-bg: url("data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FFF'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+//    //}
+//}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: space-between;
+    padding: $header-padding-y $header-padding-x;
+    color: var(--modal-color);
+    border-bottom: $border-width solid var(--modal-border-color);
+    background: var(--modal-bg);
+
+    &:has(.btn-close) {
+        padding-right: $header-padding-y* 2;
+    }
+
+    //.btn-close {
+    //    margin: calc(-.5 * var(--modal-header-padding-y)) calc(-.5 * var(--modal-header-padding-x)) calc(-.5 * var(--modal-header-padding-y)) auto;
+    //    padding: calc(var(--modal-header-padding-y) * .5) calc(var(--modal-header-padding-x) * .5);
+    //}
+}
+
+.modal-title {
+    line-height: $title-line-height;
+    margin-bottom: 0;
+}
+
+.modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: $inner-padding;
+    color: var(--modal-body-color);
+    background: var(--modal-body-bg);
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding: 0 $footer-padding-x $footer-padding-y;
+    color: var(--modal-body-color);
+    border-bottom-right-radius: $inner-border-radius;
+    border-bottom-left-radius: $inner-border-radius;
+    background: var(--modal-body-bg);
+    gap: 0.5rem;
+}
+
+// Scale up the modal
+@include media-breakpoint-up(sm) {
+    .modal {
+        --modal-margin: #{$dialog-margin-y-sm-up};
+        --modal-box-shadow: #{$box-shadow-sm-up};
+    }
+
+    // Automatically set modal's width for larger viewports
+    .modal-dialog {
+        max-width: var(--modal-width);
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .modal-sm {
+        --modal-width: #{$modal-sm};
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .modal-lg,
+    .modal-xl {
+        --modal-width: #{$modal-lg};
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .modal-xl {
+        --modal-width: #{$modal-xl};
+    }
+}
+
+//@each $breakpoint in map-keys($grid-breakpoints) {
+//    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+//    $postfix: if($infix != "", $infix + "-down", "");
+//
+//    @include media-breakpoint-down($breakpoint) {
+//        .modal-fullscreen#{$postfix} {
+//            width: 100vw;
+//            max-width: none;
+//            height: 100%;
+//            margin: 0;
+//
+//            .modal-content {
+//                height: 100%;
+//                border: 0;
+//                @include border-radius(0);
+//            }
+//
+//            .modal-header,
+//            .modal-footer {
+//                @include border-radius(0);
+//            }
+//
+//            .modal-body {
+//                overflow-y: auto;
+//            }
+//        }
+//    }
+//}
+
+
+.modal-warning {
+    --modal-bg: #{$warning-bg};
+    //--modal-body-color: #{$body-color};
+    //--modal-body-bg: #{$body-bg};
+    --modal-border-color: #{$warning-bg};
+}
+
+.modal-success {
+    --modal-bg: #{$success-bg};
+    //--modal-body-color: #{$body-color};
+    //--modal-body-bg: #{$body-bg};
+    --modal-border-color: #{$success-bg};
+}
+
+
+.modal-backdrop {
+    position: fixed;
+    z-index: $z-index-backdrop;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $backdrop-bg;
+
+    &.fade { opacity: 0; }
+    &.show { opacity: $backdrop-opacity; }
+}

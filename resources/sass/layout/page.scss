@@ -1,0 +1,33 @@
+// Site delphinpro.ru
+// Copyright (c) 2023-2024.
+
+@use "../config";
+@use "../fn/general" as *;
+@use "../grid/+breakpoints" as *;
+
+.page {
+    display: grid;
+    padding-block: var(--page-py);
+    gap: rhythm(1);
+
+    &__main {
+        min-width: 0;
+    }
+
+    &__side {
+        min-width: 0;
+        border-radius: config.$border-radius-sm;
+        background: #fff;
+    }
+
+    @include media-breakpoint-up(xl) {
+        &_columns {
+            grid-template-columns: 1fr 20rem;
+        }
+    }
+}
+
+.side-fixed {
+    position: sticky;
+    top: var(--header-content-height);
+}

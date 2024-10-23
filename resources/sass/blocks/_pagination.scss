@@ -1,5 +1,8 @@
 // Site delphinpro.ru
-// Copyright (c) 2023.
+// Copyright (c) 2023-2024.
+
+@use '../config';
+@use '../config/palette';
 
 .pagination {
     display: flex;
@@ -13,20 +16,20 @@
     .page-item {
         display: flex;
         --color: currentColor;
-        --background: #{$gray-200};
-        --background-hover: #{$gray-300};
+        --background: #{palette.$gray-200};
+        --background-hover: #{palette.$gray-300};
 
         &.active {
             cursor: default;
             --color: #fff;
-            --background: #{$primary};
-            --background-hover: #{$primary};
+            --background: #{config.$link-color};
+            --background-hover: #{config.$link-color};
         }
         &.disabled {
             cursor: default;
-            --color: #{$gray-500};
-            --background: #{$gray-100};
-            --background-hover: #{$gray-100};
+            --color: #{palette.$gray-500};
+            --background: #{palette.$gray-100};
+            --background-hover: #{palette.$gray-100};
         }
     }
 

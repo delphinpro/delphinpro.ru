@@ -1,0 +1,174 @@
+// Site delphinpro.ru
+// Copyright (c) 2024.
+
+@use "../config";
+@use "../config/palette";
+@use "../fn";
+@use "../grid/+breakpoints" as *;
+
+// @formatter:off
+
+:root {
+
+    @if config.$enable-smooth-scroll {
+        @media (prefers-reduced-motion: no-preference) {
+            scroll-behavior: smooth;
+        }
+    }
+
+    // Colors
+
+    --primary-light:    #{config.$primary-light};
+    --primary:          #{config.$primary};
+    --secondary:        #{config.$secondary};
+    --success:          #{config.$success};
+    --info:             #{config.$info};
+    --warning:          #{config.$warning};
+    --danger:           #{config.$danger};
+    --light:            #{config.$light};
+    --dark:             #{config.$dark};
+    --muted:            #{palette.$gray-400};
+
+    --primary-light-rgb:#{fn.to-rgb(config.$primary-light)};
+    --primary-rgb:      #{fn.to-rgb(config.$primary)};
+    --secondary-rgb:    #{fn.to-rgb(config.$secondary)};
+    --success-rgb:      #{fn.to-rgb(config.$success)};
+    --info-rgb:         #{fn.to-rgb(config.$info)};
+    --warning-rgb:      #{fn.to-rgb(config.$warning)};
+    --danger-rgb:       #{fn.to-rgb(config.$danger)};
+    --light-rgb:        #{fn.to-rgb(config.$light)};
+    --dark-rgb:         #{fn.to-rgb(config.$dark)};
+
+    // Fonts
+
+    // Note: Use `inspect` for lists so that quoted items keep the quotes.
+    // See https://github.com/sass/sass/issues/2383#issuecomment-336349172
+    --font-monospace: #{inspect(config.$font-family-monospace)};
+
+    // Root and body
+
+    @if config.$font-size-root != null {
+        --root-font-size:   #{config.$font-size-root};
+    }
+    --font-size-xs:         #{config.$font-size-xs};
+    --font-size-sm:         #{config.$font-size-sm};
+    --font-size-lg:         #{config.$font-size-lg};
+
+    --body-font-family:     #{inspect(config.$font-family-base)};
+    --body-font-size:       #{config.$font-size-base};
+    --body-line-height:     #{config.$line-height-base};
+
+    --body-color:           #{config.$body-color};
+    --body-bg:              #{config.$body-bg};
+
+
+    --heading-color:        #{config.$headings-color};
+    --headings-font-family: #{config.$headings-font-family};
+    --headings-font-weight: #{config.$headings-font-weight};
+    --headings-line-height: #{config.$headings-line-height};
+
+    --link-color:           #{config.$link-color};
+    --link-hover-color:     #{config.$link-hover-color};
+
+    --code-color:           #000;
+    --highlight-color:      #{config.$body-color};
+    --highlight-bg:         #ffe9a0;
+
+    --container-gutter-x:   #{config.$container-padding-x};
+    --grid-gutter-x:        #{config.$grid-gutter-width};
+
+    --border-radius:        #{config.$border-radius};
+    --border-radius-sm:     #{config.$border-radius-sm};
+    --border-radius-lg:     #{config.$border-radius-lg};
+
+    --box-shadow:           #{config.$box-shadow};
+    --box-shadow-sm:        #{config.$box-shadow-sm};
+    --box-shadow-lg:        #{config.$box-shadow-lg};
+    --box-shadow-inset:     #{config.$box-shadow-inset};
+
+    // Focus styles
+    //// scss-docs-start root-focus-variables
+    //--focus-ring-width: #{$focus-ring-width};
+    //--focus-ring-opacity: #{$focus-ring-opacity};
+    //--focus-ring-color: #{$focus-ring-color};
+    //// scss-docs-end root-focus-variables
+    //
+    //// scss-docs-start root-form-validation-variables
+    //--form-valid-color: #{$form-valid-color};
+    //--form-valid-border-color: #{$form-valid-border-color};
+    //--form-invalid-color: #{$form-invalid-color};
+    //--form-invalid-border-color: #{$form-invalid-border-color};
+
+    --table-caption-color:      var(--secondary);
+
+    --transition:               0.3s ease;
+
+    --header-height:            #{fn.rhythm(2) + 2rem};
+    --header-content-height:    #{fn.rhythm(2)};
+    --header-y:                 1rem;
+    --header-color:             #fff;
+    --header-bg:                #{palette.$gray-900};
+
+    --page-py: #{fn.rhythm(1)};
+
+    @include media-breakpoint-up(lg) {
+        --page-py: #{fn.rhythm(2)};
+    }
+}
+
+//@if $enable-dark-mode {
+//@include color-mode(dark, true) {
+//    color-scheme: dark;
+//
+//    // scss-docs-start root-dark-mode-vars
+//    --body-color: #{$body-color-dark};
+//    --body-color-rgb: #{to-rgb($body-color-dark)};
+//    --body-bg: #{$body-bg-dark};
+//    --body-bg-rgb: #{to-rgb($body-bg-dark)};
+//
+//    --emphasis-color: #{$body-emphasis-color-dark};
+//    --emphasis-color-rgb: #{to-rgb($body-emphasis-color-dark)};
+//
+//    --secondary-color: #{$body-secondary-color-dark};
+//    --secondary-color-rgb: #{to-rgb($body-secondary-color-dark)};
+//    --secondary-bg: #{$body-secondary-bg-dark};
+//    --secondary-bg-rgb: #{to-rgb($body-secondary-bg-dark)};
+//
+//    --tertiary-color: #{$body-tertiary-color-dark};
+//    --tertiary-color-rgb: #{to-rgb($body-tertiary-color-dark)};
+//    --tertiary-bg: #{$body-tertiary-bg-dark};
+//    --tertiary-bg-rgb: #{to-rgb($body-tertiary-bg-dark)};
+//
+//    @each $color, $value in $theme-colors-text-dark {
+//        --#{$color}-text-emphasis: #{$value};
+//    }
+//
+//    @each $color, $value in $theme-colors-bg-subtle-dark {
+//        --#{$color}-bg-subtle: #{$value};
+//    }
+//
+//    @each $color, $value in $theme-colors-border-subtle-dark {
+//        --#{$color}-border-subtle: #{$value};
+//    }
+//
+//    --heading-color: #{$headings-color-dark};
+//
+//    --link-color: #{$link-color-dark};
+//    --link-hover-color: #{$link-hover-color-dark};
+//    --link-color-rgb: #{to-rgb($link-color-dark)};
+//    --link-hover-color-rgb: #{to-rgb($link-hover-color-dark)};
+//
+//    --code-color: #{$code-color-dark};
+//    --highlight-color: #{$mark-color-dark};
+//    --highlight-bg: #{$mark-bg-dark};
+//
+//    --border-color: #{$border-color-dark};
+//    --border-color-translucent: #{$border-color-translucent-dark};
+//
+//    --form-valid-color: #{$form-valid-color-dark};
+//    --form-valid-border-color: #{$form-valid-border-color-dark};
+//    --form-invalid-color: #{$form-invalid-color-dark};
+//    --form-invalid-border-color: #{$form-invalid-border-color-dark};
+//    // scss-docs-end root-dark-mode-vars
+//}
+//}

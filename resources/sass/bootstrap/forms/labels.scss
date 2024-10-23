@@ -1,0 +1,32 @@
+// Site delphinpro.ru
+// Copyright (c) 2024.
+
+@use '../../config';
+@use '../../fn';
+
+.form-label {
+    font-size: config.$form-label-font-size;
+    margin-bottom: config.$form-label-margin-bottom;
+}
+
+// For use with horizontal and inline forms, when you need the label (or legend)
+// text to align with the form controls.
+.col-form-label {
+    font-size: inherit; // Override the `<legend>` default
+    line-height: config.$controls-line-height;
+    margin-bottom: 0; // Override the `<legend>` default
+    padding-top: fn.add(config.$input-padding-y, config.$controls-border-width);
+    padding-bottom: fn.add(config.$input-padding-y, config.$controls-border-width);
+}
+
+//.col-form-label-lg {
+//    padding-top: fn.add($input-padding-y-lg, $input-border-width);
+//    padding-bottom: fn.add($input-padding-y-lg, $input-border-width);
+//    @include font-size($input-font-size-lg);
+//}
+//
+//.col-form-label-sm {
+//    padding-top: fn.add($input-padding-y-sm, $input-border-width);
+//    padding-bottom: fn.add($input-padding-y-sm, $input-border-width);
+//    @include font-size($input-font-size-sm);
+//}
