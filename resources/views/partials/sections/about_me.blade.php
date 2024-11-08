@@ -8,6 +8,16 @@
                             <h1 class="section__heading">{{ $aboutMe->title }}</h1>
                         @endif
                         {!! $aboutMe->content !!}
+                        <p class="d-flex" style="gap:0.5rem 3rem;flex-wrap: wrap">
+                            <span>
+                                <svg width="20" height="20"><use href="#i-envelope"/></svg>
+                                <a class="js-email" href="#">orpnihpled</a>
+                            </span>
+                            <span>
+                                <svg width="20" height="20"><use href="#i-telegram"/></svg>
+                                <a class="js-tg" href="#">orpnihpled</a>
+                            </span>
+                        </p>
                     </div>
                 </div>
             </div>
