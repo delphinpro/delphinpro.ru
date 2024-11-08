@@ -30,11 +30,11 @@
                     <ul class="footer-list">
                         <li>
                             <svg width="20" height="20"><use href="#i-envelope"/></svg>
-                            <a id="footer-email" href="#">orpnihpled</a>
+                            <a class="js-email" href="#">orpnihpled</a>
                         </li>
                         <li>
                             <svg width="20" height="20"><use href="#i-telegram"/></svg>
-                            <a id="footer-tg" href="#">orpnihpled</a>
+                            <a class="js-tg" href="#">orpnihpled</a>
                         </li>
                     </ul>
                 </div>
@@ -44,17 +44,15 @@
 </footer>
 <script>
     (() => {
-        const a = document.getElementById('footer-email');
-        if (a) {
+        document.querySelectorAll('.js-email').forEach(a => {
             let e = a.textContent.trim().split('').reverse();
             e.push(['@', 'yandex', '.', 'ru'].join(''));
             a.textContent = e.join('');
             a.href = 'mailto:' + a.textContent;
-        }
-        const t = document.getElementById('footer-tg');
-        if (t) {
+        });
+        document.querySelectorAll('.js-tg').forEach(t => {
             t.textContent = t.textContent.trim().split('').reverse().join('');
             t.href = 'https://t.me/' + t.textContent;
-        }
+        });
     })();
 </script>
