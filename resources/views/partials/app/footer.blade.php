@@ -23,17 +23,38 @@
                 </div> --}}
             </div>
             <div class="footer__column col-md-auto footer-widget">
-                {{-- <div class="footer-widget__header">
-                    <h3 class="footer-widget__title">Follow me</h3>
+                <div class="footer-widget__header">
+                    <h3 class="footer-widget__title">Контакты</h3>
                 </div>
                 <div class="footer-widget__content">
                     <ul class="footer-list">
-                        <li><a href="https://mailto"><span class="sr-only">Facebook</span></a></li>
-                        <li><a href="https://t.me"><span class="sr-only">Telegram</span></a></li>
-                        <li><a href="skype:"><span class="sr-only">Skype</span></a></li>
+                        <li>
+                            <svg width="20" height="20"><use href="#i-envelope"/></svg>
+                            <a id="footer-email" href="#">orpnihpled</a>
+                        </li>
+                        <li>
+                            <svg width="20" height="20"><use href="#i-telegram"/></svg>
+                            <a id="footer-tg" href="#">orpnihpled</a>
+                        </li>
                     </ul>
-                </div> --}}
+                </div>
             </div>
         </div>
     </div>
 </footer>
+<script>
+    (() => {
+        const a = document.getElementById('footer-email');
+        if (a) {
+            let e = a.textContent.trim().split('').reverse();
+            e.push(['@', 'yandex', '.', 'ru'].join(''));
+            a.textContent = e.join('');
+            a.href = 'mailto:' + a.textContent;
+        }
+        const t = document.getElementById('footer-tg');
+        if (t) {
+            t.textContent = t.textContent.trim().split('').reverse().join('');
+            t.href = 'https://t.me/' + t.textContent;
+        }
+    })();
+</script>
