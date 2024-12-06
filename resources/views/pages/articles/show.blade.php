@@ -26,6 +26,7 @@
     <meta property="og:url" content="{{ route('article.show', $article) }}">
     @if($article->cover->exists)
         <meta property="og:image" content="{{ $article->cover->url }}">
+        <meta name="twitter:card" content="summary_large_image">
     @endif
     @if($article->description)
         <meta property="og:description" content="{{ $article->description }}">
