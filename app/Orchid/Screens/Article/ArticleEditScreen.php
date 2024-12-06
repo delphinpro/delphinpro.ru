@@ -125,6 +125,8 @@ class ArticleEditScreen extends Screen
                 ]),
                 Layout::rows([
                     Switcher::make('article.published')->placeholder('Опубликовать')->sendTrueOrFalse(),
+                    Switcher::make('article.show_on_main')->placeholder('Показывать на главной')->sendTrueOrFalse(),
+                    Switcher::make('article.show_in_list')->placeholder('Показывать в списке')->sendTrueOrFalse(),
                     Cropper::make('article.cover_id')->title('Обложка')->targetId()->width(1200)->height(630)->group('article_cover'),
                     Input::make('article.keywords')->title('Ключевые слова'),
                     TextArea::make('article.description')->title('Описание')->rows(4),
@@ -141,13 +143,15 @@ class ArticleEditScreen extends Screen
     public function save(Article $article, Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'article.title'       => 'required|string',
-            'article.summary'     => 'nullable|string',
-            'article.content'     => 'nullable|string',
-            'article.published'   => 'required|bool',
-            'article.cover_id'    => 'nullable|int',
-            'article.keywords'    => 'nullable|string|max:255',
-            'article.description' => 'nullable|string|max:255',
+            'article.title'        => 'required|string',
+            'article.summary'      => 'nullable|string',
+            'article.content'      => 'nullable|string',
+            'article.published'    => 'required|bool',
+            'article.show_on_main' => 'required|bool',
+            'article.show_in_list' => 'required|bool',
+            'article.cover_id'     => 'nullable|int',
+            'article.keywords'     => 'nullable|string|max:255',
+            'article.description'  => 'nullable|string|max:255',
         ]);
 
         if (!$article->exists) {
@@ -155,6 +159,11 @@ class ArticleEditScreen extends Screen
         }
 
         $article->fill($validated['article']);
+
+
+        if ($article->show_on_main) {
+            $article->show_in_list = true;
+        }
 
         if ($request->input('update_created_time')) {
             $article->created_at = now();

@@ -1,7 +1,7 @@
 <?php
 /*
  * Site delphinpro.ru
- * Copyright (c) 2023.
+ * Copyright (c) 2023-2024.
  */
 
 namespace App\Data\Concrete;
@@ -23,7 +23,7 @@ class ArticlesDTO extends VarDTO
     {
         $this->count = $this->count ?? 3;
 
-        $this->articles = Article::lastPublished()
+        $this->articles = Article::lastPublishedOnHome()
             ->take($this->count)
             ->get();
     }

@@ -41,6 +41,8 @@ class Article extends Model
         'user_id',
         'cover_id',
         'published',
+        'show_on_main',
+        'show_in_list',
         'title',
         'summary',
         'content',
@@ -50,15 +52,19 @@ class Article extends Model
     ];
 
     protected $casts = [
-        'user_id'   => 'integer',
-        'cover_id'  => 'integer',
-        'published' => 'boolean',
-        'meta'      => 'array',
+        'user_id'      => 'integer',
+        'cover_id'     => 'integer',
+        'published'    => 'boolean',
+        'show_on_main' => 'boolean',
+        'show_in_list' => 'boolean',
+        'meta'         => 'array',
     ];
 
     protected array $allowedSorts = [
         'title',
         'published',
+        'show_on_main',
+        'show_in_list',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -133,6 +139,11 @@ class Article extends Model
 
     public function scopeLastPublished(Builder $query): void
     {
-        $query->where('published', true)->orderByDesc('created_at')->orderByDesc('id');
+        $query->where('published', true)->where('show_in_list', true)->orderByDesc('created_at')->orderByDesc('id');
+    }
+
+    public function scopeLastPublishedOnHome(Builder $query): void
+    {
+        $query->where('published', true)->where('show_on_main', true)->orderByDesc('created_at')->orderByDesc('id');
     }
 }
