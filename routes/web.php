@@ -19,7 +19,7 @@ Route::get('/', HomepageController::class)->name('home');
 Route::get('a', [ArticleController::class, 'index'])->name('article.index');
 Route::get('a/tags', [ArticleController::class, 'tags'])->name('article.tags');
 Route::get('a/tags/{tag:name}', [ArticleController::class, 'byTag'])->name('article.by_tag');
-Route::get('a/{article}', [ArticleController::class, 'show'])->name('article.show');
+Route::get('a/{article}', [ArticleController::class, 'show'])->name('article.show')->whereNumber('article');
 
 /*-------------------------------------------------------------------------
 | Article Comments
