@@ -50,6 +50,9 @@
         <div class="article__header">
             <h1>{{ $article->title }}</h1>
             <div class="article__meta">
+                @if(!$article->published)
+                    <span class="article__badge badge text-bg-danger">Не опубликовано</span>
+                @endif
                 <div class="article__date">
                     <time datetime="{{ $article->created_at }}">
                         {{ $article->created_at->format('d.m.Y') }}
