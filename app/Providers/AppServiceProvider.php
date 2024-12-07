@@ -39,6 +39,8 @@ class AppServiceProvider extends ServiceProvider
             'user'    => 'App\Models\User',
         ]);
 
+        Gate::define('article.view', static fn(User $user, Article $article) => $user->id === $article->user_id);
+
         Gate::define('comment.moderate', static fn(User $user) => $user->isAdmin());
         Gate::define('comment.delete', static function (User $user, Comment $comment) {
             return $user->isAdmin() || $user->id === $comment->user_id;

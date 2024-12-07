@@ -31,7 +31,7 @@ class ArticleController extends Controller
 
     public function show(Article $article, Settings $settings)
     {
-        if (!$article->published) {
+        if (!$article->published && !Gate::allows('article.view', $article)) {
             abort(404);
         }
 
