@@ -75,8 +75,8 @@ export default class extends Controller {
                 'autosave',
             ],
 
-            toolbar_sticky       : true,
-            toolbar_sticky_offset: 60,
+            // toolbar_sticky       : true,
+            // toolbar_sticky_offset: 60,
 
             toolbar: [
                 [
