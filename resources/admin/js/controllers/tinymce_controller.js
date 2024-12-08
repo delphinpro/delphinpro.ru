@@ -116,10 +116,7 @@ export default class extends Controller {
             images_file_types: 'jpeg,jpg,png,gif,svg,webp',
             image_class_list : [
                 { title: 'None', value: '' },
-                { title: 'No border', value: 'img_no_border' },
-                { title: 'Green border', value: 'img_green_border' },
-                { title: 'Blue border', value: 'img_blue_border' },
-                { title: 'Red border', value: 'img_red_border' },
+                { title: 'Max 600px', value: 'img-600' },
             ],
 
             codesample_languages: [

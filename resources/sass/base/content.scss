@@ -9,9 +9,14 @@
         max-width: 100%;
         height: auto;
         box-shadow: config.$box-shadow;
+        &.img-600,
         &:not([class]) {
             display: block;
             margin: auto;
+        }
+        &.img-600 {
+            max-width: 37.5rem;
+            cursor: zoom-in;
         }
     }
 

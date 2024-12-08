@@ -58,6 +58,10 @@ img::before {
     background: #ffdfe3;
 }
 
+img.img-600 {
+    max-width: 600px;
+}
+
 code {
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     font-size: inherit;
