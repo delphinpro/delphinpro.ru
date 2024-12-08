@@ -3,10 +3,12 @@
  * Copyright (c) 2019-2024.
  */
 
+import 'viewerjs/dist/viewer.css';
 import commentBox from '@/components/comment-box';
 import commentForm from '@/components/comment-form';
 import Toast from '@/toast';
 import axios from 'axios';
+import Viewer from 'viewerjs';
 import './bootstrap';
 
 //= Config
@@ -133,4 +135,13 @@ document.querySelectorAll('.code-snippet').forEach(el => {
         el.innerHTML = `<iframe src="${source}" loading="lazy" allowtransparency allowfullscreen></iframe>`;
         el.classList.add('is-init');
     }
+});
+
+//== Image Viewer
+
+document.querySelectorAll('.img-600').forEach(img => {
+    new Viewer(img, {
+        toolbar: false,
+        navbar : false,
+    });
 });
