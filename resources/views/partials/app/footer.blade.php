@@ -11,16 +11,15 @@
                 </div>
             </div>
             <div class="footer__column col-md-auto footer-widget">
-                {{-- <div class="footer-widget__header">
-                    <h3 class="footer-widget__title">Quick links</h3>
+                <div class="footer-widget__header">
+                    <h3 class="footer-widget__title">Ещё на сайте</h3>
                 </div>
                 <div class="footer-widget__content">
                     <ul class="footer-list">
-                        <li><a href="#">About me</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
+                        <li><a href="{{ route('link.index') }}">Полезные ссылки</a></li>
+                        <li><a href="{{ route('article.tags') }}">Все метки</a></li>
                     </ul>
-                </div> --}}
+                </div>
             </div>
             <div class="footer__column col-md-auto footer-widget">
                 <div class="footer-widget__header">
