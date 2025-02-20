@@ -4,9 +4,9 @@
 
 @section('content')
     @if($tags->isEmpty())
-        <div class="alert">Нет опубликованных тегов</div>
+        <div class="alert">Нет опубликованных меток</div>
     @else
-        <h1 class="page-title">Все теги</h1>
+        <h1 class="page-title">Все метки</h1>
         <div class="tags tags_large">
             @foreach($tags as $tag)
                 <a class="tag tag_large" href="{{ route('article.by_tag', $tag) }}">{{ $tag->name }}</a>
